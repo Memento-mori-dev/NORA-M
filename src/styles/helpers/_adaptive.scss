@@ -1,0 +1,16 @@
+@use 'sass:math';
+@use 'functions';
+
+$desktop-min-width: 768;
+$desktop-max-width: 1600;
+$phone-layout-width: 390;
+
+@function desktop-vw($px) {
+  $ratio: math.div($px, $desktop-min-width);
+
+  @return min($ratio * 100vw, functions.rem($ratio * $desktop-max-width));
+}
+
+@function phone-vw($px) {
+  @return min(math.div($px, $phone-layout-width) * 100vw, functions.rem($px));
+}

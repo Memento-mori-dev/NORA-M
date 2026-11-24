@@ -1,0 +1,21 @@
+@use 'helpers' as *;
+
+:root{
+    // color
+
+
+    // font
+    --font-family: '';
+
+    // width and padding
+    --layout-breakpoint: #{rem($desktop-min-width)};
+    --container-width: #{rem($desktop-max-width)};
+    --container-padding-x: #{phone-vw(16)};
+
+    // animation
+    --transition-duration: .2s;
+
+    @include mobile-above {
+        --container-padding-x: #{desktop-vw(16)};
+    }
+}

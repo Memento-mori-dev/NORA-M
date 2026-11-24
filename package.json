@@ -1,0 +1,24 @@
+{
+  "name": "layout",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "fonts": "node scripts/prepare-fonts.js",
+    "predev": "npm run fonts",
+    "dev": "vite",
+    "prebuild": "npm run fonts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:svg": "node scripts/check-svg.js"
+  },
+  "devDependencies": {
+    "css-tree": "3.2.1",
+    "parse5": "^8.1.1",
+    "sass": "^1.108.2",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.8",
+    "vite-plugin-handlebars": "2.0.3",
+    "vite-plugin-svg-spritemap": "2.0.1"
+  }
+}
