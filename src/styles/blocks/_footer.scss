@@ -1,0 +1,237 @@
+@use '../helpers' as helpers;
+
+@include helpers.laptop-above {
+  .page-with-footer {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.site-footer {
+  display: none;
+
+  @include helpers.laptop-above {
+    display: block;
+  }
+
+  margin-top: auto;
+
+  padding: helpers.rem(32) helpers.rem(16) helpers.rem(16);
+
+  background: var(--nora-color-background-pressed);
+  color: var(--nora-color-text-primary);
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-duration) var(--transition-easing);
+
+    @include helpers.hover(false) {
+      color: var(--nora-color-brand-accent);
+    }
+
+    &:active {
+      color: var(--nora-color-brand-accent);
+    }
+  }
+
+  &__inner {
+    width: min(100%, helpers.rem(1400));
+    margin-inline: auto;
+    display: grid;
+    gap: helpers.rem(48);
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: helpers.rem(9);
+  }
+
+  &__column,
+  &__links {
+    display: grid;
+    align-content: start;
+    gap: helpers.rem(12);
+  }
+
+  &__links,
+  &__socials,
+  &__legal-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__label {
+    color: var(--nora-color-text-secondary);
+  }
+
+  &__details {
+    display: grid;
+    gap: helpers.rem(16);
+  }
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: helpers.rem(226) 1fr auto;
+    gap: helpers.rem(9);
+    align-items: end;
+  }
+
+  &__contact-list,
+  &__address {
+    display: grid;
+    align-self: start;
+    gap: helpers.rem(8);
+  }
+
+  &__contact-list a {
+    display: flex;
+    align-items: center;
+    gap: helpers.rem(8);
+    width: fit-content;
+  }
+
+  &__icon {
+    width: helpers.rem(16);
+    height: helpers.rem(16);
+
+    background-color: currentColor;
+    mask: var(--icon-image) center / contain no-repeat;
+
+    &--phone,
+    &--mail {
+      width: helpers.rem(20);
+      height: helpers.rem(20);
+    }
+
+    &--mail {
+      mask-size: helpers.rem(16.6667) auto;
+    }
+
+    &--dzen,
+    &--rutube {
+      width: helpers.rem(12);
+      height: helpers.rem(12);
+    }
+
+    @each $icon in phone, mail, youtube, dzen, vk, rutube, telegram {
+      &--#{$icon} {
+        --icon-image: url('/src/assets/footer/#{$icon}.svg');
+      }
+    }
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__socials {
+    display: flex;
+    gap: helpers.rem(4);
+
+    a {
+      width: helpers.rem(32);
+      height: helpers.rem(32);
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      border: helpers.rem(1) solid var(--nora-color-border-strong);
+      border-radius: helpers.rem(8);
+      background: var(--nora-color-background-subtle);
+      transition:
+        color var(--transition-duration) var(--transition-easing),
+        border-color var(--transition-duration) var(--transition-easing),
+        background-color var(--transition-duration) var(--transition-easing);
+
+      @include helpers.hover(false) {
+        border-color: var(--nora-color-brand-accent);
+        background-color: var(--nora-color-background-canvas);
+      }
+
+      &:active {
+        border-color: var(--nora-color-brand-accent);
+        background-color: var(--nora-color-background-canvas);
+      }
+    }
+  }
+
+  &__brand {
+    margin-top: helpers.rem(8);
+    display: grid;
+    gap: helpers.rem(24);
+  }
+
+  &__separator {
+    height: helpers.rem(13);
+    background:
+      url('/src/assets/footer/cross.svg') left center / auto 100% no-repeat,
+      url('/src/assets/footer/cross.svg') right center / auto 100% no-repeat,
+      url('/src/assets/footer/divider.svg') center / 100% helpers.rem(1) no-repeat;
+  }
+
+  &__wordmark {
+    position: relative;
+    aspect-ratio: 1399 / 188;
+    overflow: hidden;
+  }
+
+  &__letter {
+    position: absolute;
+    top: -.13%;
+    height: 100.24%;
+
+    &--1 {
+      left: .03%;
+      width: 16.44%;
+    }
+
+    &--2 {
+      left: 19.2%;
+      width: 16.93%;
+    }
+
+    &--3 {
+      left: 38.86%;
+      width: 15.04%;
+    }
+
+    &--4 {
+      left: 52.54%;
+      width: 18.59%;
+    }
+
+    &--dash {
+      top: 37.73%;
+      left: 72.62%;
+      width: 6.85%;
+      height: 22.42%;
+    }
+
+    &--6 {
+      left: 82.2%;
+      width: 17.78%;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    justify-content: space-between;
+    gap: helpers.rem(16);
+    font-size: helpers.rem(12);
+    font-weight: 400;
+  }
+
+  &__legal-links {
+    display: flex;
+    gap: helpers.rem(16);
+  }
+}

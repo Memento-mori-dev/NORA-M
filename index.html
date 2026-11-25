@@ -6,13 +6,13 @@
     <title>Name</title>
     <link rel="stylesheet" href="./src/styles/main.scss">
   </head>
-  <body class="page-with-header">
+  <body class="page-with-header page-with-footer">
     {{> header cartCount=1 }}
     {{> catalog-menu}}
 
     <main>Работа</main>
 
-    <footer></footer>
+    {{> footer }}
     
     <script type="module" src="/src/pages/index.js"></script>
   </body>
