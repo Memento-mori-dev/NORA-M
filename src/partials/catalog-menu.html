@@ -1,0 +1,68 @@
+<div class="catalog-menu" id="catalog-menu" hidden>
+  <div class="catalog-menu__shade" aria-hidden="true"></div>
+  <button class="catalog-menu__backdrop" type="button" aria-label="Закрыть каталог"><span class="catalog-menu__close-icon" aria-hidden="true"></span><span class="catalog-menu__close-label">Закрыть</span></button>
+  <form class="catalog-menu__search" role="search" aria-label="Поиск по категориям">
+    <input type="search" placeholder="Поиск" aria-label="Поиск по категориям">
+    <button type="submit" aria-label="Найти"><img src="/src/assets/header/desktop-search.svg" alt=""></button>
+  </form>
+  <nav class="catalog-menu__columns" aria-label="Меню каталога">
+    <div class="catalog-menu__column">
+      <div>
+        <p class="catalog-menu__heading"><span class="catalog-menu__line"><span class="catalog-menu__text">Каталог</span></span></p>
+        {{> catalog-category key="all" name="Весь каталог" }}
+        {{> catalog-category key="closers" name="Доводчики" }}
+        {{> catalog-category key="handles" name="Ручки" }}
+        {{> catalog-category key="locks" name="Замки и аксессуары" }}
+        {{> catalog-category key="hinges" name="Петли" }}
+        {{> catalog-category key="cylinders" name="Цилиндры" }}
+        {{> catalog-category key="accessories" name="Аксессуары для дверей" }}
+        {{> catalog-category key="furniture" name="Мебельная фурнитура" }}
+        {{> catalog-category key="collections" name="Подборки" }}
+        {{> catalog-category key="measuring" name="Измерительные инструменты" }}
+        {{> catalog-category key="pvc" name="Фурнитура для ПВХ и алюминия" }}
+        {{> catalog-category key="fire" name="Противопожарная фурнитура" }}
+        {{> catalog-category key="offers" name="Акции" }}
+        {{> catalog-category key="new" name="Новинки" }}
+        <p class="catalog-menu__empty" role="status" hidden>Категории не найдены</p>
+        <a class="catalog-menu__link catalog-menu__demo-link" href="?catalog=demo"><span class="catalog-menu__line"><span class="catalog-menu__text">Ссылка</span></span></a>
+        {{> catalog-category key="hardware-kits" name="Комплекты фурнитуры" }}
+        {{> catalog-category key="latches" name="Защёлки" }}
+        {{> catalog-category key="strike-plates" name="Ответные планки" }}
+        {{> catalog-category key="deadbolts" name="Шпингалеты" }}
+        {{> catalog-category key="stops" name="Дверные упоры" }}
+        {{> catalog-category key="door-viewers" name="Дверные глазки" }}
+        {{> catalog-category key="escutcheons" name="Декоративные накладки" }}
+        {{> catalog-category key="fasteners" name="Крепёж" }}
+        {{> catalog-category key="sliding" name="Раздвижные системы" }}
+        {{> catalog-category key="seals" name="Дверные уплотнители" }}
+        {{> catalog-category key="window-fittings" name="Оконная фурнитура" }}
+        {{> catalog-category key="gates" name="Фурнитура для ворот" }}
+        {{> catalog-category key="mounting" name="Монтажные принадлежности" }}
+        {{> catalog-category key="replacement" name="Запасные части" }}
+        <a class="catalog-menu__link catalog-menu__demo-link" href="?catalog=demo-extra"><span class="catalog-menu__line"><span class="catalog-menu__text">Дополнительная ссылка</span></span></a>
+      </div>
+
+      <div class="catalog-menu__contacts">
+        <a href="tel:+74951184018"><img src="/src/assets/catalog-menu/pc-phone.svg" alt="">+7 (495) 118-40-18</a>
+        <a href="mailto:info@nora-m.ru"><img src="/src/assets/catalog-menu/pc-mail.svg" alt="">info@nora-m.ru</a>
+      </div>
+    </div>
+
+    <div class="catalog-menu__column" id="catalog-submenu" hidden inert>
+      <div>
+        <p class="catalog-menu__heading"><span class="catalog-menu__line"><span class="catalog-menu__text"></span></span></p>
+        <div class="catalog-menu__items" id="catalog-submenu-items"></div>
+        <template class="catalog-menu__item-template">
+          <a class="catalog-menu__link catalog-menu__link--item"><span class="catalog-menu__line"><span class="catalog-menu__text"></span></span></a>
+        </template>
+      </div>
+
+      <div class="catalog-menu__promo">
+        <img class="catalog-menu__photo" src="/src/assets/catalog-menu/pc-promo.png" alt="" loading="lazy">
+        <p class="catalog-menu__promo-title"><span class="catalog-menu__line"><span class="catalog-menu__text">Замки Нора-М</span></span></p>
+        <p class="catalog-menu__description"><span class="catalog-menu__line"><span class="catalog-menu__text">Надёжная защита для улицы в любую погоду и в любое время года.</span></span></p>
+        <a class="catalog-menu__promo-button" href="?catalog=locks" aria-label="Показать замки и аксессуары"><img src="/src/assets/catalog-menu/pc-promo-arrow.svg" alt=""></a>
+      </div>
+    </div>
+  </nav>
+</div>

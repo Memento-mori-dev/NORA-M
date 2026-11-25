@@ -1,3 +1,19 @@
 @use 'helpers';
 
+@font-face {
+  font-family: 'Onest';
+  src: url('../assets/ui-kit/onest.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('../assets/ui-kit/unbounded.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
 // @include helpers.font-face('Lexend Peta', 'LexendPeta-Regular', 400);

@@ -2,13 +2,12 @@
 @use 'functions';
 
 $desktop-min-width: 768;
-$desktop-max-width: 1600;
+$desktop-max-width: 1920;
+$tablet-max-width: 1600;
 $phone-layout-width: 390;
 
 @function desktop-vw($px) {
-  $ratio: math.div($px, $desktop-min-width);
-
-  @return min($ratio * 100vw, functions.rem($ratio * $desktop-max-width));
+  @return min(math.div($px, $tablet-max-width) * 100vw, functions.rem($px));
 }
 
 @function phone-vw($px) {

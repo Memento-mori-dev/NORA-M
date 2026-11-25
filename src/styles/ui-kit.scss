@@ -1,22 +1,7 @@
 @use 'normalize';
+@use 'fonts';
 @use 'variables';
 @use 'helpers' as helpers;
-
-@font-face {
-  font-family: 'Onest';
-  src: url('../assets/ui-kit/onest.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Unbounded';
-  src: url('../assets/ui-kit/unbounded.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
 
 .ui-kit-page {
   background: var(--nora-color-background-subtle);
@@ -28,9 +13,10 @@
 .ui-kit {
   margin-inline: auto;
 
-  max-width: helpers.rem(2080);
+  box-sizing: border-box;
+  max-width: var(--container-width);
 
-  padding: clamp(#{helpers.rem(12)}, 3vw, #{helpers.rem(48)});
+  padding: helpers.rem(12);
 
   display: grid;
   gap: helpers.rem(32);
@@ -46,7 +32,7 @@
   }
 
   &__section {
-    padding: helpers.rem(24) clamp(#{helpers.rem(16)}, 2vw, #{helpers.rem(32)}) helpers.rem(32);
+    padding: helpers.rem(24) helpers.rem(16) helpers.rem(32);
 
     display: grid;
     gap: helpers.rem(24);
@@ -61,7 +47,7 @@
       color: var(--nora-color-text-primary);
 
       font-family: 'Unbounded', Arial, sans-serif;
-      font-size: clamp(#{helpers.rem(20)}, 3vw, #{helpers.rem(26)});
+      font-size: helpers.rem(20);
       font-weight: 500;
       line-height: normal;
     }
@@ -139,6 +125,30 @@
     font-size: helpers.rem(16);
     font-weight: 500;
     line-height: normal;
+  }
+
+  @include helpers.tablet-layout {
+    padding: helpers.desktop-vw(48);
+
+    &__section {
+      padding-inline: max(#{helpers.rem(16)}, #{helpers.desktop-vw(32)});
+
+      h2 {
+        font-size: max(#{helpers.rem(20)}, #{helpers.desktop-vw(26)});
+      }
+    }
+  }
+
+  @include helpers.laptop-above {
+    padding: helpers.rem(48);
+
+    &__section {
+      padding-inline: helpers.rem(32);
+
+      h2 {
+        font-size: helpers.rem(26);
+      }
+    }
   }
 
   @include helpers.mobile-s {
