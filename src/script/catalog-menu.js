@@ -1,37 +1,9 @@
 import gsap from '../vendor/gsap/index.js';
 import { menuSlide, revealMenuLabels, revealMenuShade } from './menu-motion.js';
 import { bindTouchPress } from './touch-press.js';
+import { catalogGroups } from '../data/catalog-menu.js';
 
-const demoItems = {
-  all: ['Дверная фурнитура', 'Замки и цилиндры', 'Мебельная фурнитура', 'Монтажные принадлежности'],
-  closers: ['Доводчики дверные Нора', 'Доводчики дверные URBO', 'Доводчики дверные Isparus', 'Доводчики дверные LONEX', 'Доводчики дверные SONEX', 'Комплектующие'],
-  handles: ['Нажимные ручки', 'Ручки-скобы', 'Ручки для раздвижных дверей', 'Комплекты с защёлкой'],
-  locks: ['Врезные замки', 'Навесные замки', 'Накладные замки', 'Ответные планки', 'Комплекты ключей'],
-  hinges: ['Карточные петли', 'Скрытые петли', 'Петли-бабочки', 'Петли с подшипником'],
-  cylinders: ['Цилиндры ключ — ключ', 'Цилиндры с вертушкой', 'Цилиндры для узких дверей', 'Комплекты с общим ключом'],
-  accessories: ['Дверные упоры', 'Ограничители открывания', 'Дверные глазки', 'Декоративные накладки'],
-  furniture: ['Мебельные ручки', 'Петли для шкафов', 'Направляющие для ящиков', 'Мебельные защёлки'],
-  collections: ['Для входной двери', 'Для межкомнатных дверей', 'Для офиса', 'Для загородного дома'],
-  measuring: ['Рулетки', 'Уровни', 'Угольники', 'Разметочные инструменты'],
-  pvc: ['Оконные ручки', 'Балконные защёлки', 'Петли для ПВХ-профиля', 'Ручки для алюминиевых дверей'],
-  fire: ['Ручки для противопожарных дверей', 'Замки для эвакуационных выходов', 'Планки «Антипаника»', 'Терморасширяющиеся уплотнители'],
-  offers: ['Комплекты для ремонта', 'Подборка навесных замков', 'Фурнитура для нескольких дверей'],
-  new: ['Ручки в матовом графите', 'Компактные дверные доводчики', 'Регулируемые скрытые петли', 'Мебельные ручки с насечкой'],
-  'hardware-kits': ['Комплект для входной двери', 'Комплект для межкомнатной двери'],
-  'latches': ['Магнитные защёлки', 'Механические защёлки'],
-  'strike-plates': ['Плоские планки', 'Угловые планки'],
-  'deadbolts': ['Врезные шпингалеты', 'Накладные шпингалеты'],
-  'stops': ['Напольные упоры', 'Настенные упоры'],
-  'door-viewers': ['Глазки для тонких дверей', 'Глазки для толстых дверей'],
-  'escutcheons': ['Круглые накладки', 'Квадратные накладки'],
-  'fasteners': ['Монтажные винты', 'Саморезы для фурнитуры'],
-  'sliding': ['Направляющие', 'Роликовые комплекты'],
-  'seals': ['Щёточные уплотнители', 'Уплотнители для притвора'],
-  'window-fittings': ['Ручки для окон', 'Ограничители открывания'],
-  'gates': ['Петли для ворот', 'Задвижки для калиток'],
-  'mounting': ['Монтажные пластины', 'Шаблоны для установки'],
-  'replacement': ['Пружины для ручек', 'Квадратные стержни'],
-};
+const catalogCategories = { ...catalogGroups.main, ...catalogGroups.additional };
 
 const menu = document.querySelector('#catalog-menu');
 const trigger = document.querySelector('.header__catalog');
@@ -50,6 +22,7 @@ if (menu && trigger) {
   const empty = primary.querySelector('.catalog-menu__empty');
   const demoLinks = primary.querySelectorAll('.catalog-menu__demo-link');
   const itemTemplate = secondary.querySelector('.catalog-menu__item-template');
+  const nestedTemplate = secondary.querySelector('.catalog-menu__nested-template');
   const promoButton = secondary.querySelector('.catalog-menu__promo-button');
   const breakpoint = getComputedStyle(document.documentElement).getPropertyValue('--layout-breakpoint').trim();
   const mobileLayout = window.matchMedia(`(width < ${breakpoint})`);
@@ -57,8 +30,8 @@ if (menu && trigger) {
   const { ease, duration } = menuSlide;
   let isOpen = false;
   let activeCategory = null;
-  const openedCategories = new Set();
-  let secondaryIntro;
+  let submenuLabels;
+  let promoIntro;
   let scrollTween = null;
   let scrollTarget = 0;
 
@@ -75,11 +48,7 @@ if (menu && trigger) {
 
   const secondarySlide = gsap.timeline({
     paused: true,
-    onReverseComplete: () => {
-      secondary.hidden = true;
-      secondaryIntro?.pause(0);
-      if (!isOpen) closePrimary();
-    }
+    onReverseComplete: finishDesktopSubmenuClose
   })
     .fromTo(secondary, { xPercent: -100 }, { xPercent: 0, duration, ease }, 0)
     .to(menu, { '--catalog-menu-secondary-progress': 1, duration, ease }, 0);
@@ -96,88 +65,135 @@ if (menu && trigger) {
     menu.style.setProperty('--catalog-menu-top', `${Math.max(0, header.getBoundingClientRect().bottom)}px`);
   }
 
-  function openSubmenu(category) {
-    if (!isOpen) return;
+  function setActiveCategory(category) {
     activeCategory?.setAttribute('aria-expanded', 'false');
     activeCategory = category;
-    category.setAttribute('aria-expanded', 'true');
+    activeCategory?.setAttribute('aria-expanded', 'true');
+  }
+
+  function makeItem(label, href) {
+    const link = itemTemplate.content.firstElementChild.cloneNode(true);
+    link.querySelector('.catalog-menu__text').textContent = label;
+    link.href = href;
+    return link;
+  }
+
+  function makeNestedItem(label, href) {
+    const group = nestedTemplate.content.firstElementChild.cloneNode(true);
+    const [button, list] = group.children;
+    button.querySelector('.catalog-menu__text').textContent = label;
+    const links = [
+      makeItem('Все товары раздела', href),
+      makeItem('Новинки раздела', href + '&view=new'),
+    ];
+    links.forEach(bindTouchPress);
+    list.firstElementChild.append(...links);
+    bindTouchPress(button);
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      setAccordionOpen(list, !expanded);
+    });
+    return group;
+  }
+
+  function setAccordionOpen(list, open, animate = !reducedMotion.matches) {
+    gsap.killTweensOf(list);
+    list.inert = !open;
+    if (open) {
+      const wasHidden = list.hidden;
+      list.hidden = false;
+      if (!animate) {
+        gsap.set(list, { clearProps: 'height,opacity' });
+      } else {
+        if (wasHidden) gsap.set(list, { height: 0, opacity: 0 });
+        gsap.to(list, { height: 'auto', opacity: 1, duration: 0.3, ease, clearProps: 'height,opacity' });
+      }
+    } else if (!animate || list.hidden) {
+      list.hidden = true;
+    } else {
+      gsap.to(list, { height: 0, opacity: 0, duration: 0.3, ease, onComplete: () => { list.hidden = true; } });
+    }
+  }
+
+  function openSubmenu(category) {
+    if (!isOpen) return;
+    setActiveCategory(category);
 
     const key = category.dataset.catalogCategory;
-    heading.textContent = key === 'closers' ? 'Дверные доводчики' : category.textContent.trim();
-    secondaryIntro?.kill();
-    items.replaceChildren(...demoItems[key].map((name, index) => {
-      const item = itemTemplate.content.firstElementChild.cloneNode(true);
-      item.querySelector('.catalog-menu__text').textContent = name;
-      item.href = `?${new URLSearchParams({ catalog: key, item: name })}`;
+    const { name, heading: title = name, items: links } = catalogCategories[key];
+    heading.textContent = title;
+    submenuLabels?.kill();
+    gsap.killTweensOf(items.querySelectorAll('.catalog-menu__nested-items'));
+    items.replaceChildren(...links.map((label, index) => {
+      const href = `?${new URLSearchParams({ catalog: key, item: label })}`;
+      if (index === 1) return makeNestedItem(label, href);
+      const item = makeItem(label, href);
       item.classList.toggle('catalog-menu__link--featured', index === 0);
       return item;
     }));
     if (mobileLayout.matches) {
       gsap.killTweensOf(items);
       category.after(items);
-      items.hidden = false;
-      items.inert = false;
-      if (reducedMotion.matches) {
-        gsap.set(items, { clearProps: 'height,opacity' });
-      } else {
-        gsap.fromTo(items, { height: 0, opacity: 0 }, {
-          height: 'auto',
-          opacity: 1,
-          duration: 0.3,
-          ease,
-          clearProps: 'height,opacity',
-        });
-      }
+      gsap.set(items, { height: 0, opacity: 0 });
+      setAccordionOpen(items, true);
       return;
     }
 
-    secondary.scrollTop = 0;
-    gsap.set(promoButton, { xPercent: -100, x: '-1.5rem' });
-    secondaryIntro = revealMenuLabels(gsap.timeline({ paused: true }), secondary.querySelectorAll('.catalog-menu__text'), 0.24, 0.065)
-      .to(promoButton, { xPercent: 0, x: 0, duration: 0.55, ease }, 0.3);
+    const openingPanel = secondary.hidden;
+    const labels = [heading, ...items.querySelectorAll('.catalog-menu__text:not(.catalog-menu__nested-items .catalog-menu__text)')];
+    const stagger = 0.065;
+    const revealDelay = openingPanel ? 0.24 : 0.06;
+    submenuLabels = revealMenuLabels(gsap.timeline({ paused: true }), labels, revealDelay, stagger);
 
+    if (openingPanel) {
+      promoIntro?.kill();
+      gsap.set(promoButton, { xPercent: -100, x: '-1.5rem' });
+      const promoLabels = promoButton.closest('.catalog-menu__promo').querySelectorAll('.catalog-menu__text');
+      promoIntro = revealMenuLabels(
+        gsap.timeline({ paused: true }), promoLabels, revealDelay + labels.length * stagger, stagger
+      ).to(promoButton, { xPercent: 0, x: 0, duration: 0.55, ease }, 0.3);
+    }
+
+    secondary.scrollTop = 0;
     secondary.hidden = false;
     secondary.inert = false;
-    if (reducedMotion.matches) secondarySlide.progress(1).pause();
-    else secondarySlide.play(0);
-
-    if (reducedMotion.matches || openedCategories.has(key)) secondaryIntro.progress(1).pause();
-    else secondaryIntro.play();
-    openedCategories.add(key);
+    if (reducedMotion.matches) {
+      secondarySlide.progress(1).pause();
+      submenuLabels.progress(1).pause();
+      promoIntro.progress(1).pause();
+    } else {
+      secondarySlide.play();
+      submenuLabels.play();
+      promoIntro.play();
+    }
   }
 
   function closeSubmenu() {
-    activeCategory?.setAttribute('aria-expanded', 'false');
-    activeCategory = null;
+    setActiveCategory(null);
     if (mobileLayout.matches) {
-      gsap.killTweensOf(items);
-      items.inert = true;
-      if (reducedMotion.matches || !isOpen) {
-        items.hidden = true;
-      } else {
-        gsap.to(items, {
-          height: 0,
-          opacity: 0,
-          duration: 0.3,
-          ease,
-          onComplete: () => { items.hidden = true; },
-        });
-      }
+      setAccordionOpen(items, false, isOpen && !reducedMotion.matches);
       if (!isOpen) closePrimary();
       return;
     }
 
     secondary.inert = true;
-    secondaryIntro?.pause();
+    submenuLabels?.pause();
+    promoIntro?.pause();
 
     if (!reducedMotion.matches && secondarySlide.progress() > 0) {
       secondarySlide.reverse();
     } else {
       secondarySlide.pause(0, true);
-      secondaryIntro?.pause(0);
-      secondary.hidden = true;
-      if (!isOpen) closePrimary();
+      finishDesktopSubmenuClose();
     }
+  }
+
+  function finishDesktopSubmenuClose() {
+    secondary.hidden = true;
+    submenuLabels?.pause(0);
+    promoIntro?.pause(0);
+    if (!isOpen) closePrimary();
   }
 
   function closePrimary() {
@@ -194,11 +210,11 @@ if (menu && trigger) {
     primarySlide.pause(0, true);
     secondarySlide.pause(0, true);
     primaryLabels.pause(0);
-    secondaryIntro?.pause(0);
+    submenuLabels?.pause(0);
+    promoIntro?.pause(0);
     secondary.hidden = true;
     secondary.inert = true;
-    activeCategory?.setAttribute('aria-expanded', 'false');
-    activeCategory = null;
+    setActiveCategory(null);
     gsap.killTweensOf(items);
     gsap.set(items, { clearProps: 'height,opacity' });
     itemsHome.append(items);
@@ -315,7 +331,8 @@ if (menu && trigger) {
     const query = searchInput.value.trim().toLocaleLowerCase('ru');
     let hasResults = false;
     for (const category of categories) {
-      const labels = [category.textContent.trim(), ...demoItems[category.dataset.catalogCategory]];
+      const { name, items: links } = catalogCategories[category.dataset.catalogCategory];
+      const labels = [name, ...links];
       category.hidden = !labels.some(label => label.toLocaleLowerCase('ru').includes(query));
       hasResults ||= !category.hidden;
     }

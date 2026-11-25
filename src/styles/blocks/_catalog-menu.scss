@@ -52,8 +52,7 @@
   &__column {
     overflow: auto;
     overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: var(--nora-color-border-strong) transparent;
+    @include helpers.menu-scrollbar;
 
     position: relative;
 
@@ -70,17 +69,6 @@
     background: var(--nora-color-background-subtle);
 
     pointer-events: auto;
-
-    @supports not (scrollbar-width: thin) {
-      &::-webkit-scrollbar {
-        width: helpers.rem(6);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border-radius: helpers.rem(3);
-        background: var(--nora-color-border-strong);
-      }
-    }
 
     &:first-child {
       z-index: 2;
@@ -191,6 +179,74 @@
       @include helpers.hover(false) {
         background: var(--nora-color-background-canvas);
       }
+    }
+  }
+
+  &__nested-toggle {
+    transition: color var(--transition-duration) var(--transition-easing);
+
+    @include helpers.hover(false) {
+      color: var(--nora-color-brand-accent);
+    }
+
+    &:active,
+    &.is-pressed {
+      color: var(--nora-color-brand-accent);
+    }
+
+    &[aria-expanded='true'] .catalog-menu__nested-chevron {
+      color: var(--nora-color-brand-accent);
+
+      transform: rotate(180deg);
+    }
+  }
+
+  &__nested-chevron {
+    width: helpers.rem(20);
+    height: helpers.rem(20);
+
+    flex: none;
+
+    background: currentColor;
+
+    mask: url('/src/assets/catalog-menu/mobile-chevron.svg') center / contain no-repeat;
+    transition:
+      color var(--transition-duration) var(--transition-easing),
+      transform var(--transition-duration) var(--transition-easing);
+  }
+
+  &__nested-items {
+    overflow: hidden;
+  }
+
+  &__nested-content {
+    margin-block: helpers.rem(6);
+
+    padding-block: helpers.rem(6);
+
+    border-radius: helpers.rem(8);
+    background: var(--nora-color-background-pressed);
+
+    .catalog-menu__link {
+      padding-left: helpers.rem(24);
+
+      transition: color var(--transition-duration) var(--transition-easing);
+
+      @include helpers.hover(false) {
+        background: transparent;
+      }
+
+      &:active,
+      &.is-pressed {
+        color: var(--nora-color-brand-accent);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__nested-toggle,
+    &__nested-chevron {
+      transition: none;
     }
   }
 
@@ -557,13 +613,17 @@
       }
     }
 
+    &__nested-content {
+      margin-block: helpers.rem(8) 0;
+    }
+
     &__items {
       overflow: hidden;
 
       display: grid;
       gap: helpers.rem(8);
 
-      .catalog-menu__link:last-child {
+      > :last-child {
         margin-bottom: helpers.rem(10);
       }
     }

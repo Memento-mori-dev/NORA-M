@@ -4,6 +4,8 @@ import { defineConfig, normalizePath } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 import { checkLocalLinks } from './plugins/check-local-links.js';
+import { catalogGroups } from './src/data/catalog-menu.js';
+import { headerDemoLinks } from './src/data/header-demo-links.js';
 import { responsiveImages } from './plugins/responsive-images.js';
 import { iconDirectory, iconSymbolId, keepSvgPaintInSprite, spriteFilename, svgSpriteImages } from './plugins/svg-sprite-images.js';
 
@@ -18,6 +20,7 @@ const assetDirectories = {
 };
 
 const templates = handlebars({
+  context: { catalogGroups, headerDemoLinks },
   partialDirectory: fileURLToPath(new URL('./src/partials', import.meta.url)),
 });
 const reloadPartial = templates.handleHotUpdate;

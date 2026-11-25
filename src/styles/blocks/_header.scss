@@ -143,12 +143,28 @@
   }
 
   a.header__catalog {
+    gap: helpers.rem(8);
+    align-items: center;
+
+    background: var(--nora-color-brand-accent);
+    color: var(--nora-color-background-canvas);
+
     transition:
       background-color var(--transition-duration) var(--transition-easing),
       border-color var(--transition-duration) var(--transition-easing),
       color var(--transition-duration) var(--transition-easing);
 
+    @include helpers.hover(false) {
+      background: var(--nora-color-brand-accent-hover);
+
+      &[aria-expanded='true'] {
+        background: var(--nora-color-border-subtle);
+      }
+    }
+
     &[aria-expanded='true'] {
+      color: var(--nora-color-text-primary);
+
       .header__catalog-icon--closed {
         opacity: 0;
       }
@@ -186,6 +202,10 @@
 
     place-items: center;
     align-self: center;
+
+    .header__catalog-icon--closed img {
+      transform: rotate(-90deg);
+    }
   }
 
   &__contact {
@@ -222,8 +242,7 @@
 
   &__bag-handle,
   &__bag-body,
-  &__badge,
-  &__badge-count {
+  &__badge {
     position: absolute;
   }
 
@@ -240,11 +259,22 @@
   &__badge {
     top: helpers.rem(-1.25);
     left: helpers.rem(10.83);
-  }
 
-  &__badge-count {
-    top: helpers.rem(2.8);
-    left: helpers.rem(4.6);
+    box-sizing: border-box;
+    min-width: helpers.rem(14);
+    height: helpers.rem(14);
+
+    padding-inline: helpers.rem(3);
+
+    display: grid;
+    place-items: center;
+
+    border-radius: helpers.rem(7);
+    background: var(--nora-color-brand-accent);
+    color: var(--nora-color-background-canvas);
+
+    font-size: helpers.rem(12);
+    line-height: 1;
   }
 
   &__menu-toggle,
@@ -324,16 +354,11 @@
       padding-inline: clamp(#{helpers.rem(6)}, 3.2vw, #{helpers.rem(12)});
 
       display: flex;
-      gap: helpers.rem(8);
-      align-items: center;
 
       border-radius: helpers.rem(8);
-      background: var(--nora-color-brand-accent);
-      color: var(--nora-color-background-canvas);
 
       &[aria-expanded='true'] {
         background: var(--nora-color-background-pressed);
-        color: var(--nora-color-text-primary);
       }
     }
 
@@ -344,10 +369,6 @@
 
     &__catalog-chevron &__catalog-close {
       transform: none;
-    }
-
-    &__catalog-chevron &__catalog-icon--closed img {
-      transform: rotate(-90deg);
     }
 
     &__drawer {
@@ -363,7 +384,7 @@
 
       pointer-events: none;
 
-      &[hidden] {
+      &:not(.is-visible) {
         display: none;
       }
     }
@@ -384,8 +405,7 @@
     &__navigation {
       --header-navigation-max-height: min(70dvh, calc(100dvh - var(--header-bottom-height)));
 
-      overflow: auto;
-      overscroll-behavior: contain;
+      overflow: hidden;
 
       position: relative;
 
@@ -393,7 +413,7 @@
       min-height: min(#{helpers.rem(279)}, var(--header-navigation-max-height));
       max-height: var(--header-navigation-max-height);
 
-      padding: helpers.rem(24) helpers.rem(16);
+      padding: helpers.rem(16) helpers.rem(6);
 
       display: flex;
       flex-direction: column;
@@ -402,6 +422,20 @@
       background: var(--nora-color-background-canvas);
 
       pointer-events: auto;
+    }
+
+    &__navigation-scroll {
+      overflow: auto;
+      overscroll-behavior: contain;
+      @include helpers.menu-scrollbar;
+
+      min-height: 0;
+
+      padding: helpers.rem(8) helpers.rem(10);
+
+      display: flex;
+      flex: 1;
+      flex-direction: column;
     }
 
     &__links,
@@ -497,7 +531,8 @@
     background: var(--nora-color-background-subtle);
 
     &__bottom,
-    &__drawer {
+    &__drawer,
+    &__navigation-scroll {
       display: contents;
     }
 
@@ -533,17 +568,11 @@
     a.header__catalog {
       padding-inline: helpers.rem(15);
 
-      gap: helpers.rem(8);
-      align-items: center;
-
       border-color: transparent;
-      background: var(--nora-color-brand-accent);
-      color: var(--nora-color-background-canvas);
 
       &[aria-expanded='true'] {
         border-color: var(--nora-color-border-subtle-translucent);
         background: var(--nora-color-border-subtle-translucent);
-        color: var(--nora-color-text-primary);
       }
     }
 

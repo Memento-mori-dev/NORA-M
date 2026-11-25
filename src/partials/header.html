@@ -42,97 +42,54 @@
 
       <a class="header__catalog" href="https://nora-m.ru/shop/">
         <span class="header__catalog-icons" aria-hidden="true">
-          <picture class="header__catalog-icon header__catalog-icon--closed">
-            <source media="(width < 48rem)" srcset="/src/assets/header/mobile-catalog.svg">
-            <img src="/src/assets/header/desktop-catalog.svg" alt="">
-          </picture>
-          <picture class="header__catalog-icon header__catalog-icon--open">
-            <source media="(width < 48rem)" srcset="/src/assets/header/mobile-catalog-open.svg">
-            <img src="/src/assets/header/catalog-open-grid.svg" alt="">
-          </picture>
+          {{> mobile-picture className="header__catalog-icon header__catalog-icon--closed" mobileSrc="/src/assets/header/mobile-catalog.svg" fallbackSrc="/src/assets/header/desktop-catalog.svg" }}
+          {{> mobile-picture className="header__catalog-icon header__catalog-icon--open" mobileSrc="/src/assets/header/mobile-catalog-open.svg" fallbackSrc="/src/assets/header/catalog-open-grid.svg" }}
         </span>
         Каталог
         <span class="header__catalog-icons header__catalog-chevron" aria-hidden="true">
-          <picture class="header__catalog-icon header__catalog-icon--closed">
-            <source media="(width < 48rem)" srcset="/src/assets/header/mobile-catalog-chevron.svg">
-            <img src="/src/assets/header/desktop-chevron.svg" alt="">
-          </picture>
-          <picture class="header__catalog-icon header__catalog-icon--open header__catalog-close">
-            <source media="(width < 48rem)" srcset="/src/assets/header/mobile-menu-close.svg">
-            <img src="/src/assets/header/catalog-open-close.svg" alt="">
-          </picture>
+          {{> mobile-picture className="header__catalog-icon header__catalog-icon--closed" mobileSrc="/src/assets/header/mobile-catalog-chevron.svg" fallbackSrc="/src/assets/header/desktop-chevron.svg" }}
+          {{> mobile-picture className="header__catalog-icon header__catalog-icon--open header__catalog-close" mobileSrc="/src/assets/header/mobile-menu-close.svg" fallbackSrc="/src/assets/header/catalog-open-close.svg" }}
         </span>
       </a>
 
-      <div class="header__drawer" hidden>
+      <div class="header__drawer">
         <div class="header__drawer-shade" aria-hidden="true"></div>
         <div class="header__navigation" id="header-navigation">
-          <nav class="header__links" aria-label="Основная навигация">
-            <a href="https://nora-m.ru/o-kompanii/">О компании</a>
-            <a href="https://nora-m.ru/o-kompanii/dostavka/">Доставка и оплата</a>
-            <a href="https://nora-m.ru/o-produktsii/novosti/">Новости</a>
-            <a href="https://nora-m.ru/about/">Контакты</a>
-          </nav>
+          <div class="header__navigation-scroll">
+            <nav class="header__links" aria-label="Основная навигация">
+              <a href="https://nora-m.ru/o-kompanii/">О компании</a>
+              <a href="https://nora-m.ru/o-kompanii/dostavka/">Доставка и оплата</a>
+              <a href="https://nora-m.ru/o-produktsii/novosti/">Новости</a>
+              <a href="https://nora-m.ru/about/">Контакты</a>
+            </nav>
 
-          <div class="header__actions">
-            <form class="header__search-toggle" role="search" aria-label="Поиск в каталоге" action="https://nora-m.ru/shop/" method="get">
-              <button class="header__button header__button--search" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="header-search-field">
-                <img src="/src/assets/header/desktop-search.svg" alt="">
-                <img src="/src/assets/header/catalog-open-close.svg" alt="">
-              </button>
-              <div class="header__search-form--popover" id="header-search-field" inert>
-                <div class="header__search-form header__search-panel">
-                  <input type="search" name="q" placeholder="Поиск" aria-label="Поиск товаров" required>
-                  <button type="submit" aria-label="Найти"><img src="/src/assets/header/desktop-search.svg" alt=""></button>
+            <div class="header__actions">
+              <form class="header__search-toggle" role="search" aria-label="Поиск в каталоге" action="https://nora-m.ru/shop/" method="get">
+                <button class="header__button header__button--search" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="header-search-field">
+                  <img src="/src/assets/header/desktop-search.svg" alt="">
+                  <img src="/src/assets/header/catalog-open-close.svg" alt="">
+                </button>
+                <div class="header__search-form--popover" id="header-search-field" inert>
+                  <div class="header__search-form header__search-panel">
+                    <input type="search" name="q" placeholder="Поиск" aria-label="Поиск товаров" required>
+                    <button type="submit" aria-label="Найти"><img src="/src/assets/header/desktop-search.svg" alt=""></button>
+                  </div>
                 </div>
-              </div>
-            </form>
-            <a class="header__button header__button--wholesale" href="https://nora-m.ru/partneram/stat-partnerom/">Оптовикам</a>
-          </div>
+              </form>
+              <a class="header__button header__button--wholesale" href="https://nora-m.ru/partneram/stat-partnerom/">Оптовикам</a>
+            </div>
 
-          <div class="header__demo-links">
-            <a href="?menu=demo-1">Пункты выдачи</a>
-            <a href="?menu=demo-2">Адреса магазинов</a>
-            <a href="?menu=demo-3">Гарантия</a>
-            <a href="?menu=demo-4">Возврат товаров</a>
-            <a href="?menu=demo-5">Обмен товаров</a>
-            <a href="?menu=demo-6">Сервисные центры</a>
-            <a href="?menu=demo-7">Документы</a>
-            <a href="?menu=demo-8">Сертификаты</a>
-            <a href="?menu=demo-9">Инструкции</a>
-            <a href="?menu=demo-10">Вопросы и ответы</a>
-            <a href="?menu=demo-11">Подбор фурнитуры</a>
-            <a href="?menu=demo-12">Советы по монтажу</a>
-            <a href="?menu=demo-13">Уход за фурнитурой</a>
-            <a href="?menu=demo-14">Материалы и покрытия</a>
-            <a href="?menu=demo-15">Коллекции</a>
-            <a href="?menu=demo-16">Новинки сезона</a>
-            <a href="?menu=demo-17">Популярные товары</a>
-            <a href="?menu=demo-18">Акции и предложения</a>
-            <a href="?menu=demo-19">Подарочные наборы</a>
-            <a href="?menu=demo-20">Подборки для дома</a>
-            <a href="?menu=demo-21">Решения для офиса</a>
-            <a href="?menu=demo-22">Решения для магазинов</a>
-            <a href="?menu=demo-23">Где купить</a>
-            <a href="?menu=demo-24">Стать партнёром</a>
-            <a href="?menu=demo-25">Условия сотрудничества</a>
-            <a href="?menu=demo-26">Партнёрские программы</a>
-            <a href="?menu=demo-27">Оптовые поставки</a>
-            <a href="?menu=demo-28">Для дизайнеров</a>
-            <a href="?menu=demo-29">Для монтажников</a>
-            <a href="?menu=demo-30">Проекты</a>
-            <a href="?menu=demo-31">Пресс-центр</a>
-            <a href="?menu=demo-32">События</a>
-            <a href="?menu=demo-33">История компании</a>
-            <a href="?menu=demo-34">Команда</a>
-            <a href="?menu=demo-35">Вакансии</a>
-            <a href="?menu=demo-36">Обратная связь</a>
+            <div class="header__demo-links">
+              {{#each headerDemoLinks}}
+                <a href="{{href}}">{{label}}</a>
+              {{/each}}
+            </div>
           </div>
         </div>
       </div>
 
       <div class="header__utilities">
-        <div class="header__contact" data-da=".header__navigation">
+        <div class="header__contact" data-da=".header__navigation-scroll">
           <span>Пн–Пт 9:00–18:00</span>
           <a href="tel:+74951184018">+7 (495) 118-40-18</a>
         </div>
@@ -145,20 +102,13 @@
           <a class="header__button" href="https://nora-m.ru/personal/wishlist/" aria-label="Избранное">
             <img class="header__utility-icon" src="/src/assets/header/desktop-favorite.svg" alt="">
           </a>
-          <a class="header__button" href="https://nora-m.ru/personal/cart/" aria-label="Корзина">
+          <a class="header__button" href="https://nora-m.ru/personal/cart/" aria-label="Корзина{{#if cartCount}}, товаров: {{cartCount}}{{/if}}">
             <span class="header__bag" aria-hidden="true">
-              <picture class="header__utility-icon header__bag-handle">
-                <source media="(width < 48rem)" srcset="/src/assets/header/mobile-bag-handle.svg">
-                <img src="/src/assets/header/desktop-bag-handle.svg" alt="">
-              </picture>
-              <picture class="header__utility-icon header__bag-body">
-                <source media="(width < 48rem)" srcset="/src/assets/header/mobile-bag-body.svg">
-                <img src="/src/assets/header/desktop-bag-body.svg" alt="">
-              </picture>
-              <span class="header__badge">
-                <img src="/src/assets/header/desktop-badge.svg" alt="">
-                <img class="header__badge-count" src="/src/assets/header/desktop-badge-count.svg" alt="">
-              </span>
+              {{> mobile-picture className="header__utility-icon header__bag-handle" mobileSrc="/src/assets/header/mobile-bag-handle.svg" fallbackSrc="/src/assets/header/desktop-bag-handle.svg" }}
+              {{> mobile-picture className="header__utility-icon header__bag-body" mobileSrc="/src/assets/header/mobile-bag-body.svg" fallbackSrc="/src/assets/header/desktop-bag-body.svg" }}
+              {{#if cartCount}}
+                <span class="header__badge">{{cartCount}}</span>
+              {{/if}}
             </span>
           </a>
           <a class="header__button" href="https://nora-m.ru/personal/" aria-label="Личный кабинет" data-da=".header__account-slot">

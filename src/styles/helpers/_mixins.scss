@@ -95,3 +95,19 @@
     background-color: var(--color-dark-15);
   }
 }
+
+@mixin menu-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--nora-color-border-strong) transparent;
+
+  @supports not (scrollbar-width: thin) {
+    &::-webkit-scrollbar {
+      width: rem(6);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: rem(3);
+      background: var(--nora-color-border-strong);
+    }
+  }
+}

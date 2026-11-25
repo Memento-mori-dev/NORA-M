@@ -27,7 +27,7 @@ if (toggle) {
   }
 
   function hideDrawer() {
-    drawer.hidden = true;
+    drawer.classList.remove('is-visible');
   }
 
   const media = gsap.matchMedia();
@@ -52,7 +52,7 @@ if (toggle) {
     setExpanded(open);
 
     if (open) {
-      drawer.hidden = false;
+      drawer.classList.add('is-visible');
       if (reducedMotion.matches) motion.progress(1).pause();
       else motion.play();
       firstLink.focus({ preventScroll: true });
@@ -71,7 +71,7 @@ if (toggle) {
   });
 
   catalog.addEventListener('click', () => {
-    if (!drawer.hidden) setOpen(false, true);
+    if (drawer.classList.contains('is-visible')) setOpen(false, true);
   });
 
   document.addEventListener('click', event => {
