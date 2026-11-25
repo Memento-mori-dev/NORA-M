@@ -1,0 +1,338 @@
+@use 'normalize';
+@use 'variables';
+@use 'helpers' as helpers;
+
+@font-face {
+  font-family: 'Onest';
+  src: url('../assets/ui-kit/onest.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('../assets/ui-kit/unbounded.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+.ui-kit-page {
+  background: var(--nora-color-background-subtle);
+  color: var(--nora-color-text-primary);
+
+  font-family: 'Onest', Arial, sans-serif;
+}
+
+.ui-kit {
+  margin-inline: auto;
+
+  max-width: helpers.rem(2080);
+
+  padding: clamp(#{helpers.rem(12)}, 3vw, #{helpers.rem(48)});
+
+  display: grid;
+  gap: helpers.rem(32);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  &__title {
+    @include helpers.visually-hidden;
+  }
+
+  &__section {
+    padding: helpers.rem(24) clamp(#{helpers.rem(16)}, 2vw, #{helpers.rem(32)}) helpers.rem(32);
+
+    display: grid;
+    gap: helpers.rem(24);
+
+    border: helpers.rem(1) solid var(--nora-color-border-subtle);
+    border-radius: helpers.rem(20);
+    background: var(--nora-color-background-canvas);
+
+    h2 {
+      margin: 0;
+
+      color: var(--nora-color-text-primary);
+
+      font-family: 'Unbounded', Arial, sans-serif;
+      font-size: clamp(#{helpers.rem(20)}, 3vw, #{helpers.rem(26)});
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+
+  &__palette {
+    margin: 0;
+
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, #{helpers.rem(174)}), 1fr));
+    gap: helpers.rem(20) helpers.rem(15);
+
+    list-style: none;
+  }
+
+  &__swatch {
+    min-width: 0;
+
+    display: grid;
+    gap: helpers.rem(6);
+    align-content: start;
+
+    font-size: helpers.rem(16);
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__sample {
+    height: helpers.rem(96);
+
+    border: helpers.rem(1) solid var(--nora-color-border-subtle);
+    border-radius: helpers.rem(12);
+    background: var(--swatch-color);
+  }
+
+  &__hex {
+    font-size: helpers.rem(14);
+  }
+
+  &__token {
+    color: var(--nora-color-text-label);
+
+    font-size: helpers.rem(12);
+    font-weight: 400;
+    overflow-wrap: anywhere;
+  }
+
+  &__controls,
+  &__examples {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  &__controls {
+    gap: helpers.rem(24) helpers.rem(48);
+  }
+
+  &__examples {
+    gap: helpers.rem(12) helpers.rem(16);
+  }
+
+  &__group,
+  &__example {
+    min-width: 0;
+
+    display: grid;
+    gap: helpers.rem(12);
+    justify-items: start;
+
+    color: var(--nora-color-text-label);
+
+    font-size: helpers.rem(16);
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  @include helpers.mobile-s {
+    &__palette {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__sample {
+      height: helpers.rem(72);
+    }
+  }
+
+
+  &__group h3 {
+    margin: 0;
+
+    color: inherit;
+
+    font: inherit;
+  }
+}
+
+.nora-button,
+.nora-point {
+  padding: 0;
+
+  display: inline-grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: helpers.rem(10);
+
+  cursor: pointer;
+  transition-property: background-color, border-color, transform;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-easing);
+
+  &:focus-visible {
+    outline: helpers.rem(2) solid var(--nora-color-text-primary);
+    outline-offset: helpers.rem(3);
+  }
+
+  &:active {
+    transform: translateY(helpers.rem(1));
+  }
+}
+
+.nora-button {
+  min-height: helpers.rem(44);
+
+  padding: helpers.rem(12) helpers.rem(16);
+
+  background: var(--nora-color-text-primary);
+  color: var(--nora-color-background-canvas);
+
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+
+  @include helpers.hover(false) {
+    background: var(--nora-color-brand-accent);
+  }
+
+  &__chevron {
+    display: block;
+
+    transform: rotate(-90deg);
+  }
+
+  &__bag {
+    position: relative;
+
+    width: helpers.rem(20);
+    height: helpers.rem(20);
+  }
+
+  &__bag-handle,
+  &__bag-body {
+    position: absolute;
+  }
+
+  &__bag-handle {
+    top: helpers.rem(2.5);
+    left: helpers.rem(6.5);
+  }
+
+  &__bag-body {
+    top: helpers.rem(5.5);
+    left: helpers.rem(2.6262);
+  }
+
+  &--label {
+    min-width: helpers.rem(156);
+  }
+
+  &--icon,
+  &--control {
+    width: helpers.rem(40);
+    height: helpers.rem(40);
+    min-height: 0;
+
+    padding: 0;
+  }
+
+  &--preview-hover {
+    background: var(--nora-color-brand-accent);
+  }
+
+  &--control {
+    width: helpers.rem(44);
+    height: helpers.rem(44);
+
+    border: helpers.rem(1) solid var(--nora-color-border-strong);
+    background: transparent;
+
+    .nora-button__chevron {
+      transform: rotate(-90deg) scaleY(-1);
+    }
+
+    @include helpers.hover(false) {
+      border-color: var(--nora-color-text-primary);
+      background: transparent;
+    }
+
+    &:active {
+      background: var(--nora-color-background-pressed);
+    }
+  }
+
+  &--control.nora-button--preview-hover {
+    border-color: var(--nora-color-text-primary);
+    background: transparent;
+  }
+}
+
+.nora-point {
+  width: helpers.rem(32);
+  height: helpers.rem(32);
+
+  background: var(--nora-color-overlay-on-media);
+
+  &__tile {
+    width: helpers.rem(20);
+    height: helpers.rem(20);
+
+    display: grid;
+    place-items: center;
+
+    border-radius: helpers.rem(5);
+    background: var(--nora-color-background-canvas);
+  }
+
+  &__hover,
+  &__active {
+    display: none;
+  }
+
+  @include helpers.hover(false) {
+    .nora-point__default {
+      display: none;
+    }
+
+    .nora-point__hover {
+      display: block;
+    }
+  }
+
+  &--preview-hover {
+    .nora-point__default {
+      display: none;
+    }
+
+    .nora-point__hover {
+      display: block;
+    }
+  }
+
+  &[aria-pressed='true'] {
+    .nora-point__tile {
+      background: var(--nora-color-brand-accent);
+    }
+
+    .nora-point__default,
+    .nora-point__hover {
+      display: none;
+    }
+
+    .nora-point__active {
+      display: block;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nora-button,
+  .nora-point {
+    transition: none;
+  }
+}

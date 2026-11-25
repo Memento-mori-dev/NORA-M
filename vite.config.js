@@ -35,6 +35,10 @@ export default defineConfig({
     cssCodeSplit: false,
     cssMinify: true,
     rolldownOptions: {
+      input: {
+        home: fileURLToPath(new URL('./index.html', import.meta.url)),
+        uiKit: fileURLToPath(new URL('./ui-kit.html', import.meta.url)),
+      },
       output: {
         entryFileNames: 'assets/js/[name]-[hash].js',
         chunkFileNames: 'assets/js/[name]-[hash].js',

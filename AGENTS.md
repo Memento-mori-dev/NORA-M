@@ -58,6 +58,49 @@ import '../main.js';
 
 Для новой страницы добавь её HTML в `build.rolldownOptions.input` в `vite.config.js`. В сборке общий код попадает в `dist/assets/js/common-<хеш>.js`, а код страницы — в отдельный файл рядом. Если модуль страницы содержит только импорт общего JS, Vite подключает `common` напрямую.
 
+## Размеры в SCSS через `rem()`
+
+Фиксированные длины из макета записывай через `rem()`. Это размеры блока и шрифта, отступы, `gap`, радиусы, толщины границ и контуров. Функция объявлена в [`src/styles/helpers/_functions.scss`](src/styles/helpers/_functions.scss) и экспортируется модулем `helpers`.
+
+- Передавай число из макета без единицы измерения. Sass делит его на 16 и добавляет `rem`: `helpers.rem(16)` → `1rem`, `helpers.rem(24)` → `1.5rem`. Дробные и отрицательные числа тоже допустимы. Вызов `helpers.rem(16px)` останавливает сборку с ошибкой.
+- `rem` в браузере зависит от размера шрифта корневого элемента `html`. При корневом размере 16 px значение `1.5rem` равно 24 px. Сохраняй корневой размер шрифта по умолчанию, чтобы вёрстка учитывала настройки браузера.
+- Оставляй без преобразования проценты, `fr`, `vw`, ключевые слова, нулевые длины и безразмерные значения вроде `line-height: 1.4`. В `min()`, `max()`, `clamp()` и CSS-переменных переводи только фиксированные длины из макета. В CSS-переменных используй интерполяцию `#{helpers.rem(24)}`. Вычисления Sass делай над числами до вызова `rem()`: текущая реализация возвращает строку с CSS-длиной.
+- Для смены размеров на брейкпоинте используй существующие миксины `helpers.mobile` и `helpers.mobile-above`. Для плавной типографики используй `helpers.fluid-text($max, $min)` с размерами из макета без единиц.
+
+Пример для файла в `src/styles/blocks/`. Из файла непосредственно в `src/styles/` подключай `@use 'helpers' as helpers;`.
+
+```scss
+@use '../helpers' as helpers;
+
+.product-card {
+  width: min(100%, helpers.rem(342));
+
+  padding: helpers.rem(12) helpers.rem(16);
+
+  display: grid;
+  gap: helpers.rem(8);
+
+  border-radius: helpers.rem(20);
+
+  font-size: helpers.rem(14);
+  line-height: 1.4;
+
+  @include helpers.mobile-above {
+    padding: helpers.rem(24);
+
+    gap: helpers.rem(16);
+  }
+}
+```
+
+## CSS-переходы
+
+Для CSS-переходов по умолчанию используй `var(--transition-easing)`. Переменная определена в `src/styles/_variables.scss` и содержит `cubic-bezier(0.22, 1, 0.36, 1)`. Если для конкретного перехода указана другая кривая, используй её. В сокращённой записи `transition` указывай переменную для каждого свойства.
+
+```scss
+transition: background-color var(--transition-duration) var(--transition-easing);
+```
+
 ## Адаптивные стили и Dynamic Adapt
 
 Пиши общие, мобильные и десктопные стили блока в одном SCSS-файле. Общие и мобильные значения задай по умолчанию, а изменения для ПК помести в `@include helpers.mobile-above`. Подключай стили блоков через [main.scss](src/styles/main.scss).
