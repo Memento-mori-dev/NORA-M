@@ -1,0 +1,35 @@
+<li class="recommendation-card swiper-slide">
+  <div class="recommendation-card__media recommendation-card__media--{{image}}">
+    <div class="recommendation-card__gallery swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/src/assets/recommendations/{{image}}.png" loading="lazy" alt=""></div>
+        <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/src/assets/recommendations/{{image}}.png" loading="lazy" alt=""></div>
+        <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/src/assets/recommendations/{{image}}.png" loading="lazy" alt=""></div>
+      </div>
+    </div>
+    <div class="recommendation-card__actions">
+      {{> nora-compare-button }}
+      {{> nora-favorite-button }}
+    </div>
+    <div class="recommendation-card__indicators"></div>
+  </div>
+
+  <div class="recommendation-card__body">
+    <div class="recommendation-card__meta">
+      <span>Sonex</span>
+      {{> nora-stock-status variant=stockVariant label=stockLabel }}
+    </div>
+
+    <div class="recommendation-card__description">
+      <h3 class="recommendation-card__title">{{title}}{{#if model}}<br><span> {{model}}</span>{{/if}}</h3>
+      <div class="recommendation-card__finish">
+        <span>Хром</span>
+        <img src="/src/assets/recommendations/finishes.svg" width="28" height="8" alt="">
+      </div>
+      <p class="recommendation-card__details{{#if model}} recommendation-card__details--narrow{{/if}}">{{details}}</p>
+    </div>
+
+    <p class="recommendation-card__price">581 ₽</p>
+    {{> nora-bag-button class="recommendation-card__bag" }}
+  </div>
+</li>

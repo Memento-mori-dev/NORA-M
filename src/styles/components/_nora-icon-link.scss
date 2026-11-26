@@ -1,0 +1,110 @@
+@use '../helpers' as helpers;
+
+.nora-icon-link {
+  --nora-icon-link-duration: .3s;
+  --nora-icon-link-delay: calc(var(--nora-icon-link-duration) / 1.8);
+  --nora-icon-link-ease-in: cubic-bezier(.9, 0, 1, 1);
+  --nora-icon-link-ease-out: cubic-bezier(0, .25, 0, 1);
+
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: helpers.rem(40);
+  height: helpers.rem(40);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: helpers.rem(10);
+  color: var(--nora-color-background-canvas);
+
+  text-decoration: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    border-radius: inherit;
+    content: '';
+
+    transition-property: transform;
+    transition-duration: var(--nora-icon-link-duration);
+  }
+
+  &::before {
+    z-index: -2;
+
+    background: var(--nora-color-text-primary);
+
+    transition-delay: var(--nora-icon-link-delay);
+    transition-timing-function: var(--nora-icon-link-ease-out);
+  }
+
+  &::after {
+    z-index: -1;
+
+    background: var(--nora-color-brand-accent);
+    transform: translateY(100%);
+
+    transition-timing-function: var(--nora-icon-link-ease-in);
+  }
+
+  &--with-label {
+    width: auto;
+    height: auto;
+    min-height: helpers.rem(44);
+    padding-inline: helpers.rem(16);
+
+    display: inline-flex;
+    gap: helpers.rem(8);
+    align-items: center;
+
+    font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+  }
+
+  &__icon {
+    width: helpers.rem(20);
+    height: helpers.rem(20);
+
+    background: currentColor;
+
+    mask: url('/src/assets/ui-kit/chevron-control.svg') center no-repeat;
+    transform: rotate(-90deg);
+  }
+
+  @include helpers.hover(false) {
+    &::before {
+      transform: scale(.85);
+      transition-delay: 0s;
+      transition-timing-function: var(--nora-icon-link-ease-in);
+    }
+
+    &::after {
+      transform: translateY(0);
+      transition-delay: var(--nora-icon-link-delay);
+      transition-timing-function: var(--nora-icon-link-ease-out);
+    }
+  }
+
+  &--preview-hover,
+  &:active {
+    &::before {
+      transform: scale(.85);
+    }
+
+    &::after {
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::before,
+    &::after {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<section class="recommendations" aria-labelledby="recommendations-title">
+  <h2 class="recommendations__title nora-heading" id="recommendations-title">Специально<br>для вас</h2>
+
+  <div class="recommendations__toolbar">
+    <nav class="recommendations__filters" aria-label="Подборки товаров">
+      {{> nora-chip href="https://nora-m.ru/shop/?q=хиты" label="Хиты" }}
+      {{> nora-chip href="https://nora-m.ru/shop/?q=новинки" label="Новинки" }}
+      {{> nora-chip href="https://nora-m.ru/shop/?q=акции" label="Акции" }}
+    </nav>
+    {{> nora-catalog-link class="recommendations__catalog" href="https://nora-m.ru/shop/" label="Смотреть весь каталог" }}
+  </div>
+
+  <div class="recommendations__slider swiper" id="recommendations-cards">
+  <ul class="recommendations__cards swiper-wrapper">
+    {{> recommendation-card image="closer" title="Доводчик дверной" model="410" details="№3S бол., №4S, №5S, №3S F, 540, 550, 740 DA" }}
+    {{> recommendation-card image="cylinder" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+    {{> recommendation-card image="chain" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+    {{> recommendation-card image="handle" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+    {{> recommendation-card image="closer" title="Доводчик дверной" model="410" details="№3S бол., №4S, №5S, №3S F, 540, 550, 740 DA" }}
+    {{> recommendation-card image="cylinder" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+    {{> recommendation-card image="chain" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+    {{> recommendation-card image="handle" title="Корпус замка под цилиндр магнитный" details="13М-90 мм" }}
+  </ul>
+  </div>
+
+  <div class="recommendations__pagination" aria-label="Страницы товаров"></div>
+
+  <div class="recommendations__controls">
+    {{> nora-slider-arrow label="Предыдущие товары" controls="recommendations-cards" disabled=true }}
+    {{> nora-slider-arrow label="Следующие товары" controls="recommendations-cards" next=true disabled=true }}
+  </div>
+</section>

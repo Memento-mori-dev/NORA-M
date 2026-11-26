@@ -1,0 +1,11 @@
+.nora-stock-status {
+  color: var(--nora-color-text-secondary);
+
+  &--warning {
+    color: var(--nora-color-brand-accent);
+  }
+
+  &--unavailable {
+    color: var(--nora-color-status-error);
+  }
+}

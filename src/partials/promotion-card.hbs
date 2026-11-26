@@ -1,0 +1,20 @@
+<article class="promotion-card swiper-slide">
+  <div class="promotion-card__media">
+    <img class="promotion-card__image" src="/src/assets/promotions/{{image}}.png" width="678" height="280" sizes="(width < 48rem) calc(100vw - 3.125rem), (width < 90rem) calc(50vw - 2.375rem), 678px" loading="lazy" data-responsive alt="">
+    {{#if badge}}
+      {{> nora-promotion-badge class="promotion-card__badge" label=badge }}
+    {{/if}}
+  </div>
+
+  <div class="promotion-card__body">
+    <div class="promotion-card__copy">
+      <h3 class="nora-heading promotion-card__title">{{title}}</h3>
+      <p class="promotions__description">{{description}}</p>
+    </div>
+
+    <div class="promotion-card__footer">
+      {{> nora-icon-link href=href label="В каталог" showLabel=true }}
+      <p class="promotion-card__date">Действительно до: <time datetime="{{expires}}">{{dateLabel}}</time></p>
+    </div>
+  </div>
+</article>

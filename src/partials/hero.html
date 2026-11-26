@@ -1,16 +1,16 @@
 <section class="hero" aria-label="Промо НОРА-М">
-  <div class="hero__panels">
+  <div class="hero__panels" id="hero-panels">
     <div class="hero__info">
       <div class="hero__copy">
         <h1 id="hero-title">Навесные замки <span class="hero__brand">Нора<span class="hero__brand-accent">—М</span></span></h1>
-        <p>Надёжная защита для улицы в любую погоду и в любое время года. Модель разработана специально для эксплуатации на открытом воздухе и сочетает высокую защиту, влагостойкость и яркий фирменный дизайн.</p>
+        <p>Надёжная защита для улицы в любую погоду и в любое время года. Модель разработана специально для эксплуатации на открытом воздухе и сочетает высокую защиту<span class="hero__wide-copy">, влагостойкость и яркий фирменный дизайн</span>.</p>
         <a class="hero__cta hero__desktop-only" href="#hero-product">Узнать подробнее</a>
         <a class="hero__cta hero__mobile-only" href="https://m.nora-m.ru/catalog/navesnye-zamki/vsepogodnye-zamki/zamok-navesnoy-vsepogodnyy-znv-702/?art=20474">Узнать подробнее</a>
       </div>
       <dl class="hero__features">
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/check-mobile.svg"><img src="/src/assets/hero/check.svg" alt=""></picture></span><dt>Гарантия</dt><dd>3 года</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/cycles-mobile.svg"><img src="/src/assets/hero/cycles.svg" alt=""></picture></span><dt>Ресурс срабатывания</dt><dd>500 000 циклов</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/steel-mobile.svg"><img src="/src/assets/hero/steel.svg" alt=""></picture></span><dt>Материал</dt><dd>Сталь</dd></div>
+        {{> hero-feature icon="check" label="Гарантия" value="3 года"}}
+        {{> hero-feature icon="cycles" label="Ресурс срабатывания" value="500 000 циклов"}}
+        {{> hero-feature icon="steel" label="Материал" value="Сталь"}}
       </dl>
       <figure class="hero__diagram">
         <div class="hero__drawing">
@@ -33,8 +33,8 @@
       <a class="hero__product" id="hero-product" href="https://m.nora-m.ru/catalog/navesnye-zamki/vsepogodnye-zamki/zamok-navesnoy-vsepogodnyy-znv-702/?art=20474">
         <div class="hero__thumbnail"><img src="/src/assets/hero/product.png" alt=""></div>
         <div class="hero__product-copy">
-          <h2>Замок навесной всепогодный ЗНВ 702дд оранжевый (58 мм)</h2>
-          <p>Арт.: 20356</p>
+          <h2>Замок навесной всепогодный ЗНВ 702дд</h2>
+          <p>Ремкомплект</p>
           <strong>744 ₽</strong>
         </div>
         <span class="hero__product-arrow" aria-hidden="true"></span>
@@ -47,9 +47,9 @@
         <a class="hero__cta" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Узнать подробнее</a>
       </div>
       <dl class="hero__features">
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/check-mobile.svg"><img src="/src/assets/hero/check.svg" alt=""></picture></span><dt>Назначение</dt><dd>Закрывание дверей</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/cycles-mobile.svg"><img src="/src/assets/hero/cycles.svg" alt=""></picture></span><dt>Механизм</dt><dd>Плавное движение</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/steel-mobile.svg"><img src="/src/assets/hero/steel.svg" alt=""></picture></span><dt>Категория</dt><dd>Доводчики</dd></div>
+        {{> hero-feature icon="check" label="Назначение" value="Закрывание дверей"}}
+        {{> hero-feature icon="cycles" label="Механизм" value="Плавное движение"}}
+        {{> hero-feature icon="steel" label="Категория" value="Доводчики"}}
       </dl>
     </div>
     <div class="hero__scene hero__slide" hidden>
@@ -62,9 +62,9 @@
         <a class="hero__cta" href="https://nora-m.ru/shop/furnitura/">Узнать подробнее</a>
       </div>
     <dl class="hero__features">
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/check-mobile.svg"><img src="/src/assets/hero/check.svg" alt=""></picture></span><dt>Гарантия</dt><dd>3 года</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/cycles-mobile.svg"><img src="/src/assets/hero/cycles.svg" alt=""></picture></span><dt>Ресурс срабатывания</dt><dd>500 000 циклов</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/steel-mobile.svg"><img src="/src/assets/hero/steel.svg" alt=""></picture></span><dt>Материал</dt><dd>Сталь</dd></div>
+        {{> hero-feature icon="check" label="Гарантия" value="3 года"}}
+        {{> hero-feature icon="cycles" label="Ресурс срабатывания" value="500 000 циклов"}}
+        {{> hero-feature icon="steel" label="Материал" value="Сталь"}}
       </dl>
     </div>
     <div class="hero__door-slide hero__slide swiper" hidden>
@@ -85,9 +85,9 @@
         <a class="hero__cta" href="https://nora-m.ru/shop/dvernye-petli/">Узнать подробнее</a>
       </div>
       <dl class="hero__features">
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/check-mobile.svg"><img src="/src/assets/hero/check.svg" alt=""></picture></span><dt>Назначение</dt><dd>Установка дверей</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/cycles-mobile.svg"><img src="/src/assets/hero/cycles.svg" alt=""></picture></span><dt>Механизм</dt><dd>Открывание и закрывание</dd></div>
-        <div><span><picture><source media="(width &lt;= 63.99875rem)" srcset="/src/assets/hero/steel-mobile.svg"><img src="/src/assets/hero/steel.svg" alt=""></picture></span><dt>Категория</dt><dd>Петли</dd></div>
+        {{> hero-feature icon="check" label="Назначение" value="Установка дверей"}}
+        {{> hero-feature icon="cycles" label="Механизм" value="Открывание и закрывание"}}
+        {{> hero-feature icon="steel" label="Категория" value="Петли"}}
       </dl>
     </div>
     <div class="hero__scene hero__slide" hidden>
@@ -95,8 +95,12 @@
     </div>
   </div>
   <div class="hero__controls hero__controls--arrows" role="group" aria-label="Слайды">
-    <button type="button" aria-label="Предыдущий слайд"><img src="/src/assets/hero/control.svg" alt=""></button>
-    <button type="button" aria-label="Следующий слайд"><img src="/src/assets/hero/control.svg" alt=""><svg class="hero__timeline" viewBox="0 0 44 44" aria-hidden="true"><rect class="hero__timeline-track" x="0.5" y="0.5" width="43" height="43" rx="9.5"></rect><rect class="hero__timeline-progress" x="0.5" y="0.5" width="43" height="43" rx="9.5" pathLength="1" stroke-dashoffset="1"></rect></svg></button>
+    {{> nora-slider-arrow label="Предыдущий слайд" controls="hero-panels" }}
+    {{#> nora-slider-arrow label="Следующий слайд" controls="hero-panels" next=true }}
+      <svg class="hero__timeline" viewBox="0 0 44 44" aria-hidden="true">
+        <rect class="hero__timeline-progress" x="0.5" y="0.5" width="43" height="43" rx="9.5" pathLength="1" stroke-dashoffset="1"></rect>
+      </svg>
+    {{/nora-slider-arrow}}
   </div>
   <div class="hero__controls hero__controls--dots" role="group" aria-label="Слайды">
     <button type="button" aria-label="Навесные замки НОРА-М" aria-pressed="true"></button>

@@ -1,0 +1,34 @@
+@use '../helpers' as helpers;
+
+.nora-chip {
+  padding: helpers.rem(6) helpers.rem(15);
+
+  border: 1px solid var(--nora-color-border-strong);
+  border-radius: helpers.rem(8);
+  background: transparent;
+  color: var(--nora-color-text-primary);
+
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) var(--transition-easing), color var(--transition-duration) var(--transition-easing), border-color var(--transition-duration) var(--transition-easing);
+
+  @media (any-hover: hover) {
+    &:hover {
+      border-color: var(--nora-color-text-primary);
+      background: var(--nora-color-text-primary);
+      color: var(--nora-color-background-canvas);
+    }
+  }
+
+  @include helpers.mobile {
+    padding: helpers.phone-vw(6) helpers.phone-vw(15);
+
+    font-size: helpers.phone-vw(14);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nora-chip {
+    transition: none;
+  }
+}

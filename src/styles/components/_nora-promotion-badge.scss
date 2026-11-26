@@ -1,0 +1,13 @@
+@use '../helpers' as helpers;
+
+.nora-promotion-badge {
+  padding: helpers.rem(6) helpers.rem(11);
+
+  display: inline-block;
+
+  border-radius: helpers.rem(8);
+  background: var(--nora-color-brand-accent);
+  color: var(--nora-color-background-canvas);
+
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+}

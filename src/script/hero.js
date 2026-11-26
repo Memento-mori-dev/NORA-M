@@ -8,7 +8,7 @@ const hero = document.querySelector('.hero');
 
 if (hero) {
   const panels = hero.querySelector('.hero__panels');
-  const info = panels.querySelectorAll('.hero__info');
+  const info = [...panels.querySelectorAll('.hero__info')];
   const slides = panels.querySelectorAll('.hero__slide');
   const arrows = hero.querySelectorAll('.hero__controls--arrows button');
   const dots = hero.querySelectorAll('.hero__controls--dots button');
@@ -34,8 +34,9 @@ if (hero) {
   const drawingEnter = CustomEase.create('hero-drawing-enter', '.24,.62,.24,1');
   const drawingExit = CustomEase.create('hero-drawing-exit', '.32,.12,.24,1');
   const caption = diagram.querySelector('figcaption');
+  const labels = [...caption.children];
   diagram.remove();
-  const illustrations = Array.from(info, (panel, index) => {
+  const illustrations = info.map((panel, index) => {
     const illustration = diagram.cloneNode(true);
     illustration.querySelectorAll('.hero__drawing-layer').forEach((layer, layerIndex) => {
       if (layerIndex === index) layer.hidden = false;
@@ -130,6 +131,10 @@ if (hero) {
     return desktop.matches && !reducedMotion.matches;
   }
 
+  function shouldPauseTimer() {
+    return document.hidden || hero.matches(':has(:focus-visible)');
+  }
+
   function restartTimer() {
     gsap.set(progress, { attr: { 'stroke-dashoffset': 1 } });
     startTimer();
@@ -143,7 +148,7 @@ if (hero) {
       attr: { 'stroke-dashoffset': 0 },
       duration: slideDelay,
       ease: 'none',
-      paused: document.hidden || hero.matches(':has(:focus-visible)'),
+      paused: shouldPauseTimer(),
       onComplete: () => showSlide((activeIndex + 1) % slides.length),
     });
   }
@@ -160,9 +165,13 @@ if (hero) {
   function syncDrawing() {
     drawings.forEach((layer, index) => {
       layer.hidden = index !== activeIndex;
-      caption.children[index].hidden = index !== activeIndex;
     });
+    syncCaption();
     gsap.set(drawings, { clearProps: 'transform,opacity,clipPath,zIndex' });
+  }
+
+  function syncCaption() {
+    labels.forEach((label, index) => { label.hidden = index !== activeIndex; });
   }
 
   function animateDrawing(timeline, previousIndex) {
@@ -183,11 +192,7 @@ if (hero) {
       duration: 0.62,
       ease: drawingEnter,
     }, 0.14);
-    timeline.call(() => {
-      for (const [index, label] of Array.from(caption.children).entries()) {
-        label.hidden = index !== activeIndex;
-      }
-    }, [], 0.24);
+    timeline.call(syncCaption, [], 0.24);
   }
 
   function prepareGallery() {
@@ -200,7 +205,7 @@ if (hero) {
   }
 
   function restoreIllustration() {
-    const index = Array.from(info).indexOf(diagram.parentElement);
+    const index = info.indexOf(diagram.parentElement);
     if (index !== -1) diagram.replaceWith(illustrations[index]);
   }
 
@@ -240,13 +245,22 @@ if (hero) {
       return;
     }
 
-    const leaving = photoLayers(outgoing);
+    animateSlide(previousIndex);
+  }
+
+  function animateSlide(previousIndex) {
+    const outgoing = slides[previousIndex];
+    const incoming = slides[activeIndex];
+    const leaving = outgoing ? photoLayers(outgoing) : [];
     const entering = photoLayers(incoming);
-    gsap.set(incoming, { zIndex: 1 });
+
+    if (outgoing) gsap.set(incoming, { zIndex: 1 });
     transition = gsap.timeline({
       onComplete() {
-        outgoing.hidden = true;
-        gsap.set(incoming, { clearProps: 'zIndex' });
+        if (outgoing) {
+          outgoing.hidden = true;
+          gsap.set(incoming, { clearProps: 'zIndex' });
+        }
         gsap.set([...leaving, ...entering], { clearProps: 'transform,opacity,clipPath' });
         resetCopy();
         syncDrawing();
@@ -254,19 +268,20 @@ if (hero) {
         startTimer();
       },
     });
-    transition
-      .to(leaving, { scale: 0.9, y: -8, opacity: 0, duration: 0.45, ease: menuSlide.ease }, 0)
-      .fromTo(entering, {
-        yPercent: 100,
-        opacity: 0,
-        clipPath: 'inset(0% 0% 100% 0% round 20px)',
-      }, {
-        yPercent: 0,
-        opacity: 1,
-        clipPath: 'inset(0% 0% 0% 0% round 20px)',
-        ...menuSlide,
-        stagger: 0.06,
-      }, 0.1);
+    if (outgoing) {
+      transition.to(leaving, { scale: 0.9, y: -8, opacity: 0, duration: 0.45, ease: menuSlide.ease }, 0);
+    }
+    transition.fromTo(entering, {
+      yPercent: 100,
+      opacity: 0,
+      clipPath: 'inset(0% 0% 100% 0% round 20px)',
+    }, {
+      yPercent: 0,
+      opacity: 1,
+      clipPath: 'inset(0% 0% 0% 0% round 20px)',
+      ...menuSlide,
+      stagger: outgoing ? 0.06 : 0,
+    }, outgoing ? 0.1 : 0);
     const resetCopy = animateCopy(transition);
     animateDrawing(transition, previousIndex);
     animateProgress(transition);
@@ -338,7 +353,7 @@ if (hero) {
   }
 
   function syncTimerPause() {
-    timer?.paused(document.hidden || hero.matches(':has(:focus-visible)'));
+    timer?.paused(shouldPauseTimer());
   }
 
   desktop.addEventListener('change', syncMotion);
@@ -361,29 +376,6 @@ if (hero) {
 
   if (hasHeroMotion()) {
     timer?.kill();
-    const entering = photoLayers(slides[0]);
-    transition = gsap.timeline({
-      onComplete() {
-        gsap.set([...entering], { clearProps: 'transform,opacity,clipPath' });
-        resetCopy();
-        syncDrawing();
-        transition = null;
-        startTimer();
-      },
-    });
-    transition
-      .fromTo(entering, {
-        yPercent: 100,
-        opacity: 0,
-        clipPath: 'inset(0% 0% 100% 0% round 20px)',
-      }, {
-        yPercent: 0,
-        opacity: 1,
-        clipPath: 'inset(0% 0% 0% 0% round 20px)',
-        ...menuSlide,
-      }, 0);
-    const resetCopy = animateCopy(transition);
-    animateDrawing(transition);
-    animateProgress(transition);
+    animateSlide();
   }
 }

@@ -1,0 +1,24 @@
+<section class="promotions" aria-labelledby="promotions-title">
+  <div class="promotions__header">
+    <div class="promotions__intro">
+      <h2 class="nora-heading promotions__title" id="promotions-title">Выгодные предложения</h2>
+      <p class="promotions__description">Специальные цены на дверную и мебельную фурнитуру. Выбирайте качественные решения на выгодных условиях.</p>
+    </div>
+    {{> nora-catalog-link class="promotions__all" href="https://nora-m.ru/shop/?q=акции" label="Смотреть все акции" }}
+  </div>
+
+  <div class="promotions__slider swiper" id="promotions-cards">
+    <div class="promotions__cards swiper-wrapper">
+      {{#each promotionSlides}}
+        {{> promotion-card this }}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="promotions__pagination nora-slider-pagination" role="group" aria-label="Слайды акций"></div>
+
+  <div class="promotions__controls">
+    {{> nora-slider-arrow label="Предыдущая акция" controls="promotions-cards" disabled=true }}
+    {{> nora-slider-arrow label="Следующая акция" controls="promotions-cards" next=true disabled=true }}
+  </div>
+</section>

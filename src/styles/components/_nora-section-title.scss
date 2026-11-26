@@ -1,0 +1,9 @@
+@use '../helpers' as helpers;
+
+.nora-section-title {
+  margin: 0;
+
+  color: var(--nora-color-text-primary);
+
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+}

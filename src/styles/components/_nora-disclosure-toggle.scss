@@ -1,0 +1,57 @@
+@use '../helpers' as helpers;
+
+.nora-disclosure-toggle {
+  padding: 0;
+
+  align-items: center;
+  gap: helpers.rem(4);
+
+  border: 0;
+  background: transparent;
+  color: var(--nora-color-text-primary);
+
+  font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+
+  cursor: pointer;
+  transition: color var(--transition-duration) var(--transition-easing);
+
+  &:not([hidden]) {
+    display: inline-flex;
+  }
+
+  @include helpers.hover(false) {
+    color: var(--nora-color-brand-accent);
+  }
+
+  &--preview-hover {
+    color: var(--nora-color-brand-accent);
+  }
+
+  &__icon {
+    width: helpers.rem(20);
+    height: helpers.rem(20);
+
+    flex: none;
+
+    background: currentColor;
+    mask: url('/src/assets/catalog-menu/pc-promo-arrow.svg') center / contain no-repeat;
+
+    transition: transform var(--transition-duration) var(--transition-easing);
+  }
+
+  &[aria-expanded='false'] &__label--expanded,
+  &[aria-expanded='true'] &__label--collapsed {
+    display: none;
+  }
+
+  &[aria-expanded='true'] &__icon {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &__icon {
+      transition: none;
+    }
+  }
+}

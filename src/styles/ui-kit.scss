@@ -1,7 +1,17 @@
+@use 'components/nora-heading';
+@use 'components/nora-chip';
+@use 'components/nora-catalog-link';
+@use 'components/nora-card-actions';
+@use 'components/nora-stock-status';
 @use 'normalize';
 @use 'fonts';
 @use 'variables';
 @use 'helpers' as helpers;
+@use 'components/nora-icon-link';
+@use 'components/nora-slider-controls';
+@use 'components/nora-promotion-badge';
+@use 'components/nora-disclosure-toggle';
+@use 'components/nora-section-title';
 
 .ui-kit-page {
   background: var(--nora-color-background-subtle);
@@ -242,8 +252,7 @@
     min-width: helpers.rem(156);
   }
 
-  &--icon,
-  &--control {
+  &--icon {
     width: helpers.rem(40);
     height: helpers.rem(40);
     min-height: 0;
@@ -253,32 +262,6 @@
 
   &--preview-hover {
     background: var(--nora-color-brand-accent);
-  }
-
-  &--control {
-    width: helpers.rem(44);
-    height: helpers.rem(44);
-
-    border: helpers.rem(1) solid var(--nora-color-border-strong);
-    background: transparent;
-
-    .nora-button__chevron {
-      transform: rotate(-90deg) scaleY(-1);
-    }
-
-    @include helpers.hover(false) {
-      border-color: var(--nora-color-text-primary);
-      background: transparent;
-    }
-
-    &:active {
-      background: var(--nora-color-background-pressed);
-    }
-  }
-
-  &--control.nora-button--preview-hover {
-    border-color: var(--nora-color-text-primary);
-    background: transparent;
   }
 }
 

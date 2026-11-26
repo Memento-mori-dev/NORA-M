@@ -1,0 +1,63 @@
+@use '../helpers' as helpers;
+
+.about-company {
+  margin-block: helpers.rem(32);
+
+  display: grid;
+  justify-items: start;
+  gap: helpers.rem(24);
+
+  color: var(--nora-color-text-primary);
+
+  font: 400 #{helpers.rem(14)} / #{helpers.rem(20)} 'Onest', Arial, sans-serif;
+
+  &__intro {
+    width: 100%;
+    max-width: helpers.rem(1048);
+
+    display: grid;
+    gap: helpers.rem(16);
+  }
+
+  &__title.nora-heading {
+    max-width: helpers.rem(268);
+
+    @include helpers.mobile {
+      font-size: helpers.rem(20);
+    }
+  }
+
+  &__text p {
+    margin: 0;
+  }
+
+  &__text > p:last-of-type,
+  &__details-inner p {
+    margin-block-start: 1lh;
+  }
+
+  &__details {
+    display: grid;
+    grid-template-rows: 1fr;
+
+    &[inert] {
+      grid-template-rows: 0fr;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      &.is-animated {
+        transition: grid-template-rows .35s var(--transition-easing);
+      }
+    }
+  }
+
+  &__details-inner {
+    overflow: hidden;
+  }
+
+  @include helpers.mobile-above {
+    margin-block-start: 0;
+
+    padding-block: helpers.rem(48);
+  }
+}

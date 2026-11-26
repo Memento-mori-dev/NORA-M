@@ -1,0 +1,11 @@
+<li class="popular-categories__tile{{#if wide}} popular-categories__tile--wide{{/if}}{{#if desktopOnly}} popular-categories__tile--desktop-only{{/if}}" data-category="{{image}}">
+  <span class="popular-categories__count">{{count}}</span>
+  <picture class="popular-categories__illustration">
+    {{#unless desktopOnly}}
+      <source media="(width &lt; 48rem)" srcset="/src/assets/popular-categories/{{image}}-mobile.svg">
+    {{/unless}}
+    <img src="/src/assets/popular-categories/{{image}}.svg" alt="">
+  </picture>
+  <span class="popular-categories__name">{{name}}</span>
+  {{> nora-icon-link className="popular-categories__action" href=href label=name }}
+</li>
