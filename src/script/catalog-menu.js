@@ -255,18 +255,7 @@ if (menu && trigger) {
     }
   }
 
-  trigger.setAttribute('role', 'button');
-  trigger.setAttribute('aria-controls', menu.id);
-  trigger.setAttribute('aria-expanded', 'false');
-  trigger.addEventListener('click', event => {
-    event.preventDefault();
-    setOpen(!isOpen);
-  });
-  trigger.addEventListener('keydown', event => {
-    if (event.key !== ' ') return;
-    event.preventDefault();
-    trigger.click();
-  });
+  trigger.addEventListener('click', () => setOpen(!isOpen));
 
   function stopSmoothScroll() {
     scrollTween?.kill();

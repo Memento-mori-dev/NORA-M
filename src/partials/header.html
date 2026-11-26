@@ -40,7 +40,7 @@
         <img src="/src/assets/header/mobile-menu-close.svg" alt="">
       </button>
 
-      <a class="header__catalog" href="https://nora-m.ru/shop/">
+      <button class="header__catalog" type="button" aria-expanded="false" aria-controls="catalog-menu">
         <span class="header__catalog-icons" aria-hidden="true">
           {{> mobile-picture className="header__catalog-icon header__catalog-icon--closed" mobileSrc="/src/assets/header/mobile-catalog.svg" fallbackSrc="/src/assets/header/desktop-catalog.svg" }}
           {{> mobile-picture className="header__catalog-icon header__catalog-icon--open" mobileSrc="/src/assets/header/mobile-catalog-open.svg" fallbackSrc="/src/assets/header/catalog-open-grid.svg" }}
@@ -50,7 +50,7 @@
           {{> mobile-picture className="header__catalog-icon header__catalog-icon--closed" mobileSrc="/src/assets/header/mobile-catalog-chevron.svg" fallbackSrc="/src/assets/header/desktop-chevron.svg" }}
           {{> mobile-picture className="header__catalog-icon header__catalog-icon--open header__catalog-close" mobileSrc="/src/assets/header/mobile-menu-close.svg" fallbackSrc="/src/assets/header/catalog-open-close.svg" }}
         </span>
-      </a>
+      </button>
 
       <div class="header__drawer">
         <div class="header__drawer-shade" aria-hidden="true"></div>
