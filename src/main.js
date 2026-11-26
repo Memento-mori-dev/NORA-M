@@ -3,3 +3,4 @@ import './script/catalog-menu.js';
 import { useDynamicAdapt } from './script/dynamicAdapt';
 
 useDynamicAdapt();
+import './script/footer.js';

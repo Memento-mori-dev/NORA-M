@@ -286,6 +286,8 @@
   }
 
   @include helpers.mobile {
+    margin-bottom: helpers.rem(8);
+
     &__bottom {
       position: fixed;
       inset: auto 0 0;
