@@ -1,4 +1,5 @@
 import { getSliderNavigation } from './nora-slider-navigation.js';
+import { getSliderPagination } from './nora-slider-pagination.js';
 import Swiper from '../vendor/swiper/swiper-bundle.min.js';
 import '../vendor/swiper/swiper-bundle.min.css';
 
@@ -22,12 +23,6 @@ if (section) {
       ...getSliderNavigation(section),
       lockClass: 'promotions__arrow--locked',
     },
-    pagination: {
-      el: section.querySelector('.promotions__pagination'),
-      clickable: true,
-      bulletElement: 'button',
-      bulletClass: 'nora-slider-pagination__dot',
-      bulletActiveClass: 'nora-slider-pagination__dot--active',
-    },
+    pagination: getSliderPagination(section.querySelector('.promotions__pagination')),
   });
 }

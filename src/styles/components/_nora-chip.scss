@@ -21,6 +21,24 @@
     }
   }
 
+  &--outline {
+    padding-inline: helpers.rem(12);
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: var(--nora-color-brand-accent);
+        background: transparent;
+        color: var(--nora-color-brand-accent);
+      }
+    }
+
+    &:active,
+    &:focus-visible {
+      border-color: var(--nora-color-brand-accent);
+      color: var(--nora-color-brand-accent);
+    }
+  }
+
   @include helpers.mobile {
     padding: helpers.phone-vw(6) helpers.phone-vw(15);
 

@@ -31,6 +31,9 @@
     --header-bottom-height: calc(#{rem(64)} + env(safe-area-inset-bottom, 0px));
     --layout-breakpoint: #{rem($desktop-min-width)};
     --container-width: #{rem($desktop-max-width)};
+    --content-max-width: #{rem(1400)};
+    --section-inner-gutter: #{rem(16)};
+    --section-outer-gutter: clamp(0rem, (100% - var(--content-max-width) - 2 * var(--section-inner-gutter)) / 2, #{rem(8)});
     --container-padding-x: #{phone-vw(16)};
 
     // animation

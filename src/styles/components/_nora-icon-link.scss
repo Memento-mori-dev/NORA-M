@@ -1,6 +1,7 @@
 @use '../helpers' as helpers;
 
 .nora-icon-link {
+  --nora-icon-link-background: var(--nora-color-text-primary);
   --nora-icon-link-duration: .3s;
   --nora-icon-link-delay: calc(var(--nora-icon-link-duration) / 1.8);
   --nora-icon-link-ease-in: cubic-bezier(.9, 0, 1, 1);
@@ -21,6 +22,7 @@
   color: var(--nora-color-background-canvas);
 
   text-decoration: none;
+  transition: color var(--transition-duration) var(--transition-easing);
 
   &::before,
   &::after {
@@ -38,7 +40,7 @@
   &::before {
     z-index: -2;
 
-    background: var(--nora-color-text-primary);
+    background: var(--nora-icon-link-background);
 
     transition-delay: var(--nora-icon-link-delay);
     transition-timing-function: var(--nora-icon-link-ease-out);
@@ -66,6 +68,12 @@
     font: 500 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
   }
 
+  &--light {
+    --nora-icon-link-background: var(--nora-color-background-canvas);
+
+    color: var(--nora-color-text-primary);
+  }
+
   &__icon {
     width: helpers.rem(20);
     height: helpers.rem(20);
@@ -77,6 +85,8 @@
   }
 
   @include helpers.hover(false) {
+    color: var(--nora-color-background-canvas);
+
     &::before {
       transform: scale(.85);
       transition-delay: 0s;
@@ -91,7 +101,10 @@
   }
 
   &--preview-hover,
+  &--light:focus-visible,
   &:active {
+    color: var(--nora-color-background-canvas);
+
     &::before {
       transform: scale(.85);
     }
@@ -102,6 +115,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    &,
     &::before,
     &::after {
       transition: none;

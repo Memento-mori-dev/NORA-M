@@ -5,6 +5,7 @@ import handlebars from 'vite-plugin-handlebars';
 import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 import { checkLocalLinks } from './plugins/check-local-links.js';
 import { catalogGroups } from './src/data/catalog-menu.js';
+import { partnerSlides } from './src/data/partners.js';
 import { promotionSlides } from './src/data/promotions.js';
 import { headerDemoLinks } from './src/data/header-demo-links.js';
 import { responsiveImages } from './plugins/responsive-images.js';
@@ -21,7 +22,7 @@ const assetDirectories = {
 };
 
 const templates = handlebars({
-  context: { catalogGroups, headerDemoLinks, promotionSlides },
+  context: { catalogGroups, headerDemoLinks, partnerSlides, promotionSlides },
   partialDirectory: fileURLToPath(new URL('./src/partials', import.meta.url)),
 });
 const reloadPartial = templates.handleHotUpdate;

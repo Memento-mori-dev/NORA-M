@@ -8,9 +8,9 @@
 }
 
 .site-footer {
-  margin: auto helpers.rem(8) helpers.rem(8);
+  margin: auto var(--section-outer-gutter) helpers.rem(8);
 
-  padding: helpers.rem(32) helpers.rem(16) helpers.rem(16);
+  padding: helpers.rem(32) var(--section-inner-gutter) helpers.rem(16);
 
   border-radius: helpers.rem(20);
   background: var(--nora-color-background-pressed);
@@ -60,7 +60,7 @@
   }
 
   &__inner {
-    width: min(100%, helpers.rem(1400));
+    width: min(100%, var(--content-max-width));
     margin-inline: auto;
     display: grid;
     gap: helpers.rem(48);
@@ -260,9 +260,9 @@
   }
 
   @include helpers.mobile {
-    margin: auto 0 0;
+    margin-block-end: 0;
 
-    padding: helpers.rem(24) helpers.rem(16);
+    padding: helpers.rem(24) var(--section-inner-gutter);
 
     border-radius: helpers.rem(16) helpers.rem(16) 0 0;
 

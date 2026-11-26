@@ -1,0 +1,228 @@
+@use '../helpers' as helpers;
+
+.brand-lines {
+  margin-bottom: helpers.rem(32);
+
+  &__slider {
+    margin-top: helpers.rem(24);
+  }
+
+  &__cards.swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: helpers.rem(8);
+  }
+
+  &__card {
+    overflow: clip;
+
+    position: relative;
+
+    box-sizing: border-box;
+    min-height: helpers.rem(347);
+
+    border-radius: helpers.rem(20);
+  }
+
+  &__cover {
+    overflow: hidden;
+
+    position: absolute;
+    inset: 0;
+
+    padding: helpers.rem(24);
+
+    border-radius: inherit;
+    background: var(--nora-color-category-preview);
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    &--nora {
+      object-position: 16% center;
+    }
+  }
+
+  &__name.nora-heading {
+    position: relative;
+
+    color: var(--nora-color-background-canvas);
+
+    font-size: helpers.rem(20);
+  }
+
+  &__panel {
+    position: absolute;
+    inset: 0;
+
+    padding: helpers.rem(24);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: helpers.rem(16);
+
+    border: helpers.rem(1) solid var(--nora-color-border-subtle-translucent);
+    border-radius: inherit;
+    background: var(--nora-color-background-canvas);
+
+    transform: translateY(100%);
+  }
+
+  &__pagination.nora-slider-pagination {
+    display: none;
+  }
+
+  &__card:focus-within &__panel {
+    transform: none;
+  }
+
+  @media (any-hover: hover) and (prefers-reduced-motion: reduce) {
+    &__card:hover &__panel {
+      transform: none;
+    }
+  }
+
+  &__panel-name.nora-heading {
+    font-size: helpers.rem(20);
+  }
+
+  &__description {
+    margin: helpers.rem(16) 0 0;
+
+    font: 400 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+  }
+
+  &__links {
+    max-width: helpers.rem(242);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: helpers.rem(8);
+  }
+
+  @include helpers.tablet-layout {
+    @include helpers.tablet {
+      &__cards.swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  @include helpers.mobile {
+    margin-bottom: helpers.rem(16);
+
+    padding-inline: helpers.rem(16);
+
+    &__title {
+      @include helpers.visually-hidden;
+    }
+
+    &__slider {
+      margin-top: 0;
+    }
+
+    &__cards.swiper-wrapper {
+      height: auto;
+
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    &__card.swiper-slide {
+      height: auto;
+      min-height: 0;
+
+      padding: helpers.rem(8) helpers.rem(8) helpers.rem(16);
+
+      display: flex;
+      flex-direction: column;
+
+      border-radius: helpers.rem(16);
+      background: var(--nora-color-background-canvas);
+    }
+
+    &__cover {
+      display: contents;
+    }
+
+    &__media {
+      overflow: hidden;
+
+      position: static;
+
+      aspect-ratio: 327 / 190;
+
+      display: block;
+      flex-shrink: 0;
+
+      border-radius: helpers.rem(12);
+    }
+
+    &__photo--nora {
+      object-position: center;
+    }
+
+    &__name.nora-heading {
+      margin: helpers.rem(24) helpers.rem(8) helpers.rem(8);
+
+      color: var(--nora-color-text-primary);
+
+      font-size: helpers.rem(20);
+    }
+
+    &__card &__panel {
+      position: static;
+
+      padding: 0 helpers.rem(8);
+
+      display: flex;
+      flex: 1;
+      gap: helpers.rem(24);
+
+      border: 0;
+
+      transform: none;
+    }
+
+    &__panel-name.nora-heading {
+      display: none;
+    }
+
+    &__description {
+      margin: 0;
+    }
+
+    &__links {
+      max-width: none;
+
+      .nora-chip {
+        padding: helpers.rem(6) helpers.rem(12);
+
+        font-size: helpers.rem(14);
+      }
+
+      .nora-chip:last-child {
+        order: -1;
+      }
+    }
+
+    &__pagination.nora-slider-pagination {
+      min-height: helpers.rem(8);
+      margin-top: helpers.rem(16);
+
+      display: flex;
+    }
+  }
+
+}

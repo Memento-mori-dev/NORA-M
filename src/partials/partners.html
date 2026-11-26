@@ -1,0 +1,13 @@
+<section class="partners" aria-labelledby="partners-title">
+  <div class="container">
+    <h2 class="nora-section-title" id="partners-title">Партнеры</h2>
+
+    <div class="partners__slider swiper">
+      <ul class="partners__list swiper-wrapper" role="list">
+        {{#each partnerSlides}}
+          {{> nora-partner-card tag="li" slide=true logo=logo label=label }}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</section>

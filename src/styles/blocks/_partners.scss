@@ -1,0 +1,47 @@
+@use '../helpers' as helpers;
+
+.brand-showcase {
+  margin-inline: var(--section-outer-gutter);
+
+  padding-block: helpers.rem(48);
+
+  border-radius: helpers.rem(20);
+  background: var(--nora-color-background-pressed);
+
+  @include helpers.mobile {
+    padding-block: helpers.rem(24);
+
+    border-radius: helpers.rem(16);
+  }
+}
+
+.partners {
+  &__slider {
+    margin-top: helpers.rem(24);
+  }
+
+  &__list {
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .nora-partner-card.swiper-slide {
+    width: calc((100% - #{helpers.rem(24)}) / 4);
+
+    display: grid;
+  }
+
+  @include helpers.mobile {
+    &__slider.swiper {
+      margin-top: helpers.rem(16);
+      margin-inline-end: calc(-1 * var(--container-padding-x));
+    }
+
+    .nora-partner-card.swiper-slide {
+      width: helpers.rem(188);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<section class="contact-banner" aria-labelledby="contact-banner-title">
+  <div class="contact-banner__content">
+    <div class="contact-banner__copy">
+      <h2 class="nora-heading contact-banner__title" id="contact-banner-title">У вас остались вопросы?</h2>
+      <p class="contact-banner__description">Напишите нам, если нужна помощь с выбором товара или консультация по заказу. <span>Мы свяжемся с вами и поможем разобраться.</span></p>
+    </div>
+
+    {{> nora-icon-link href="mailto:info@nora-m.ru" label="Оставить заявку" showLabel=true light=true }}
+  </div>
+
+  <picture class="contact-banner__picture">
+    <source media="(width < 48rem)" srcset="/src/assets/contact-banner/hardware-mobile.webp" width="447" height="212">
+    <img class="contact-banner__image" src="/src/assets/contact-banner/hardware.webp" width="756" height="330" alt="" loading="lazy">
+  </picture>
+</section>

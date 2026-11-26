@@ -265,6 +265,7 @@
           {{> nora-chip href="https://nora-m.ru/shop/?q=хиты" label="Хиты" }}
           {{> nora-chip href="https://nora-m.ru/shop/?q=новинки" label="Новинки" }}
           {{> nora-chip href="https://nora-m.ru/shop/?q=акции" label="Акции" }}
+          {{> brand-line-links }}
         </div>
         <div class="ui-kit__example">
           {{> nora-catalog-link href="https://nora-m.ru/shop/" label="Смотреть весь каталог" }}
@@ -273,6 +274,18 @@
           <div class="ui-kit__example"><span>Сравнение</span>{{> nora-compare-button }}</div>
           <div class="ui-kit__example"><span>Избранное</span>{{> nora-favorite-button }}</div>
           <div class="ui-kit__example"><span>Корзина — добавление и удаление</span>{{> nora-bag-button }}</div>
+        </div>
+      </section>
+      <section class="ui-kit__section" aria-labelledby="partner-card-title">
+        <h2 id="partner-card-title">Карточка партнера</h2>
+        <div class="ui-kit__examples">
+          {{> nora-partner-card tag="div" logo="/src/assets/partners/efd-placeholder.png" label="EFD Papadopoulos" }}
+        </div>
+      </section>
+      <section class="ui-kit__section" aria-labelledby="main-link-title">
+        <h2 id="main-link-title">Светлая кнопка-ссылка</h2>
+        <div class="ui-kit__examples">
+          {{> nora-icon-link href="mailto:info@nora-m.ru" label="Оставить заявку" showLabel=true light=true }}
         </div>
       </section>
     </main>

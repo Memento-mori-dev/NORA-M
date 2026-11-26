@@ -1,4 +1,4 @@
-<a class="nora-icon-link{{#if className}} {{className}}{{/if}}{{#if showLabel}} nora-icon-link--with-label{{/if}}{{#if previewHover}} nora-icon-link--preview-hover{{/if}}" href="{{href}}"{{#unless showLabel}} aria-label="{{label}}"{{/unless}}>
+<a class="nora-icon-link{{#if className}} {{className}}{{/if}}{{#if showLabel}} nora-icon-link--with-label{{/if}}{{#if light}} nora-icon-link--light{{/if}}{{#if previewHover}} nora-icon-link--preview-hover{{/if}}" href="{{href}}"{{#unless showLabel}} aria-label="{{label}}"{{/unless}}>
   {{#if showLabel}}{{label}}{{/if}}
-  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+  {{#unless light}}<span class="nora-icon-link__icon" aria-hidden="true"></span>{{/unless}}
 </a>

@@ -1,0 +1,18 @@
+<article class="brand-lines__card swiper-slide">
+  <div class="brand-lines__cover">
+    <div class="brand-lines__media">
+      <img class="brand-lines__photo{{#if nora}} brand-lines__photo--nora{{/if}}" src="{{photo}}" alt="" loading="lazy">
+    </div>
+    <h3 class="nora-heading brand-lines__name">{{name}}</h3>
+  </div>
+
+  <div class="brand-lines__panel">
+    <div>
+      <p class="nora-heading brand-lines__panel-name" aria-hidden="true">{{name}}</p>
+      <p class="brand-lines__description">{{description}}</p>
+    </div>
+    <div class="brand-lines__links">
+      {{> brand-line-links }}
+    </div>
+  </div>
+</article>

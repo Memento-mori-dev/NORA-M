@@ -1,0 +1,35 @@
+@use '../helpers' as helpers;
+
+.nora-partner-card {
+  --partner-logo-max: #{helpers.rem(80)};
+
+  box-sizing: border-box;
+  min-width: 0;
+  height: helpers.rem(100);
+
+  padding: helpers.rem(8);
+
+  display: grid;
+  place-items: center;
+
+  border: helpers.rem(1) solid var(--nora-color-border-subtle-translucent);
+  border-radius: helpers.rem(16);
+  background: var(--nora-color-background-canvas);
+
+  &__logo {
+    width: auto;
+    height: auto;
+    max-width: min(100%, var(--partner-logo-max));
+    max-height: var(--partner-logo-max);
+
+    object-fit: contain;
+  }
+
+  @include helpers.mobile-above {
+    --partner-logo-max: #{helpers.rem(106)};
+
+    height: helpers.rem(162);
+
+    border-radius: helpers.rem(20);
+  }
+}

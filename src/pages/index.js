@@ -4,3 +4,5 @@ import '../script/popular-categories.js';
 import '../script/recommendations.js';
 import '../script/promotions.js';
 import '../script/about-company.js';
+import '../script/brand-lines.js';
+import '../script/partners.js';
