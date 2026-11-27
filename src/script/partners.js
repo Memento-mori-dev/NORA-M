@@ -1,5 +1,5 @@
+import './nora-partner-card.js';
 import Swiper from '../vendor/swiper/swiper-bundle.min.js';
-import '../vendor/swiper/swiper-bundle.min.css';
 
 const transitionSpeed = 900;
 const slider = document.querySelector('.partners__slider');

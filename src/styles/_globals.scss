@@ -16,25 +16,8 @@ h4, .h4,
 h5, .h5,
 h6, .h6{
     color: #000;
-}
 
-h1, .h1{
-    @include fluid-text();
-}
-h2, .h2{
-    @include fluid-text();
-}
-h3, .h3{
-    @include fluid-text();
-}
-h4, .h4{
-    @include fluid-text();
-}
-h5, .h5{
-    @include fluid-text();
-}
-h6, .h6{
-    @include fluid-text();
+    font-size: rem(16);
 }
 
 a,

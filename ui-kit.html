@@ -99,11 +99,11 @@
             <div class="ui-kit__examples">
               <div class="ui-kit__example">
                 <span>Обычная</span>
-                <button class="nora-button nora-button--icon" type="button" aria-label="Далее"><img src="/src/assets/ui-kit/chevron-action.svg" alt="" class="nora-button__chevron"></button>
+                <button class="nora-button nora-button--icon" type="button" aria-label="Далее"><img loading="lazy" src="/src/assets/ui-kit/chevron-action.svg" alt="" class="nora-button__chevron"></button>
               </div>
               <div class="ui-kit__example">
                 <span>Наведение</span>
-                <button class="nora-button nora-button--icon nora-button--preview-hover" type="button" aria-label="Далее — состояние наведения"><img src="/src/assets/ui-kit/chevron-action.svg" alt="" class="nora-button__chevron"></button>
+                <button class="nora-button nora-button--icon nora-button--preview-hover" type="button" aria-label="Далее — состояние наведения"><img loading="lazy" src="/src/assets/ui-kit/chevron-action.svg" alt="" class="nora-button__chevron"></button>
               </div>
             </div>
           </div>
@@ -190,8 +190,8 @@
                 <span>Обычная</span>
                 <button class="nora-button nora-button--icon" type="button" aria-label="Добавить в корзину">
                   <span class="nora-button__bag" aria-hidden="true">
-                    <img src="/src/assets/ui-kit/bag-handle.svg" alt="" class="nora-button__bag-handle">
-                    <img src="/src/assets/ui-kit/bag-body.svg" alt="" class="nora-button__bag-body">
+                    <img loading="lazy" src="/src/assets/ui-kit/bag-handle.svg" alt="" class="nora-button__bag-handle">
+                    <img loading="lazy" src="/src/assets/ui-kit/bag-body.svg" alt="" class="nora-button__bag-body">
                   </span>
                 </button>
               </div>
@@ -199,8 +199,8 @@
                 <span>Наведение</span>
                 <button class="nora-button nora-button--icon nora-button--preview-hover" type="button" aria-label="Добавить в корзину — состояние наведения">
                   <span class="nora-button__bag" aria-hidden="true">
-                    <img src="/src/assets/ui-kit/bag-handle.svg" alt="" class="nora-button__bag-handle">
-                    <img src="/src/assets/ui-kit/bag-body.svg" alt="" class="nora-button__bag-body">
+                    <img loading="lazy" src="/src/assets/ui-kit/bag-handle.svg" alt="" class="nora-button__bag-handle">
+                    <img loading="lazy" src="/src/assets/ui-kit/bag-body.svg" alt="" class="nora-button__bag-body">
                   </span>
                 </button>
               </div>
@@ -214,9 +214,9 @@
                 <span>Обычная</span>
                 <button class="nora-point" type="button" aria-label="Точка на фото — обычное состояние" aria-pressed="false">
                   <span class="nora-point__tile" aria-hidden="true">
-                    <img src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
-                    <img src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
-                    <img src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
                   </span>
                 </button>
               </div>
@@ -224,9 +224,9 @@
                 <span>Наведение</span>
                 <button class="nora-point nora-point--preview-hover" type="button" aria-label="Точка на фото — состояние наведения" aria-pressed="false">
                   <span class="nora-point__tile" aria-hidden="true">
-                    <img src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
-                    <img src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
-                    <img src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
                   </span>
                 </button>
               </div>
@@ -234,9 +234,9 @@
                 <span>Активная</span>
                 <button class="nora-point" type="button" aria-label="Точка на фото — активное состояние" aria-pressed="true">
                   <span class="nora-point__tile" aria-hidden="true">
-                    <img src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
-                    <img src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
-                    <img src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-default.svg" alt="" class="nora-point__default">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-hover.svg" alt="" class="nora-point__hover">
+                    <img loading="lazy" src="/src/assets/ui-kit/point-active.svg" alt="" class="nora-point__active">
                   </span>
                 </button>
               </div>
@@ -279,7 +279,9 @@
       <section class="ui-kit__section" aria-labelledby="partner-card-title">
         <h2 id="partner-card-title">Карточка партнера</h2>
         <div class="ui-kit__examples">
-          {{> nora-partner-card tag="div" logo="/src/assets/partners/efd-placeholder.png" label="EFD Papadopoulos" }}
+          {{#with (lookup partnerSlides 0)}}
+            {{> nora-partner-card tag="div" }}
+          {{/with}}
         </div>
       </section>
       <section class="ui-kit__section" aria-labelledby="main-link-title">

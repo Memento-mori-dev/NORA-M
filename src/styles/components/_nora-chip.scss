@@ -41,8 +41,6 @@
 
   @include helpers.mobile {
     padding: helpers.phone-vw(6) helpers.phone-vw(15);
-
-    font-size: helpers.phone-vw(14);
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,3 +1,4 @@
+@use '../vendor/swiper/swiper-bundle.min.css';
 @use 'components/nora-heading';
 @use 'components/nora-chip';
 @use 'components/nora-catalog-link';
@@ -25,6 +26,9 @@
 @use 'blocks/contact-banner';
 @use 'blocks/wholesale-banner';
 @use 'blocks/about-company';
+@use 'blocks/company-reviews';
+@use 'blocks/useful-materials';
+@use 'blocks/company-news';
 @use 'blocks/footer';
 
 // @use './blocks/';

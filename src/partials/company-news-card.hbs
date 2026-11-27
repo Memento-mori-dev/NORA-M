@@ -1,0 +1,12 @@
+<article class="company-news__card">
+  <div class="company-news__copy">
+    <p class="company-news__type">Статья</p>
+    <h3 class="company-news__card-title">{{title}}</h3>
+    <p class="company-news__description company-news__description--wide">{{description}}</p>
+    <p class="company-news__description company-news__description--mobile">{{mobileDescription}}</p>
+  </div>
+  <div class="company-news__card-footer">
+    <time class="company-news__date" datetime="{{datetime}}">{{date}}</time>
+    {{> nora-icon-link className="company-news__link" href=href label=title }}
+  </div>
+</article>

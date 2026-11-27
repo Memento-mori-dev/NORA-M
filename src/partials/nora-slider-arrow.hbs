@@ -1,5 +1,5 @@
 <button class="nora-slider-arrow{{#if next}} nora-slider-arrow--next{{/if}}{{#if previewHover}} nora-slider-arrow--preview-hover{{/if}}" type="button" aria-label="{{label}}"{{#if controls}} aria-controls="{{controls}}"{{/if}}{{#if disabled}} disabled{{/if}}>
-  <img src="/src/assets/ui-kit/chevron-control.svg" width="20" height="20" alt="">
+  <img{{#unless eager}} loading="lazy"{{/unless}} src="/src/assets/ui-kit/chevron-control.svg" width="20" height="20" alt="">
   {{#if @partial-block}}
     {{> @partial-block }}
   {{/if}}

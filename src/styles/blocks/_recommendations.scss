@@ -72,7 +72,7 @@
   }
 
   @include helpers.mobile {
-    &__title {
+    &__title.nora-heading {
       margin-bottom: helpers.phone-vw(8);
 
     }
@@ -258,7 +258,7 @@
     }
   }
 
-  &__bag {
+  &__bag.nora-cart-button {
     position: absolute;
     right: helpers.rem(8);
     bottom: helpers.rem(-4);
@@ -321,7 +321,7 @@
 
     border-radius: helpers.phone-vw(16);
 
-    font-size: helpers.phone-vw(12);
+    font-size: helpers.rem(12);
 
     &__media {
       height: helpers.phone-vw(108);
@@ -346,7 +346,7 @@
 
     &__title,
     &__price {
-      font-size: helpers.phone-vw(12);
+      font-size: helpers.rem(12);
       line-height: 1.2;
     }
 

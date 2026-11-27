@@ -75,8 +75,6 @@
     transform: rotate(-90deg);
   }
   @include helpers.mobile {
-    font-size: helpers.phone-vw(14);
-
     span {
       display: none;
     }

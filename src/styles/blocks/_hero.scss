@@ -609,6 +609,8 @@
     }
 
     &__timeline {
+      overflow: visible;
+
       position: absolute;
       inset: helpers.rem(-1);
 
@@ -625,12 +627,13 @@
       stroke: var(--nora-color-black);
       stroke-width: 1;
       stroke-dasharray: 1;
-      transition: stroke var(--transition-duration) var(--transition-easing);
+      transition-property: stroke, stroke-width;
     }
 
     @media (any-hover: hover) {
       &__controls--arrows .nora-slider-arrow--next:hover &__timeline-progress {
         stroke: var(--nora-color-brand-accent);
+        stroke-width: 3;
       }
     }
   }

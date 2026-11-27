@@ -43,9 +43,6 @@
 
     font: 400 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
 
-    span {
-      display: block;
-    }
   }
 
   &__picture {
@@ -75,7 +72,7 @@
     }
 
     &__title.nora-heading {
-      font-size: clamp(#{helpers.rem(26)}, 3vw, #{helpers.rem(36)});
+      font-size: helpers.rem(26);
     }
 
     &__description {
@@ -95,6 +92,12 @@
 
     &__image {
       aspect-ratio: auto 756 / 330;
+    }
+  }
+
+  @media (width >= #{helpers.rem(1080)}) {
+    &__title.nora-heading {
+      font-size: helpers.rem(36);
     }
   }
 }

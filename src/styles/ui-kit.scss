@@ -143,10 +143,6 @@
 
     &__section {
       padding-inline: max(#{helpers.rem(16)}, #{helpers.desktop-vw(32)});
-
-      h2 {
-        font-size: max(#{helpers.rem(20)}, #{helpers.desktop-vw(26)});
-      }
     }
   }
 

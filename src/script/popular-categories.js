@@ -1,7 +1,7 @@
 import { bindTouchPress } from './touch-press.js';
-import closersPhoto from '../assets/hero/closers.jpg';
-import hingesPhoto from '../assets/hero/hinges.jpg';
-import locksPhoto from '../assets/popular-categories/locks-preview.jpg';
+import closersPhoto from '../assets/hero/closers.jpg?webp';
+import hingesPhoto from '../assets/hero/hinges.jpg?webp';
+import locksPhoto from '../assets/popular-categories/locks-preview.jpg?webp';
 
 const photoByCategory = {
   'door-accessories': hingesPhoto,
@@ -41,11 +41,19 @@ if (categories) {
 
     updating = true;
 
+    const incomingLayer = document.createElement('div');
+    incomingLayer.className = 'popular-categories__photo-layer';
+    incomingLayer.style.visibility = 'hidden';
+    incomingLayer.setAttribute('aria-hidden', 'true');
+
     try {
       const image = new Image();
       image.className = 'popular-categories__photo';
       image.alt = tile.querySelector('.popular-categories__name').textContent;
+      image.loading = 'lazy';
       image.src = photoByCategory[tile.dataset.category];
+      incomingLayer.append(image);
+      preview.append(incomingLayer);
 
       try {
         await image.decode();
@@ -55,31 +63,27 @@ if (categories) {
 
       if (tile !== requestedTile || hoverTimer !== undefined || !wideLayout.matches) return;
 
-      const incomingLayer = document.createElement('div');
-      incomingLayer.className = 'popular-categories__photo-layer';
-      incomingLayer.append(image);
-
       const animate = !reducedMotion.matches;
       if (animate) {
-        incomingLayer.setAttribute('aria-hidden', 'true');
         incomingLayer.classList.add('is-entering');
         currentLayer.classList.add('is-leaving');
       }
 
-      preview.append(incomingLayer);
+      incomingLayer.style.removeProperty('visibility');
 
       if (animate) {
         // A breakpoint change can cancel the animation or prevent it from starting.
         const animations = incomingLayer.getAnimations();
         await Promise.allSettled(animations.map((animation) => animation.finished));
         incomingLayer.classList.remove('is-entering');
-        incomingLayer.removeAttribute('aria-hidden');
       }
+      incomingLayer.removeAttribute('aria-hidden');
 
       currentLayer.remove();
       currentLayer = incomingLayer;
       currentTile = tile;
     } finally {
+      if (incomingLayer !== currentLayer) incomingLayer.remove();
       updating = false;
       if (requestedTile !== tile) updatePreview();
     }

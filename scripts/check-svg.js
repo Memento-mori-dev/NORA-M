@@ -110,7 +110,7 @@ async function inspect(chrome, workspace, port, mode) {
   const sprite = new URL(links[0]);
   sprite.hash = '';
   assert.equal(sprite.origin, origin);
-  assert.match(sprite.pathname, mode === 'dev' ? /\/icons-dev\.svg$/ : /\/icons-[a-f0-9]{8}\.svg$/);
+  assert.equal(sprite.pathname, '/assets/svg/icons.svg');
   const spriteResponse = await fetch(sprite);
   assert(spriteResponse.ok && spriteResponse.headers.get('content-type')?.includes('image/svg+xml'), `${mode}: спрайт не загрузился`);
   const spriteText = await spriteResponse.text();

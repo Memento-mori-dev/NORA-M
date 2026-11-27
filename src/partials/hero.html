@@ -29,9 +29,9 @@
       </figure>
     </div>
     <div class="hero__scene hero__slide">
-      <img class="hero__photo" src="/src/assets/hero/scene.png" alt="Оранжевый всепогодный навесной замок НОРА-М с ключами">
+      <img class="hero__photo" src="/src/assets/hero/scene.png?webp" fetchpriority="high" alt="Оранжевый всепогодный навесной замок НОРА-М с ключами">
       <a class="hero__product" id="hero-product" href="https://m.nora-m.ru/catalog/navesnye-zamki/vsepogodnye-zamki/zamok-navesnoy-vsepogodnyy-znv-702/?art=20474">
-        <div class="hero__thumbnail"><img src="/src/assets/hero/product.png" alt=""></div>
+        <div class="hero__thumbnail"><img src="/src/assets/hero/product.png?webp" alt=""></div>
         <div class="hero__product-copy">
           <h2>Замок навесной всепогодный ЗНВ 702дд</h2>
           <p>Ремкомплект</p>
@@ -53,7 +53,7 @@
       </dl>
     </div>
     <div class="hero__scene hero__slide" hidden>
-      <img class="hero__photo hero__photo--category" src="/src/assets/hero/closers.jpg" alt="Дверные доводчики НОРА-М">
+      <img class="hero__photo hero__photo--category" src="/src/assets/hero/closers.jpg?webp" alt="Дверные доводчики НОРА-М">
     </div>
     <div class="hero__info" hidden>
       <div class="hero__copy">
@@ -70,10 +70,10 @@
     <div class="hero__door-slide hero__slide swiper" hidden>
       <div class="swiper-wrapper">
         <div class="hero__door-frame swiper-slide">
-          <img draggable="false" src="/src/assets/hero/door-closer.png" alt="Доводчик на деревянной двери">
+          <img draggable="false" src="/src/assets/hero/door-closer.png?webp" alt="Доводчик на деревянной двери">
         </div>
         <div class="hero__door-frame hero__door-frame--hinge swiper-slide">
-          <img draggable="false" src="/src/assets/hero/door-hinge.png" alt="Петля на деревянной двери">
+          <img draggable="false" src="/src/assets/hero/door-hinge.png?webp" alt="Петля на деревянной двери">
         </div>
       </div>
       <div class="hero__door-pagination swiper-pagination"></div>
@@ -91,12 +91,12 @@
       </dl>
     </div>
     <div class="hero__scene hero__slide" hidden>
-      <img class="hero__photo hero__photo--category" src="/src/assets/hero/hinges.jpg" alt="Дверные петли НОРА-М">
+      <img class="hero__photo hero__photo--category" src="/src/assets/hero/hinges.jpg?webp" alt="Дверные петли НОРА-М">
     </div>
   </div>
   <div class="hero__controls hero__controls--arrows" role="group" aria-label="Слайды">
-    {{> nora-slider-arrow label="Предыдущий слайд" controls="hero-panels" }}
-    {{#> nora-slider-arrow label="Следующий слайд" controls="hero-panels" next=true }}
+    {{> nora-slider-arrow label="Предыдущий слайд" controls="hero-panels" eager=true }}
+    {{#> nora-slider-arrow label="Следующий слайд" controls="hero-panels" eager=true next=true }}
       <svg class="hero__timeline" viewBox="0 0 44 44" aria-hidden="true">
         <rect class="hero__timeline-progress" x="0.5" y="0.5" width="43" height="43" rx="9.5" pathLength="1" stroke-dashoffset="1"></rect>
       </svg>

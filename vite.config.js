@@ -6,6 +6,7 @@ import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 import { checkLocalLinks } from './plugins/check-local-links.js';
 import { catalogGroups } from './src/data/catalog-menu.js';
 import { partnerSlides } from './src/data/partners.js';
+import { companyReviews } from './src/data/company-reviews.js';
 import { promotionSlides } from './src/data/promotions.js';
 import { headerDemoLinks } from './src/data/header-demo-links.js';
 import { responsiveImages } from './plugins/responsive-images.js';
@@ -22,7 +23,7 @@ const assetDirectories = {
 };
 
 const templates = handlebars({
-  context: { catalogGroups, headerDemoLinks, partnerSlides, promotionSlides },
+  context: { catalogGroups, headerDemoLinks, partnerSlides, promotionSlides, companyReviews },
   partialDirectory: fileURLToPath(new URL('./src/partials', import.meta.url)),
 });
 const reloadPartial = templates.handleHotUpdate;
@@ -37,7 +38,7 @@ export default defineConfig({
     // Keep the browser targets used before the Vite 8 upgrade.
     target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
     assetsInlineLimit: 0,
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     cssMinify: true,
     rolldownOptions: {
       input: {
@@ -45,8 +46,8 @@ export default defineConfig({
         uiKit: fileURLToPath(new URL('./ui-kit.html', import.meta.url)),
       },
       output: {
-        entryFileNames: 'assets/js/[name]-[hash].js',
-        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name].js',
+        chunkFileNames: 'assets/js/[name].js',
         codeSplitting: {
           groups: [{
             name: 'common',
@@ -54,10 +55,15 @@ export default defineConfig({
             test: (id) => id === commonScript || id === '\0vite/modulepreload-polyfill.js',
           }],
         },
-        assetFileNames({ names }) {
-          const extension = extname(names[0] ?? '').slice(1).toLowerCase();
+        assetFileNames({ names, originalFileNames }) {
+          const name = names[0] ?? '';
+          const extension = extname(name).slice(1).toLowerCase();
           const directory = Object.keys(assetDirectories).find((key) => assetDirectories[key].test(extension));
-          return `assets/${directory ?? 'other'}/[name]-[hash][extname]`;
+          if (name === 'cross.svg') {
+            const folder = originalFileNames[0]?.match(/(?:^|\/)src\/assets\/(hero|footer)\/cross\.svg$/)?.[1];
+            if (folder) return `assets/svg/${folder}/[name][extname]`;
+          }
+          return `assets/${directory ?? 'other'}/[name][extname]`;
         },
       },
     },

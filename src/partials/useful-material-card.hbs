@@ -1,0 +1,18 @@
+<article class="useful-materials__card{{#if image}} useful-materials__card--with-preview{{/if}}">
+  {{#if image}}
+    <div class="useful-materials__preview">
+      <img class="useful-materials__image{{#if slowZoom}} useful-materials__image--slow-zoom{{/if}}" src="{{image}}" loading="lazy" decoding="async" alt="">
+    </div>
+  {{/if}}
+
+  <div class="useful-materials__body">
+    <div class="useful-materials__copy">
+      <p class="useful-materials__type">{{type}}</p>
+      <h3 class="useful-materials__card-title">{{title}}</h3>
+      <p class="useful-materials__description">{{description}}</p>
+    </div>
+
+    <time class="useful-materials__date" datetime="2026-03">Март 2026</time>
+    {{> nora-icon-link className="useful-materials__link" href=href label=title }}
+  </div>
+</article>

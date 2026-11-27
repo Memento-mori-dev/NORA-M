@@ -329,10 +329,10 @@ npm run preview
 | Где | Что должно быть |
 | --- | --- |
 | `dist/` | `index.html` и `catalog.html`. |
-| `dist/assets/css/` | Один минифицированный CSS со стилями обеих страниц и медиавыражениями. |
-| `dist/assets/js/` | `common-<хеш>.js`, `index-<хеш>.js` и `catalog-<хеш>.js`. |
+| `dist/assets/css/` | Отдельный минифицированный CSS для каждой страницы со стилями и медиавыражениями. |
+| `dist/assets/js/` | `common.js`, `index.js` и `catalog.js`. |
 | `dist/assets/images/` | Исходные растровые файлы, варианты AVIF и WebP разных размеров, WebP-фон. |
-| `dist/assets/svg/` | Спрайт `icons-<хеш>.svg` и отдельная SVG-иллюстрация. |
+| `dist/assets/svg/` | Спрайт `icons.svg` и отдельная SVG-иллюстрация. |
 | `dist/assets/fonts/` | WOFF и WOFF2, если прошёл шаг со шрифтом. |
 | `dist/assets/other/` | `guide-note.txt` под исходным именем. |
 

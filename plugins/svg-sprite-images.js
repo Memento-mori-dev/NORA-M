@@ -5,7 +5,7 @@ import { defaultTreeAdapter, parse, parseFragment, serializeOuter } from 'parse5
 import { normalizePath } from 'vite';
 
 export const iconDirectory = 'src/icons';
-export const spriteFilename = 'assets/svg/icons-[hash].svg';
+export const spriteFilename = 'assets/svg/icons.svg';
 
 const buildReference = '#__layout_svg_sprite__';
 const imageAttributes = new Set(['class', 'height', 'id', 'role', 'style', 'tabindex', 'title', 'width']);
@@ -91,7 +91,7 @@ export function svgSpriteImages() {
       async handler(html, { filename, server }) {
         const images = collectImages(parse(html, { sourceCodeLocationInfo: true }));
         const icons = new Map();
-        const sprite = server ? `/${spriteFilename.replace('[hash]', 'dev')}#` : buildReference;
+        const sprite = server ? `/${spriteFilename}#` : buildReference;
 
         images.sort((a, b) => b.sourceCodeLocation.startOffset - a.sourceCodeLocation.startOffset);
         for (const image of images) {
@@ -116,17 +116,14 @@ export function svgSpriteImages() {
     generateBundle: {
       order: 'post',
       handler(_, bundle) {
-        // Vite writes HTML before this hook, and the spritemap asset now has its content hash.
-        const sprite = Object.keys(bundle).find((file) =>
-          file.replace(/-[a-f0-9]{8}\.svg$/, '-[hash].svg') === spriteFilename);
         for (const asset of Object.values(bundle)) {
           if (asset.type !== 'asset' || !asset.fileName.endsWith('.html') ||
               typeof asset.source !== 'string' || !asset.source.includes(buildReference)) continue;
 
-          if (!sprite) this.error('The SVG spritemap was not emitted.');
+          if (!bundle[spriteFilename]) this.error('The SVG spritemap was not emitted.');
           const href = config.base === './' || config.base === ''
-            ? posix.relative(posix.dirname(asset.fileName), sprite)
-            : config.base + sprite;
+            ? posix.relative(posix.dirname(asset.fileName), spriteFilename)
+            : config.base + spriteFilename;
           asset.source = asset.source.replaceAll(`href="${buildReference}`, `href="${href}#`);
         }
       },

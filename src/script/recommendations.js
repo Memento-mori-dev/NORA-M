@@ -1,7 +1,6 @@
 import './nora-card-actions.js';
 import { getSliderNavigation } from './nora-slider-navigation.js';
 import Swiper from '../vendor/swiper/swiper-bundle.min.js';
-import '../vendor/swiper/swiper-bundle.min.css';
 
 const section = document.querySelector('.recommendations');
 

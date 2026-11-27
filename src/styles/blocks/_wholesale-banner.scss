@@ -2,8 +2,29 @@
 
 $wide-height: helpers.rem(345);
 
+.wholesale-section {
+  margin-block: helpers.rem(32);
+
+  padding: helpers.rem(32) var(--section-inner-gutter);
+
+  border-radius: helpers.rem(10);
+  background: var(--nora-color-background-pressed);
+
+  @include helpers.mobile-above {
+    margin-inline: var(--section-outer-gutter);
+
+    padding-block: helpers.rem(80);
+
+    border-radius: helpers.rem(20);
+  }
+}
+
 .wholesale-banner {
   --wholesale-banner-radius: #{helpers.rem(16)};
+
+  margin-inline: auto;
+
+  max-inline-size: var(--content-max-width);
 
   display: grid;
   gap: helpers.rem(8);
@@ -64,15 +85,13 @@ $wide-height: helpers.rem(345);
   }
 
   @include helpers.mobile {
-    margin-inline: calc(-1 * var(--container-padding-x));
-
-    padding: helpers.rem(32) var(--section-inner-gutter);
-
-    border-radius: helpers.rem(10);
-    background: var(--nora-color-background-pressed);
+    &__panel {
+      line-height: helpers.rem(20);
+    }
 
     &__title.nora-heading {
       font-size: helpers.rem(16);
+      line-height: helpers.rem(18);
     }
 
     &__photo {
@@ -110,8 +129,9 @@ $wide-height: helpers.rem(345);
       inset-block-end: helpers.rem(16);
       z-index: -1;
 
-      width: clamp(#{helpers.rem(90)}, 25vw - #{helpers.rem(112)}, #{helpers.rem(241)});
+      width: clamp(#{helpers.rem(90)}, 25vw - #{helpers.rem(112)}, #{helpers.rem(241.316)});
       height: auto;
+      aspect-ratio: 241.316 / 264.405;
 
       display: block;
 
@@ -128,6 +148,14 @@ $wide-height: helpers.rem(345);
       padding: helpers.rem(32);
 
       gap: helpers.rem(32);
+    }
+
+    &__copy {
+      width: 100%;
+    }
+
+    &__description {
+      max-width: min(#{helpers.rem(476)}, 88%);
     }
 
     &__diagram {

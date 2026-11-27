@@ -2,7 +2,6 @@ import gsap from '../vendor/gsap/index.js';
 import { CustomEase } from '../vendor/gsap/CustomEase.js';
 import { menuSlide } from './menu-motion.js';
 import Swiper from '../vendor/swiper/swiper-bundle.min.js';
-import '../vendor/swiper/swiper-bundle.min.css';
 
 const hero = document.querySelector('.hero');
 

@@ -1,0 +1,23 @@
+<section class="company-reviews" aria-labelledby="company-reviews-title">
+  <div class="company-reviews__header">
+    <h2 class="company-reviews__title nora-heading" id="company-reviews-title">Отзывы о нас</h2>
+    {{> nora-catalog-link companyReviews.archive class="company-reviews__archive--wide" }}
+  </div>
+
+  <div class="company-reviews__slider swiper">
+    <div class="company-reviews__cards swiper-wrapper" id="company-reviews-cards">
+      {{#each companyReviews.slides}}
+        {{> company-review-card this }}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="company-reviews__pagination nora-slider-pagination" role="group" aria-label="Слайды отзывов"></div>
+
+  <div class="company-reviews__controls">
+    {{> nora-slider-arrow label="Предыдущий отзыв" controls="company-reviews-cards" disabled=true }}
+    {{> nora-slider-arrow label="Следующий отзыв" controls="company-reviews-cards" next=true disabled=true }}
+  </div>
+
+  {{> nora-catalog-link companyReviews.archive class="company-reviews__archive--mobile" }}
+</section>

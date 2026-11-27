@@ -1,4 +1,4 @@
 <picture class="{{className}}">
   <source media="(width < 48rem)" srcset="{{mobileSrc}}">
-  <img src="{{fallbackSrc}}" alt="">
+  <img{{#if lazy}} loading="lazy"{{/if}} src="{{fallbackSrc}}" alt="">
 </picture>

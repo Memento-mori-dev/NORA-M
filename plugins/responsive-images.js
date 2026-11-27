@@ -1,7 +1,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, realpath, rename, rm } from 'node:fs/promises';
-import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { dirname, isAbsolute, join, parse as parsePath, relative, resolve, sep } from 'node:path';
 import { generate as generateCss, parse as parseCss, walk as walkCss } from 'css-tree';
 import { defaultTreeAdapter, parse, serializeOuter } from 'parse5';
 import sharp from 'sharp';
@@ -9,6 +9,7 @@ import { normalizePath } from 'vite';
 
 const cacheDirectory = 'node_modules/.cache/responsive-images';
 const cssWebpPlugin = 'css-webp-images';
+const webpModulePrefix = '\0responsive-webp:';
 
 export function responsiveImages({ scales, formats }) {
   let config;
@@ -34,6 +35,23 @@ export function responsiveImages({ scales, formats }) {
     configResolved(resolvedConfig) {
       config = resolvedConfig;
     },
+    resolveId: {
+      order: 'pre',
+      async handler(source, importer) {
+        if (importer && isWebpRequest(source)) {
+          const file = await resolveImage(source, importer, config);
+          return webpModulePrefix + normalizePath(file);
+        }
+      },
+    },
+    async load(id) {
+      if (!id.startsWith(webpModulePrefix)) return;
+      const file = id.slice(webpModulePrefix.length);
+      this.addWatchFile(file);
+      watchedImages.add(file);
+      const url = await createWebp(file, config, formats.webp);
+      return `export { default } from ${JSON.stringify(url)};`;
+    },
     transformIndexHtml: {
       order: 'pre',
       async handler(html, { filename, server }) {
@@ -44,13 +62,24 @@ export function responsiveImages({ scales, formats }) {
           const attrs = Object.fromEntries(img.attrs.map(({ name, value }) => [name, value]));
 
           try {
+            const file = await resolveImage(attrs.src, filename, config);
+            if (server) {
+              watchedImages.add(normalizePath(file));
+              server.watcher.add(file);
+            }
+
+            if (isWebpRequest(attrs.src)) {
+              img.attrs.find(({ name }) => name === 'src').value = await createWebp(file, config, formats.webp);
+              html = html.slice(0, startOffset) + serializeOuter(img) + html.slice(endOffset);
+              continue;
+            }
+
             const width = Number(attrs.width);
             if (!Number.isSafeInteger(width) || width < 1) {
               throw new Error('Set width to a positive integer in pixels.');
             }
 
-            const file = await resolveImage(attrs.src, filename, config);
-            const { image, metadata, hash } = await loadImage(file);
+            const { image, metadata, cachePath, stem } = await loadImage(file);
 
             const sourceWidth = metadata.autoOrient.width;
             const widths = [...new Set(scales.map((scale) => Math.max(1, Math.round(width * scale))))]
@@ -58,16 +87,16 @@ export function responsiveImages({ scales, formats }) {
               .sort((a, b) => a - b);
             if (widths.length === 0) widths.push(sourceWidth);
 
-            const outputDirectory = join(config.root, cacheDirectory);
+            const outputDirectory = join(config.root, cachePath);
             await mkdir(outputDirectory, { recursive: true });
             const sizes = attrs.sizes || `(max-width: ${width}px) 100vw, ${width}px`;
             const picture = defaultTreeAdapter.createElement('picture', img.namespaceURI, []);
 
             for (const [format, quality] of Object.entries(formats)) {
               const variants = await Promise.all(widths.map(async (candidate) => {
-                const name = `${hash}-${candidate}w-q${quality}.${format}`;
+                const name = `${stem}-${candidate}w-q${quality}.${format}`;
                 await writeVariant(image, join(outputDirectory, name), candidate, format, quality);
-                return `/${cacheDirectory}/${name}?no-inline ${candidate}w`;
+                return `/${cachePath}/${encodeURIComponent(name)}?no-inline ${candidate}w`;
               }));
 
               const source = defaultTreeAdapter.createElement('source', img.namespaceURI, [
@@ -84,13 +113,8 @@ export function responsiveImages({ scales, formats }) {
             defaultTreeAdapter.detachNode(img);
             defaultTreeAdapter.appendChild(picture, img);
             html = html.slice(0, startOffset) + serializeOuter(picture) + html.slice(endOffset);
-
-            if (server) {
-              watchedImages.add(normalizePath(file));
-              server.watcher.add(file);
-            }
           } catch (error) {
-            throw new Error(`${filename}:${startLine} <img data-responsive src="${attrs.src ?? ''}">: ${error.message}`, {
+            throw new Error(`${filename}:${startLine} <img src="${attrs.src ?? ''}">: ${error.message}`, {
               cause: error,
             });
           }
@@ -100,7 +124,10 @@ export function responsiveImages({ scales, formats }) {
       },
     },
     handleHotUpdate({ file, server }) {
-      if (watchedImages.has(normalizePath(file))) {
+      const path = normalizePath(file);
+      if (watchedImages.has(path)) {
+        const module = server.moduleGraph.getModuleById(webpModulePrefix + path);
+        if (module) server.moduleGraph.invalidateModule(module);
         server.ws.send({ type: 'full-reload' });
         return [];
       }
@@ -114,27 +141,36 @@ async function convertCssWebp(declaration, result, config, quality) {
   walkCss(value, {
     visit: 'Url',
     enter(node) {
-      if (node.value.endsWith('?webp') && !/^(?:[a-z][\w+.-]*:|\/\/)/i.test(node.value)) images.push(node);
+      if (isWebpRequest(node.value)) images.push(node);
     },
   });
   if (!images.length) return;
 
-  const outputDirectory = join(config.root, cacheDirectory);
-  await mkdir(outputDirectory, { recursive: true });
   const importer = declaration.source?.input.file ?? result.opts.from;
   for (const node of images) {
     try {
       const file = await resolveImage(node.value, importer, config);
-      const { image, hash } = await loadImage(file);
-      const name = `${hash}-original-q${quality}.webp`;
-      await writeVariant(image, join(outputDirectory, name), undefined, 'webp', quality);
+      node.value = await createWebp(file, config, quality);
       result.messages.push({ type: 'dependency', plugin: cssWebpPlugin, file, parent: importer });
-      node.value = `/${cacheDirectory}/${name}?no-inline`;
     } catch (error) {
       throw declaration.error(`${node.value}: ${error.message}`, { plugin: cssWebpPlugin });
     }
   }
   declaration.value = generateCss(value);
+}
+
+function isWebpRequest(src) {
+  return typeof src === 'string' && /\.(?:jpe?g|png)\?webp$/i.test(src) &&
+    !/^(?:[a-z][\w+.-]*:|\/\/)/i.test(src);
+}
+
+async function createWebp(file, config, quality) {
+  const { image, cachePath, stem } = await loadImage(file);
+  const outputDirectory = join(config.root, cachePath);
+  const name = `${stem}-original-q${quality}.webp`;
+  await mkdir(outputDirectory, { recursive: true });
+  await writeVariant(image, join(outputDirectory, name), undefined, 'webp', quality);
+  return `/${cachePath}/${encodeURIComponent(name)}?no-inline`;
 }
 
 async function loadImage(file) {
@@ -145,12 +181,14 @@ async function loadImage(file) {
     throw new Error('Expected a JPEG or PNG image.');
   }
   const hash = createHash('sha256').update(input).digest('hex').slice(0, 20);
-  return { image, metadata, hash };
+  return { image, metadata, cachePath: `${cacheDirectory}/${hash}`, stem: parsePath(file).name };
 }
 
 function collectImages(node, images = []) {
-  if (node.tagName === 'picture') return images;
-  if (node.tagName === 'img' && node.attrs.some(({ name }) => name === 'data-responsive')) {
+  if (node.tagName === 'img' && node.attrs.some(({ name, value }) =>
+    (name === 'data-responsive' && node.parentNode?.tagName !== 'picture') ||
+    (name === 'src' && isWebpRequest(value)),
+  )) {
     images.push(node);
   }
   for (const child of (node.content ?? node).childNodes ?? []) {
