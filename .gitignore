@@ -40,3 +40,5 @@ Desktop.ini
 
 # Local audit artifacts
 /audit-screenshots/
+/dist-cms/
+/.cms-*/

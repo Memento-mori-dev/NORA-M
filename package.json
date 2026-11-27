@@ -10,7 +10,9 @@
     "prebuild": "npm run fonts",
     "build": "vite build",
     "preview": "vite preview",
-    "check:svg": "node scripts/check-svg.js"
+    "check:svg": "node scripts/check-svg.js",
+    "prebuild-cms": "npm run fonts",
+    "build-cms": "node scripts/build-cms.js"
   },
   "devDependencies": {
     "css-tree": "3.2.1",

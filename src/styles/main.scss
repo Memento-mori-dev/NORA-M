@@ -1,26 +1,8 @@
-@use '../vendor/swiper/swiper-bundle.min.css';
-@use 'components/nora-heading';
-@use 'components/nora-chip';
-@use 'components/nora-catalog-link';
-@use 'components/nora-card-actions';
-@use 'components/nora-stock-status';
-@use 'normalize';
-@use 'fonts';
-@use 'variables';
-@use 'utils';
-@use 'globals';
-@use 'blocks/header';
-@use 'blocks/catalog-menu';
+@use 'site-base';
 @use 'blocks/hero';
-@use 'components/nora-icon-link';
-@use 'components/nora-slider-controls';
-@use 'components/nora-promotion-badge';
-@use 'components/nora-disclosure-toggle';
-@use 'components/nora-section-title';
 @use 'blocks/popular-categories';
 @use 'blocks/recommendations';
 @use 'blocks/promotions';
-@use 'components/nora-partner-card';
 @use 'blocks/partners';
 @use 'blocks/brand-lines';
 @use 'blocks/contact-banner';
@@ -29,7 +11,3 @@
 @use 'blocks/company-reviews';
 @use 'blocks/useful-materials';
 @use 'blocks/company-news';
-@use 'blocks/footer';
-
-// @use './blocks/';
-// @use './blocks/';

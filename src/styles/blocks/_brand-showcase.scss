@@ -1,0 +1,19 @@
+@use '../helpers' as helpers;
+
+.brand-showcase {
+  margin-block-start: helpers.rem(32);
+  margin-inline: var(--section-outer-gutter);
+
+  padding-block: helpers.rem(80);
+
+  border-radius: helpers.rem(20);
+  background: var(--nora-color-background-pressed);
+
+  @include helpers.mobile {
+    margin-block-start: helpers.rem(40);
+
+    padding-block: helpers.rem(24);
+
+    border-radius: helpers.rem(16);
+  }
+}
