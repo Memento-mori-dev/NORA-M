@@ -1,0 +1,1616 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name</title>
+    <script type="module" crossorigin src="/NORA-M/assets/js/home.js"></script>
+    <link rel="modulepreload" crossorigin href="/NORA-M/assets/js/common.js">
+    <link rel="modulepreload" crossorigin href="/NORA-M/assets/js/nora-partner-card.js">
+    <link rel="stylesheet" crossorigin href="/NORA-M/assets/css/style.css">
+  </head>
+  <body class="page-with-header page-with-footer">
+    <header class="header">
+      <svg class="header__icon-filters" width="0" height="0" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="header-icon-accent" color-interpolation-filters="sRGB">
+            <feFlood class="header__icon-accent"></feFlood>
+            <feComposite in2="SourceAlpha" operator="in"></feComposite>
+          </filter>
+        </defs>
+      </svg>
+      <div class="header__inner">
+        <a class="header__logo" href="./" aria-label="НОРА-М, основано в 1994 году — главная">
+          <svg class="header__icon-filters" width="0" height="0" aria-hidden="true" focusable="false">
+            <defs>
+              <filter id="header-logo-accent" color-interpolation-filters="sRGB">
+                <feFlood class="header__icon-accent header__logo-tint"></feFlood>
+                <feComposite in2="SourceGraphic" operator="atop"></feComposite>
+              </filter>
+            </defs>
+          </svg>
+          <picture>
+            <source media="(min-width: 48rem)" srcset="/NORA-M/assets/svg/tablet-logo.svg">
+            <img src="/NORA-M/assets/svg/mobile-logo.svg" alt="">
+          </picture>
+          <picture>
+            <source media="(min-width: 48rem)" srcset="/NORA-M/assets/svg/desktop-since.svg">
+            <img src="/NORA-M/assets/svg/mobile-since.svg" alt="">
+          </picture>
+        </a>
+    
+        <form class="header__search-form header__search-form--mobile" role="search" action="https://nora-m.ru/shop/" method="get">
+          <button type="submit" aria-label="Найти"><img src="/NORA-M/assets/svg/desktop-search.svg" alt=""></button>
+          <input type="search" name="q" placeholder="Поиск" aria-label="Поиск товаров" required>
+          <button class="header__search-clear" type="button" aria-label="Очистить поиск"><img src="/NORA-M/assets/svg/catalog-open-close.svg" alt=""></button>
+        </form>
+    
+        <div class="header__bottom">
+          <button class="header__menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-navigation">
+            <img class="header__menu-icon" src="/NORA-M/assets/svg/mobile-menu.svg" alt="">
+            <img src="/NORA-M/assets/svg/mobile-menu-close.svg" alt="">
+          </button>
+    
+          <button class="header__catalog" type="button" aria-expanded="false" aria-controls="catalog-menu">
+            <span class="header__catalog-icons" aria-hidden="true">
+              <picture class="header__catalog-icon header__catalog-icon--closed">
+                <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-catalog.svg">
+                <img src="/NORA-M/assets/svg/desktop-catalog.svg" alt="">
+              </picture>
+              <picture class="header__catalog-icon header__catalog-icon--open">
+                <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-catalog-open.svg">
+                <img src="/NORA-M/assets/svg/catalog-open-grid.svg" alt="">
+              </picture>
+            </span>
+            Каталог
+            <span class="header__catalog-icons header__catalog-chevron" aria-hidden="true">
+              <picture class="header__catalog-icon header__catalog-icon--closed">
+                <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-catalog-chevron.svg">
+                <img src="/NORA-M/assets/svg/desktop-chevron.svg" alt="">
+              </picture>
+              <picture class="header__catalog-icon header__catalog-icon--open header__catalog-close">
+                <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-menu-close.svg">
+                <img src="/NORA-M/assets/svg/catalog-open-close.svg" alt="">
+              </picture>
+            </span>
+          </button>
+    
+          <div class="header__drawer">
+            <div class="header__drawer-shade" aria-hidden="true"></div>
+            <div class="header__navigation" id="header-navigation">
+              <div class="header__navigation-scroll">
+                <nav class="header__links" aria-label="Основная навигация">
+                  <a href="https://nora-m.ru/o-kompanii/">О компании</a>
+                  <a href="https://nora-m.ru/o-kompanii/dostavka/">Доставка и оплата</a>
+                  <a href="https://nora-m.ru/o-produktsii/novosti/">Новости</a>
+                  <a href="https://nora-m.ru/about/">Контакты</a>
+                </nav>
+    
+                <div class="header__actions">
+                  <form class="header__search-toggle" role="search" aria-label="Поиск в каталоге" action="https://nora-m.ru/shop/" method="get">
+                    <button class="header__button header__button--search" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="header-search-field">
+                      <img src="/NORA-M/assets/svg/desktop-search.svg" alt="">
+                      <img src="/NORA-M/assets/svg/catalog-open-close.svg" alt="">
+                    </button>
+                    <div class="header__search-form--popover" id="header-search-field" inert>
+                      <div class="header__search-form header__search-panel">
+                        <input type="search" name="q" placeholder="Поиск" aria-label="Поиск товаров" required>
+                        <button type="submit" aria-label="Найти"><img src="/NORA-M/assets/svg/desktop-search.svg" alt=""></button>
+                      </div>
+                    </div>
+                  </form>
+                  <a class="header__button header__button--wholesale" href="https://nora-m.ru/partneram/stat-partnerom/">Оптовикам</a>
+                </div>
+    
+                <div class="header__demo-links">
+                    <a href="?menu&#x3D;demo-1">Пункты выдачи</a>
+                    <a href="?menu&#x3D;demo-2">Адреса магазинов</a>
+                    <a href="?menu&#x3D;demo-3">Гарантия</a>
+                    <a href="?menu&#x3D;demo-4">Возврат товаров</a>
+                    <a href="?menu&#x3D;demo-5">Обмен товаров</a>
+                    <a href="?menu&#x3D;demo-6">Сервисные центры</a>
+                    <a href="?menu&#x3D;demo-7">Документы</a>
+                    <a href="?menu&#x3D;demo-8">Сертификаты</a>
+                    <a href="?menu&#x3D;demo-9">Инструкции</a>
+                    <a href="?menu&#x3D;demo-10">Вопросы и ответы</a>
+                    <a href="?menu&#x3D;demo-11">Подбор фурнитуры</a>
+                    <a href="?menu&#x3D;demo-12">Советы по монтажу</a>
+                    <a href="?menu&#x3D;demo-13">Уход за фурнитурой</a>
+                    <a href="?menu&#x3D;demo-14">Материалы и покрытия</a>
+                    <a href="?menu&#x3D;demo-15">Коллекции</a>
+                    <a href="?menu&#x3D;demo-16">Новинки сезона</a>
+                    <a href="?menu&#x3D;demo-17">Популярные товары</a>
+                    <a href="?menu&#x3D;demo-18">Акции и предложения</a>
+                    <a href="?menu&#x3D;demo-19">Подарочные наборы</a>
+                    <a href="?menu&#x3D;demo-20">Подборки для дома</a>
+                    <a href="?menu&#x3D;demo-21">Решения для офиса</a>
+                    <a href="?menu&#x3D;demo-22">Решения для магазинов</a>
+                    <a href="?menu&#x3D;demo-23">Где купить</a>
+                    <a href="?menu&#x3D;demo-24">Стать партнёром</a>
+                    <a href="?menu&#x3D;demo-25">Условия сотрудничества</a>
+                    <a href="?menu&#x3D;demo-26">Партнёрские программы</a>
+                    <a href="?menu&#x3D;demo-27">Оптовые поставки</a>
+                    <a href="?menu&#x3D;demo-28">Для дизайнеров</a>
+                    <a href="?menu&#x3D;demo-29">Для монтажников</a>
+                    <a href="?menu&#x3D;demo-30">Проекты</a>
+                    <a href="?menu&#x3D;demo-31">Пресс-центр</a>
+                    <a href="?menu&#x3D;demo-32">События</a>
+                    <a href="?menu&#x3D;demo-33">История компании</a>
+                    <a href="?menu&#x3D;demo-34">Команда</a>
+                    <a href="?menu&#x3D;demo-35">Вакансии</a>
+                    <a href="?menu&#x3D;demo-36">Обратная связь</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="header__utilities">
+            <div class="header__contact" data-da=".header__navigation-scroll">
+              <span>Пн–Пт 9:00–18:00</span>
+              <a href="tel:+74951184018">+7 (495) 118-40-18</a>
+            </div>
+    
+            <div class="header__actions header__utility-actions">
+              <span class="header__account-slot"></span>
+              <a class="header__button" href="https://nora-m.ru/shop/compare/" aria-label="Сравнение">
+                <img class="header__utility-icon header__compare-icon" src="/NORA-M/assets/svg/desktop-compare.svg" alt="">
+              </a>
+              <a class="header__button" href="https://nora-m.ru/personal/wishlist/" aria-label="Избранное">
+                <img class="header__utility-icon" src="/NORA-M/assets/svg/desktop-favorite.svg" alt="">
+              </a>
+              <a class="header__button" href="https://nora-m.ru/personal/cart/" aria-label="Корзина, товаров: 1">
+                <span class="header__bag" aria-hidden="true">
+                  <picture class="header__utility-icon header__bag-handle">
+                    <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-bag-handle.svg">
+                    <img src="/NORA-M/assets/svg/desktop-bag-handle.svg" alt="">
+                  </picture>
+                  <picture class="header__utility-icon header__bag-body">
+                    <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/mobile-bag-body.svg">
+                    <img src="/NORA-M/assets/svg/desktop-bag-body.svg" alt="">
+                  </picture>
+                    <span class="header__badge">1</span>
+                </span>
+              </a>
+              <a class="header__button" href="https://nora-m.ru/personal/" aria-label="Личный кабинет" data-da=".header__account-slot">
+                <img class="header__utility-icon" src="/NORA-M/assets/svg/desktop-account.svg" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="catalog-menu" id="catalog-menu" hidden>
+      <div class="catalog-menu__shade" aria-hidden="true"></div>
+      <button class="catalog-menu__backdrop" type="button" aria-label="Закрыть каталог"><span class="catalog-menu__close-icon" aria-hidden="true"></span><span class="catalog-menu__close-label">Закрыть</span></button>
+      <form class="catalog-menu__search" role="search" aria-label="Поиск по категориям">
+        <input type="search" placeholder="Поиск" aria-label="Поиск по категориям">
+        <button type="submit" aria-label="Найти"><img src="/NORA-M/assets/svg/desktop-search.svg" alt=""></button>
+      </form>
+      <nav class="catalog-menu__columns" aria-label="Меню каталога">
+        <div class="catalog-menu__column">
+          <div>
+            <p class="catalog-menu__heading"><span class="catalog-menu__line"><span class="catalog-menu__text">Каталог</span></span></p>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="all">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Весь каталог</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="closers">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Доводчики</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="handles">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Ручки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="locks">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Замки и аксессуары</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="hinges">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Петли</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="cylinders">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Цилиндры</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="accessories">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Аксессуары для дверей</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="furniture">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Мебельная фурнитура</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="collections">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Подборки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="measuring">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Измерительные инструменты</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="pvc">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Фурнитура для ПВХ и алюминия</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="fire">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Противопожарная фурнитура</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="offers">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Акции</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="new">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Новинки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+            <p class="catalog-menu__empty" role="status" hidden>Категории не найдены</p>
+            <a class="catalog-menu__link catalog-menu__demo-link" href="?catalog=demo"><span class="catalog-menu__line"><span class="catalog-menu__text">Ссылка</span></span></a>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="hardware-kits">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Комплекты фурнитуры</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="latches">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Защёлки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="strike-plates">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Ответные планки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="deadbolts">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Шпингалеты</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="stops">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Дверные упоры</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="door-viewers">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Дверные глазки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="escutcheons">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Декоративные накладки</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="fasteners">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Крепёж</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="sliding">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Раздвижные системы</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="seals">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Дверные уплотнители</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="window-fittings">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Оконная фурнитура</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="gates">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Фурнитура для ворот</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="mounting">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Монтажные принадлежности</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+              <button class="catalog-menu__link catalog-menu__link--submenu" type="button" aria-controls="catalog-submenu" aria-expanded="false" data-catalog-category="replacement">
+                <span class="catalog-menu__line"><span class="catalog-menu__text">Запасные части</span></span>
+                <picture class="catalog-menu__chevron">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron.svg" alt="">
+                </picture>
+                <picture class="catalog-menu__chevron catalog-menu__chevron--active">
+                  <source media="(width < 48rem)" srcset="/NORA-M/assets/svg/arrow.svg">
+                  <img src="/NORA-M/assets/svg/pc-chevron-active.svg" alt="">
+                </picture>
+              </button>
+            <a class="catalog-menu__link catalog-menu__demo-link" href="?catalog=demo-extra"><span class="catalog-menu__line"><span class="catalog-menu__text">Дополнительная ссылка</span></span></a>
+          </div>
+    
+          <div class="catalog-menu__contacts">
+            <a href="tel:+74951184018"><img src="/NORA-M/assets/svg/phone.svg" alt="">+7 (495) 118-40-18</a>
+            <a href="mailto:info@nora-m.ru"><img src="/NORA-M/assets/svg/mail.svg" alt="">info@nora-m.ru</a>
+          </div>
+        </div>
+    
+        <div class="catalog-menu__column" id="catalog-submenu" hidden inert>
+          <div>
+            <p class="catalog-menu__heading"><span class="catalog-menu__line"><span class="catalog-menu__text"></span></span></p>
+            <div class="catalog-menu__items" id="catalog-submenu-items"></div>
+            <template class="catalog-menu__item-template">
+              <a class="catalog-menu__link catalog-menu__link--item"><span class="catalog-menu__line"><span class="catalog-menu__text"></span></span></a>
+            </template>
+            <template class="catalog-menu__nested-template">
+              <div>
+                <button class="catalog-menu__link catalog-menu__link--item catalog-menu__nested-toggle" type="button" aria-expanded="false" aria-controls="catalog-nested-items">
+                  <span class="catalog-menu__line"><span class="catalog-menu__text"></span></span>
+                  <span class="catalog-menu__nested-chevron" aria-hidden="true"></span>
+                </button>
+                <div class="catalog-menu__nested-items" id="catalog-nested-items" hidden inert>
+                  <div class="catalog-menu__nested-content"></div>
+                </div>
+              </div>
+            </template>
+          </div>
+    
+          <div class="catalog-menu__promo">
+            <img class="catalog-menu__photo" src="/NORA-M/assets/images/scene.png" alt="" loading="lazy">
+            <p class="catalog-menu__promo-title"><span class="catalog-menu__line"><span class="catalog-menu__text">Замки Нора-М</span></span></p>
+            <p class="catalog-menu__description"><span class="catalog-menu__line"><span class="catalog-menu__text">Надёжная защита для улицы в любую погоду и в любое время года.</span></span></p>
+            <a class="catalog-menu__promo-button" href="?catalog=locks" aria-label="Показать замки и аксессуары"><img src="/NORA-M/assets/svg/pc-promo-arrow.svg" alt=""></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <section class="hero" aria-label="Промо НОРА-М">
+        <div class="hero__panels" id="hero-panels">
+          <div class="hero__info">
+            <div class="hero__copy">
+              <h1 id="hero-title">Навесные замки <span class="hero__brand">Нора<span class="hero__brand-accent">—М</span></span></h1>
+              <p>Надёжная защита для улицы в любую погоду и в любое время года. Модель разработана специально для эксплуатации на открытом воздухе и сочетает высокую защиту<span class="hero__wide-copy">, влагостойкость и яркий фирменный дизайн</span>.</p>
+              <a class="hero__cta hero__desktop-only" href="#hero-product">Узнать подробнее</a>
+              <a class="hero__cta hero__mobile-only" href="https://m.nora-m.ru/catalog/navesnye-zamki/vsepogodnye-zamki/zamok-navesnoy-vsepogodnyy-znv-702/?art=20474">Узнать подробнее</a>
+            </div>
+            <dl class="hero__features">
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/check-mobile.svg">
+                    <img src="/NORA-M/assets/svg/check.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Гарантия</dt>
+                <dd>3 года</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/cycles-mobile.svg">
+                    <img src="/NORA-M/assets/svg/cycles.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Ресурс срабатывания</dt>
+                <dd>500 000 циклов</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/steel-mobile.svg">
+                    <img src="/NORA-M/assets/svg/steel.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Материал</dt>
+                <dd>Сталь</dd>
+              </div>
+            </dl>
+            <figure class="hero__diagram">
+              <div class="hero__drawing">
+                <span class="hero__corners" aria-hidden="true"></span>
+                <img class="hero__drawing-layer" src="/NORA-M/assets/images/lock-card.webp" width="768" height="768" alt="Технический рисунок навесного замка">
+                <img class="hero__drawing-layer" src="/NORA-M/assets/images/closer-card.webp" width="768" height="768" alt="Дверной доводчик" hidden>
+                <img class="hero__drawing-layer" src="/NORA-M/assets/images/accessories-card.webp" width="768" height="768" alt="Технический рисунок дверного доводчика" hidden>
+                <img class="hero__drawing-layer" src="/NORA-M/assets/images/hinge-card.webp" width="768" height="768" alt="Дверная петля" hidden>
+              </div>
+              <figcaption>
+                <div>Размеры: <span>45мм, 58мм, 72мм, 83мм</span></div>
+                <div hidden>Дверные доводчики НОРА-М</div>
+                <div hidden>Размеры: <span>45мм, 58мм, 72мм, 83мм</span></div>
+                <div hidden>Дверные петли НОРА-М</div>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="hero__scene hero__slide">
+            <img class="hero__photo" src="/NORA-M/assets/images/scene.png" alt="Оранжевый всепогодный навесной замок НОРА-М с ключами">
+            <a class="hero__product" id="hero-product" href="https://m.nora-m.ru/catalog/navesnye-zamki/vsepogodnye-zamki/zamok-navesnoy-vsepogodnyy-znv-702/?art=20474">
+              <div class="hero__thumbnail"><img src="/NORA-M/assets/images/product.png" alt=""></div>
+              <div class="hero__product-copy">
+                <h2>Замок навесной всепогодный ЗНВ 702дд</h2>
+                <p>Ремкомплект</p>
+                <strong>744 ₽</strong>
+              </div>
+              <span class="hero__product-arrow" aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="hero__info" hidden>
+            <div class="hero__copy">
+              <h2>Доводчики <span class="hero__brand">Нора<span class="hero__brand-accent">—М</span></span></h2>
+              <p>Плавное и контролируемое закрывание дверей. Доводчики НОРА-М для дома, офиса и общественных пространств. Выберите подходящее решение в каталоге.</p>
+              <a class="hero__cta" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Узнать подробнее</a>
+            </div>
+            <dl class="hero__features">
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/check-mobile.svg">
+                    <img src="/NORA-M/assets/svg/check.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Назначение</dt>
+                <dd>Закрывание дверей</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/cycles-mobile.svg">
+                    <img src="/NORA-M/assets/svg/cycles.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Механизм</dt>
+                <dd>Плавное движение</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/steel-mobile.svg">
+                    <img src="/NORA-M/assets/svg/steel.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Категория</dt>
+                <dd>Доводчики</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero__scene hero__slide" hidden>
+            <img class="hero__photo hero__photo--category" src="/NORA-M/assets/images/closers.jpg" alt="Дверные доводчики НОРА-М">
+          </div>
+          <div class="hero__info" hidden>
+            <div class="hero__copy">
+              <h2>Аксессуары для дверей</h2>
+              <p>Доводчики Sonex сочетают в себе современные технологии, долговечность и простоту установки. Они обеспечат плавное и тихое закрывание двери, помогут снизить нагрузку на петли и продлить срок службы дверной конструкции.</p>
+              <a class="hero__cta" href="https://nora-m.ru/shop/furnitura/">Узнать подробнее</a>
+            </div>
+          <dl class="hero__features">
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/check-mobile.svg">
+                    <img src="/NORA-M/assets/svg/check.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Гарантия</dt>
+                <dd>3 года</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/cycles-mobile.svg">
+                    <img src="/NORA-M/assets/svg/cycles.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Ресурс срабатывания</dt>
+                <dd>500 000 циклов</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/steel-mobile.svg">
+                    <img src="/NORA-M/assets/svg/steel.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Материал</dt>
+                <dd>Сталь</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero__door-slide hero__slide swiper" hidden>
+            <div class="swiper-wrapper">
+              <div class="hero__door-frame swiper-slide">
+                <img draggable="false" src="/NORA-M/assets/images/door-closer.png" alt="Доводчик на деревянной двери">
+              </div>
+              <div class="hero__door-frame hero__door-frame--hinge swiper-slide">
+                <img draggable="false" src="/NORA-M/assets/images/door-hinge.png" alt="Петля на деревянной двери">
+              </div>
+            </div>
+            <div class="hero__door-pagination swiper-pagination"></div>
+          </div>
+          <div class="hero__info" hidden>
+            <div class="hero__copy">
+              <h2>Дверные петли <span class="hero__brand">Нора<span class="hero__brand-accent">—М</span></span></h2>
+              <p>Деталь, с которой начинается движение двери. Петли НОРА-М для дверной фурнитуры — найдите подходящий вариант в каталоге.</p>
+              <a class="hero__cta" href="https://nora-m.ru/shop/dvernye-petli/">Узнать подробнее</a>
+            </div>
+            <dl class="hero__features">
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/check-mobile.svg">
+                    <img src="/NORA-M/assets/svg/check.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Назначение</dt>
+                <dd>Установка дверей</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/cycles-mobile.svg">
+                    <img src="/NORA-M/assets/svg/cycles.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Механизм</dt>
+                <dd>Открывание и закрывание</dd>
+              </div>
+              <div>
+                <span>
+                  <picture>
+                    <source media="(width &lt;= 63.99875rem)" srcset="/NORA-M/assets/svg/steel-mobile.svg">
+                    <img src="/NORA-M/assets/svg/steel.svg" alt="">
+                  </picture>
+                </span>
+                <dt>Категория</dt>
+                <dd>Петли</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero__scene hero__slide" hidden>
+            <img class="hero__photo hero__photo--category" src="/NORA-M/assets/images/hinges.jpg" alt="Дверные петли НОРА-М">
+          </div>
+        </div>
+        <div class="hero__controls hero__controls--arrows" role="group" aria-label="Слайды">
+          <button class="nora-slider-arrow" type="button" aria-label="Предыдущий слайд" aria-controls="hero-panels">
+            <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+          </button>
+      <button class="nora-slider-arrow nora-slider-arrow--next" type="button" aria-label="Следующий слайд" aria-controls="hero-panels">
+        <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+                <svg class="hero__timeline" viewBox="0 0 44 44" aria-hidden="true">
+                  <rect class="hero__timeline-progress" x="0.5" y="0.5" width="43" height="43" rx="9.5" pathLength="1" stroke-dashoffset="1"></rect>
+                </svg>
+      </button>
+        </div>
+        <div class="hero__controls hero__controls--dots" role="group" aria-label="Слайды">
+          <button type="button" aria-label="Навесные замки НОРА-М" aria-pressed="true"></button>
+          <button type="button" aria-label="Дверные доводчики НОРА-М" aria-pressed="false"></button>
+          <button type="button" aria-label="Аксессуары для дверей" aria-pressed="false"></button>
+          <button type="button" aria-label="Дверные петли НОРА-М" aria-pressed="false"></button>
+        </div>
+      </section>
+      <div class="container">
+        <section class="popular-categories" aria-labelledby="popular-categories-title">
+          <h2 class="nora-section-title" id="popular-categories-title">Популярные категории</h2>
+        
+          <div class="popular-categories__layout">
+            <ul class="popular-categories__tiles">
+              <li class="popular-categories__tile popular-categories__tile--wide" data-category="door-accessories">
+                <span class="popular-categories__count">163</span>
+                <picture class="popular-categories__illustration">
+                    <source media="(width &lt; 48rem)" srcset="/NORA-M/assets/svg/door-accessories-mobile.svg">
+                  <img src="/NORA-M/assets/svg/door-accessories.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Аксессуары для дверей</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/furnitura/" aria-label="Аксессуары для дверей">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="popular-categories__tile" data-category="door-closers">
+                <span class="popular-categories__count">123</span>
+                <picture class="popular-categories__illustration">
+                    <source media="(width &lt; 48rem)" srcset="/NORA-M/assets/svg/door-closers-mobile.svg">
+                  <img src="/NORA-M/assets/svg/door-closers.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Доводчики</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/dvernye-dovodchiki/" aria-label="Доводчики">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="popular-categories__tile popular-categories__tile--desktop-only" data-category="locks">
+                <span class="popular-categories__count">16</span>
+                <picture class="popular-categories__illustration">
+                  <img src="/NORA-M/assets/svg/locks.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Замки и аксессуары</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/zamki-i-aksessuary/" aria-label="Замки и аксессуары">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            </ul>
+        
+            <div class="popular-categories__preview">
+              <div class="popular-categories__photo-layer">
+                <img class="popular-categories__photo" src="/NORA-M/assets/images/closers.jpg" loading="lazy" alt="Доводчики">
+              </div>
+            </div>
+        
+            <ul class="popular-categories__tiles">
+              <li class="popular-categories__tile" data-category="furniture-hardware">
+                <span class="popular-categories__count">12</span>
+                <picture class="popular-categories__illustration">
+                    <source media="(width &lt; 48rem)" srcset="/NORA-M/assets/svg/furniture-hardware-mobile.svg">
+                  <img src="/NORA-M/assets/svg/furniture-hardware.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Мебельная фурнитура</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/mebelnaia-furnitura/" aria-label="Мебельная фурнитура">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="popular-categories__tile" data-category="hinges">
+                <span class="popular-categories__count">102</span>
+                <picture class="popular-categories__illustration">
+                    <source media="(width &lt; 48rem)" srcset="/NORA-M/assets/svg/hinges-mobile.svg">
+                  <img src="/NORA-M/assets/svg/hinges.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Петли</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/dvernye-petli/" aria-label="Петли">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="popular-categories__tile popular-categories__tile--wide" data-category="door-cylinders">
+                <span class="popular-categories__count">156</span>
+                <picture class="popular-categories__illustration">
+                    <source media="(width &lt; 48rem)" srcset="/NORA-M/assets/svg/door-cylinders-mobile.svg">
+                  <img src="/NORA-M/assets/svg/door-cylinders.svg" alt="">
+                </picture>
+                <span class="popular-categories__name">Дверные цилиндры</span>
+                <a class="nora-icon-link popular-categories__action" href="https://nora-m.ru/shop/tsilindrovye-mehanizmy/" aria-label="Дверные цилиндры">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="recommendations" aria-labelledby="recommendations-title">
+          <h2 class="recommendations__title nora-heading" id="recommendations-title">Специально<br>для вас</h2>
+        
+          <div class="recommendations__toolbar">
+            <nav class="recommendations__filters" aria-label="Подборки товаров">
+              <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;хиты">Хиты</a>
+              <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;новинки">Новинки</a>
+              <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;акции">Акции</a>
+            </nav>
+            <a class="nora-catalog-link recommendations__catalog" href="https://nora-m.ru/shop/">
+                  Смотреть весь каталог
+                  <span><img src="/NORA-M/assets/svg/catalog-chevron.svg" width="16" height="16" alt=""></span>
+                </a>
+          </div>
+        
+          <div class="recommendations__slider swiper" id="recommendations-cards">
+          <ul class="recommendations__cards swiper-wrapper">
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--closer">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Доводчик дверной<br><span> 410</span></h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details recommendation-card__details--narrow">№3S бол., №4S, №5S, №3S F, 540, 550, 740 DA</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--cylinder">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--chain">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--handle">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--closer">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/closer.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Доводчик дверной<br><span> 410</span></h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details recommendation-card__details--narrow">№3S бол., №4S, №5S, №3S F, 540, 550, 740 DA</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--cylinder">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/cylinder.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--chain">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/chain.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+            <li class="recommendation-card swiper-slide">
+              <div class="recommendation-card__media recommendation-card__media--handle">
+                <div class="recommendation-card__gallery swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                    <div class="swiper-slide recommendation-card__slide"><img class="recommendation-card__image" src="/NORA-M/assets/images/handle.png" loading="lazy" alt=""></div>
+                  </div>
+                </div>
+                <div class="recommendation-card__actions">
+                  <button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+                  <button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+                </div>
+                <div class="recommendation-card__indicators"></div>
+              </div>
+            
+              <div class="recommendation-card__body">
+                <div class="recommendation-card__meta">
+                  <span>Sonex</span>
+                  <span class="nora-stock-status">В наличии</span>
+                </div>
+            
+                <div class="recommendation-card__description">
+                  <h3 class="recommendation-card__title">Корпус замка под цилиндр магнитный</h3>
+                  <div class="recommendation-card__finish">
+                    <span>Хром</span>
+                    <img src="/NORA-M/assets/svg/finishes.svg" width="28" height="8" alt="">
+                  </div>
+                  <p class="recommendation-card__details">13М-90 мм</p>
+                </div>
+            
+                <p class="recommendation-card__price">581 ₽</p>
+                <button class="nora-cart-button recommendation-card__bag" type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+              </div>
+            </li>
+          </ul>
+          </div>
+        
+          <div class="recommendations__pagination" aria-label="Страницы товаров"></div>
+        
+          <div class="recommendations__controls">
+            <button class="nora-slider-arrow" type="button" aria-label="Предыдущие товары" aria-controls="recommendations-cards" disabled>
+              <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+            </button>
+            <button class="nora-slider-arrow nora-slider-arrow--next" type="button" aria-label="Следующие товары" aria-controls="recommendations-cards" disabled>
+              <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+            </button>
+          </div>
+        </section>
+        <section class="promotions" aria-labelledby="promotions-title">
+          <div class="promotions__header">
+            <div class="promotions__intro">
+              <h2 class="nora-heading promotions__title" id="promotions-title">Выгодные предложения</h2>
+              <p class="promotions__description">Специальные цены на дверную и мебельную фурнитуру. Выбирайте качественные решения на выгодных условиях.</p>
+            </div>
+            <a class="nora-catalog-link promotions__all" href="https://nora-m.ru/shop/?q&#x3D;акции">
+                  Смотреть все акции
+                  <span><img src="/NORA-M/assets/svg/catalog-chevron.svg" width="16" height="16" alt=""></span>
+                </a>
+          </div>
+        
+          <div class="promotions__slider swiper" id="promotions-cards">
+            <div class="promotions__cards swiper-wrapper">
+                <article class="promotion-card swiper-slide">
+                  <div class="promotion-card__media">
+                    <picture><source type="image/avif" srcset="/NORA-M/assets/images/closers-339w-q55.avif 339w, /NORA-M/assets/images/closers-678w-q55.avif 678w, /NORA-M/assets/images/closers-1017w-q55.avif 1017w, /NORA-M/assets/images/closers-1356w-q55.avif 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><source type="image/webp" srcset="/NORA-M/assets/images/closers-339w-q80.webp 339w, /NORA-M/assets/images/closers-678w-q80.webp 678w, /NORA-M/assets/images/closers-1017w-q80.webp 1017w, /NORA-M/assets/images/closers-1356w-q80.webp 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><img class="promotion-card__image" src="/NORA-M/assets/images/closers.png" width="678" height="280" loading="lazy" alt=""></picture>
+                      <span class="nora-promotion-badge promotion-card__badge">Скидки до 20%</span>
+                  </div>
+                
+                  <div class="promotion-card__body">
+                    <div class="promotion-card__copy">
+                      <h3 class="nora-heading promotion-card__title">Доводчики по специальным ценам</h3>
+                      <p class="promotions__description">Ручки, замки, петли и аксессуары из акционного ассортимента.</p>
+                    </div>
+                
+                    <div class="promotion-card__footer">
+                      <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/dvernye-dovodchiki/">
+                        В каталог
+                        <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                      </a>
+                      <p class="promotion-card__date">Действительно до: <time datetime="2026-10-12">12 окт. 2026</time></p>
+                    </div>
+                  </div>
+                </article>        <article class="promotion-card swiper-slide">
+                  <div class="promotion-card__media">
+                    <picture><source type="image/avif" srcset="/NORA-M/assets/images/hardware-339w-q55.avif 339w, /NORA-M/assets/images/hardware-678w-q55.avif 678w, /NORA-M/assets/images/hardware-1017w-q55.avif 1017w, /NORA-M/assets/images/hardware-1356w-q55.avif 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><source type="image/webp" srcset="/NORA-M/assets/images/hardware-339w-q80.webp 339w, /NORA-M/assets/images/hardware-678w-q80.webp 678w, /NORA-M/assets/images/hardware-1017w-q80.webp 1017w, /NORA-M/assets/images/hardware-1356w-q80.webp 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><img class="promotion-card__image" src="/NORA-M/assets/images/hardware.png" width="678" height="280" loading="lazy" alt=""></picture>
+                  </div>
+                
+                  <div class="promotion-card__body">
+                    <div class="promotion-card__copy">
+                      <h3 class="nora-heading promotion-card__title">Последние позиции — выгодные цены</h3>
+                      <p class="promotions__description">Популярная фурнитура из ограниченного ассортимента.</p>
+                    </div>
+                
+                    <div class="promotion-card__footer">
+                      <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/mebelnaia-furnitura/">
+                        В каталог
+                        <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                      </a>
+                      <p class="promotion-card__date">Действительно до: <time datetime="2026-10-12">12 окт. 2026</time></p>
+                    </div>
+                  </div>
+                </article>        <article class="promotion-card swiper-slide">
+                  <div class="promotion-card__media">
+                    <picture><source type="image/avif" srcset="/NORA-M/assets/images/closers-339w-q55.avif 339w, /NORA-M/assets/images/closers-678w-q55.avif 678w, /NORA-M/assets/images/closers-1017w-q55.avif 1017w, /NORA-M/assets/images/closers-1356w-q55.avif 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><source type="image/webp" srcset="/NORA-M/assets/images/closers-339w-q80.webp 339w, /NORA-M/assets/images/closers-678w-q80.webp 678w, /NORA-M/assets/images/closers-1017w-q80.webp 1017w, /NORA-M/assets/images/closers-1356w-q80.webp 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><img class="promotion-card__image" src="/NORA-M/assets/images/closers.png" width="678" height="280" loading="lazy" alt=""></picture>
+                      <span class="nora-promotion-badge promotion-card__badge">Скидки до 20%</span>
+                  </div>
+                
+                  <div class="promotion-card__body">
+                    <div class="promotion-card__copy">
+                      <h3 class="nora-heading promotion-card__title">Доводчики по специальным ценам</h3>
+                      <p class="promotions__description">Ручки, замки, петли и аксессуары из акционного ассортимента.</p>
+                    </div>
+                
+                    <div class="promotion-card__footer">
+                      <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/dvernye-dovodchiki/">
+                        В каталог
+                        <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                      </a>
+                      <p class="promotion-card__date">Действительно до: <time datetime="2026-10-12">12 окт. 2026</time></p>
+                    </div>
+                  </div>
+                </article>        <article class="promotion-card swiper-slide">
+                  <div class="promotion-card__media">
+                    <picture><source type="image/avif" srcset="/NORA-M/assets/images/hardware-339w-q55.avif 339w, /NORA-M/assets/images/hardware-678w-q55.avif 678w, /NORA-M/assets/images/hardware-1017w-q55.avif 1017w, /NORA-M/assets/images/hardware-1356w-q55.avif 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><source type="image/webp" srcset="/NORA-M/assets/images/hardware-339w-q80.webp 339w, /NORA-M/assets/images/hardware-678w-q80.webp 678w, /NORA-M/assets/images/hardware-1017w-q80.webp 1017w, /NORA-M/assets/images/hardware-1356w-q80.webp 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><img class="promotion-card__image" src="/NORA-M/assets/images/hardware.png" width="678" height="280" loading="lazy" alt=""></picture>
+                  </div>
+                
+                  <div class="promotion-card__body">
+                    <div class="promotion-card__copy">
+                      <h3 class="nora-heading promotion-card__title">Последние позиции — выгодные цены</h3>
+                      <p class="promotions__description">Популярная фурнитура из ограниченного ассортимента.</p>
+                    </div>
+                
+                    <div class="promotion-card__footer">
+                      <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/mebelnaia-furnitura/">
+                        В каталог
+                        <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                      </a>
+                      <p class="promotion-card__date">Действительно до: <time datetime="2026-10-12">12 окт. 2026</time></p>
+                    </div>
+                  </div>
+                </article>        <article class="promotion-card swiper-slide">
+                  <div class="promotion-card__media">
+                    <picture><source type="image/avif" srcset="/NORA-M/assets/images/closers-339w-q55.avif 339w, /NORA-M/assets/images/closers-678w-q55.avif 678w, /NORA-M/assets/images/closers-1017w-q55.avif 1017w, /NORA-M/assets/images/closers-1356w-q55.avif 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><source type="image/webp" srcset="/NORA-M/assets/images/closers-339w-q80.webp 339w, /NORA-M/assets/images/closers-678w-q80.webp 678w, /NORA-M/assets/images/closers-1017w-q80.webp 1017w, /NORA-M/assets/images/closers-1356w-q80.webp 1356w" sizes="(width &lt; 48rem) calc(100vw - 3.125rem), (width &lt; 90rem) calc(50vw - 2.375rem), 678px"><img class="promotion-card__image" src="/NORA-M/assets/images/closers.png" width="678" height="280" loading="lazy" alt=""></picture>
+                      <span class="nora-promotion-badge promotion-card__badge">Скидки до 20%</span>
+                  </div>
+                
+                  <div class="promotion-card__body">
+                    <div class="promotion-card__copy">
+                      <h3 class="nora-heading promotion-card__title">Доводчики по специальным ценам</h3>
+                      <p class="promotions__description">Ручки, замки, петли и аксессуары из акционного ассортимента.</p>
+                    </div>
+                
+                    <div class="promotion-card__footer">
+                      <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/dvernye-dovodchiki/">
+                        В каталог
+                        <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                      </a>
+                      <p class="promotion-card__date">Действительно до: <time datetime="2026-10-12">12 окт. 2026</time></p>
+                    </div>
+                  </div>
+                </article>    </div>
+          </div>
+        
+          <div class="promotions__pagination nora-slider-pagination" role="group" aria-label="Слайды акций"></div>
+        
+          <div class="promotions__controls">
+            <button class="nora-slider-arrow" type="button" aria-label="Предыдущая акция" aria-controls="promotions-cards" disabled>
+              <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+            </button>
+            <button class="nora-slider-arrow nora-slider-arrow--next" type="button" aria-label="Следующая акция" aria-controls="promotions-cards" disabled>
+              <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+            </button>
+          </div>
+        </section>      </div>
+      <div class="brand-showcase">
+        <section class="brand-lines container" aria-labelledby="brand-lines-title">
+          <h2 class="nora-section-title brand-lines__title" id="brand-lines-title">Линейки брендов</h2>
+        
+          <div class="brand-lines__slider">
+            <div class="brand-lines__cards swiper-wrapper">
+              <article class="brand-lines__card swiper-slide">
+                <div class="brand-lines__cover">
+                  <div class="brand-lines__media">
+                    <img class="brand-lines__photo brand-lines__photo--nora" src="/NORA-M/assets/images/nora-m.png" alt="" loading="lazy">
+                  </div>
+                  <h3 class="nora-heading brand-lines__name">НОРА-М</h3>
+                </div>
+              
+                <div class="brand-lines__panel">
+                  <div>
+                    <p class="nora-heading brand-lines__panel-name" aria-hidden="true">НОРА-М</p>
+                    <p class="brand-lines__description">Дверные ручки — неотъемлемый элемент фурнитуры, сочетающий эстетику и удобство.</p>
+                  </div>
+                  <div class="brand-lines__links">
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Дверные ручки</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Дверные доводчики</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-petli/">Петли</a>
+                  </div>
+                </div>
+              </article>
+              <article class="brand-lines__card swiper-slide">
+                <div class="brand-lines__cover">
+                  <div class="brand-lines__media">
+                    <img class="brand-lines__photo" src="/NORA-M/assets/images/sonex.png" alt="" loading="lazy">
+                  </div>
+                  <h3 class="nora-heading brand-lines__name">ISPARUS</h3>
+                </div>
+              
+                <div class="brand-lines__panel">
+                  <div>
+                    <p class="nora-heading brand-lines__panel-name" aria-hidden="true">ISPARUS</p>
+                    <p class="brand-lines__description">Дверные ручки — неотъемлемый элемент фурнитуры, сочетающий эстетику и удобство.</p>
+                  </div>
+                  <div class="brand-lines__links">
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Дверные ручки</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Дверные доводчики</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-petli/">Петли</a>
+                  </div>
+                </div>
+              </article>
+              <article class="brand-lines__card swiper-slide">
+                <div class="brand-lines__cover">
+                  <div class="brand-lines__media">
+                    <img class="brand-lines__photo" src="/NORA-M/assets/images/lonex.png" alt="" loading="lazy">
+                  </div>
+                  <h3 class="nora-heading brand-lines__name">LONEX</h3>
+                </div>
+              
+                <div class="brand-lines__panel">
+                  <div>
+                    <p class="nora-heading brand-lines__panel-name" aria-hidden="true">LONEX</p>
+                    <p class="brand-lines__description">Цилиндровые механизмы для дверных замков.</p>
+                  </div>
+                  <div class="brand-lines__links">
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Дверные ручки</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Дверные доводчики</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-petli/">Петли</a>
+                  </div>
+                </div>
+              </article>
+              <article class="brand-lines__card swiper-slide">
+                <div class="brand-lines__cover">
+                  <div class="brand-lines__media">
+                    <img class="brand-lines__photo" src="/NORA-M/assets/images/sonex.png" alt="" loading="lazy">
+                  </div>
+                  <h3 class="nora-heading brand-lines__name">SONEX</h3>
+                </div>
+              
+                <div class="brand-lines__panel">
+                  <div>
+                    <p class="nora-heading brand-lines__panel-name" aria-hidden="true">SONEX</p>
+                    <p class="brand-lines__description">Навесные замки для дома, гаража и хозяйственных помещений.</p>
+                  </div>
+                  <div class="brand-lines__links">
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Дверные ручки</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Дверные доводчики</a>
+                    <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-petli/">Петли</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        
+          <div class="brand-lines__pagination nora-slider-pagination" role="group" aria-label="Слайды брендов"></div>
+        </section>
+        <section class="partners" aria-labelledby="partners-title">
+          <div class="container">
+            <h2 class="nora-section-title" id="partners-title">Партнеры</h2>
+        
+            <div class="partners__slider swiper">
+              <ul class="partners__list swiper-wrapper" role="list">
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+                  <li class="nora-partner-card swiper-slide">
+                    <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                      <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="container">
+        <section class="contact-banner" aria-labelledby="contact-banner-title">
+          <div class="contact-banner__content">
+            <div class="contact-banner__copy">
+              <h2 class="nora-heading contact-banner__title" id="contact-banner-title">У вас остались вопросы?</h2>
+              <p class="contact-banner__description">Напишите нам, если нужна помощь с выбором товара или консультация по заказу. <span>Мы свяжемся с вами и поможем разобраться.</span></p>
+            </div>
+        
+            <a class="nora-icon-link nora-icon-link--with-label nora-icon-link--light" href="mailto:info@nora-m.ru">
+              Оставить заявку
+              
+            </a>
+          </div>
+        
+          <picture class="contact-banner__picture">
+            <source media="(width < 48rem)" srcset="/NORA-M/assets/images/hardware-mobile.webp" width="447" height="212">
+            <img class="contact-banner__image" src="/NORA-M/assets/images/hardware.webp" width="756" height="330" alt="" loading="lazy">
+          </picture>
+        </section>
+        <section class="wholesale-banner" aria-labelledby="wholesale-banner-title">
+          <div class="wholesale-banner__panel">
+            <img class="wholesale-banner__diagram" src="/NORA-M/assets/images/door-closer.webp" width="1024" height="683" alt="" loading="lazy">
+            <div class="wholesale-banner__copy">
+              <p class="wholesale-banner__label">Оптовикам</p>
+              <h2 class="nora-heading wholesale-banner__title" id="wholesale-banner-title">Оптовые поставки дверной фурнитуры</h2>
+              <p class="wholesale-banner__description">Широкий ассортимент, специальные цены и индивидуальный подход к каждому партнёру.</p>
+            </div>
+            <a class="nora-icon-link nora-icon-link--with-label nora-icon-link--light" href="https://nora-m.ru/partneram/stat-partnerom/">
+              Узнать подробнее
+              
+            </a>
+          </div>
+          <img class="wholesale-banner__photo" src="/NORA-M/assets/images/delivery.webp" width="2752" height="1536" alt="" loading="lazy">
+        </section>
+        <section class="about-company" aria-labelledby="about-company-title">
+          <div class="about-company__intro">
+            <h2 class="nora-heading about-company__title" id="about-company-title">Комплексный подход</h2>
+            <div class="about-company__text">
+              <p>НОРА-М — российская компания и один из лидеров рынка дверной фурнитуры. С 1994 года мы поставляем замочно-скобяные изделия и фурнитуру под собственными брендами НОРА-М, ISPARUS и LONEX, предлагая решения для разных задач и бюджетов — от базовых до профессиональных.</p>
+              <p>Нас выбирают за масштаб и стабильность: развитая коммерческая сеть охватывает все регионы России и представлена в СНГ, а среди наших партнёров — тысячи клиентов, которые возвращаются снова и снова.</p>
+              <p>В каталоге НОРА-М — более 4000 позиций дверной и мебельной фурнитуры, и ассортимент постоянно обновляется, чтобы вы могли закрыть потребности проекта в одном месте.</p>
+        
+              <div class="about-company__details" id="about-company-details">
+                <div class="about-company__details-inner">
+                  <p>При выборе фурнитуры для входной двери полезно учитывать материал и вес полотна, направление открывания и частоту использования. Эти параметры помогают подобрать замок, петли и доводчик, которые подойдут именно для вашей двери.</p>
+                  <p>Для межкомнатных дверей можно собрать комплект из ручек, защёлок и петель в единой отделке. Для мебели ориентиром служат конструкция корпуса, способ крепления и размеры деталей, особенно если нужно заменить уже установленную фурнитуру.</p>
+                  <p>Если в одном проекте используются двери разных типов, удобно заранее составить список по каждому проёму. Так проще сверить размеры, выбрать одинаковую отделку там, где это важно, и учесть аксессуары, которые понадобятся при монтаже.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <button class="nora-disclosure-toggle" type="button" aria-expanded="false" aria-controls="about-company-details" hidden>
+            <span class="nora-disclosure-toggle__label--collapsed">Показать все</span>
+            <span class="nora-disclosure-toggle__label--expanded">Скрыть</span>
+            <span class="nora-disclosure-toggle__icon" aria-hidden="true"></span>
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__nav" aria-label="Навигация в подвале">
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-1">Каталог<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-1">
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/">Замки</a></li>
+              <li><a href="https://nora-m.ru/shop/dvernye-dovodchiki/">Доводчики</a></li>
+              <li><a href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Ручки</a></li>
+              <li><a href="https://nora-m.ru/shop/dvernye-petli/">Петли</a></li>
+              <li><a href="https://nora-m.ru/shop/tsilindrovye-mehanizmy/">Цилиндры</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/korpusa-zamkov/">Защёлки</a></li>
+              <li><a href="https://nora-m.ru/shop/furnitura/ogranichiteli-dvernye/">Ограничители</a></li>
+              <li><a href="https://nora-m.ru/shop/">Весь каталог</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-2">Замки<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-2">
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/zamki-vreznie/">Врезные</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/zamki-nakladnye/">Накладные</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/navesnye-zamki/">Навесные</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/zamki-pochtovye/">Почтовые</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/velosipednye/">Велосипедные</a></li>
+              <li><a href="https://nora-m.ru/shop/zamki-i-aksessuary/komplekty-zamkov/">Комплекты</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-3">Решения<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-3">
+              <li><a href="https://nora-m.ru/shop/?q=%D0%B4%D0%BB%D1%8F%20%D0%B2%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D1%85%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9">Для входных дверей</a></li>
+              <li><a href="https://nora-m.ru/shop/?q=%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B5%D0%B6%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%BD%D1%8B%D1%85%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9">Для межкомнатных</a></li>
+              <li><a href="https://nora-m.ru/shop/?q=%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9">Для металлических</a></li>
+              <li><a href="https://nora-m.ru/shop/furnitura_dlya_pvh_i_alyuminiya/">Для ПВХ и алюминия</a></li>
+              <li><a href="https://nora-m.ru/shop/pojarka/">Противопожарная</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-4">Бренды<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-4">
+              <li><a href="https://nora-m.ru/shop/?q=%D0%9D%D0%9E%D0%A0%D0%90-%D0%9C">НОРА-М</a></li>
+              <li><a href="https://nora-m.ru/shop/?q=ISPARUS">ISPARUS</a></li>
+              <li><a href="https://nora-m.ru/shop/?q=LONEX">LONEX</a></li>
+              <li><a href="https://nora-m.ru/shop/?q=SONEX">SONEX</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-5">Партнерам<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-5">
+              <li><a href="https://nora-m.ru/partneram/stat-partnerom/">Оптовикам</a></li>
+              <li><a href="https://nora-m.ru/uploads/files/catalogue.pdf">Скачать каталог</a></li>
+              <li><a href="https://nora-m.ru/o-kompanii/dostavka/">Доставка и оплата</a></li>
+              <li><a href="https://nora-m.ru/o-kompanii/kachestvo/">Гарантия</a></li>
+              <li><a href="https://nora-m.ru/o-kompanii/sertifikaty-i-gosty/">Сертификаты</a></li>
+              <li><a href="https://nora-m.ru/about/">Где купить</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__column">
+            <button class="site-footer__toggle" type="button" aria-expanded="true" aria-controls="footer-links-6">О компании<span class="site-footer__chevron" aria-hidden="true"></span></button>
+            <ul class="site-footer__links" id="footer-links-6">
+              <li><a href="https://nora-m.ru/o-kompanii/">О компании</a></li>
+              <li><a href="https://nora-m.ru/o-produktsii/novosti/">Новости</a></li>
+              <li><a href="https://nora-m.ru/o-produktsii/stati/">Статьи</a></li>
+              <li><a href="https://nora-m.ru/o-produktsii/video/">Видео</a></li>
+              <li><a href="https://yandex.ru/maps/org/nora_m/1116764653/reviews/">Отзывы</a></li>
+              <li>Вакансии</li>
+              <li><a href="https://nora-m.ru/sitemap.xml">Карта сайта</a></li>
+            </ul>
+          </div>
+        </nav>
+    
+        <div class="site-footer__details">
+          <div class="site-footer__contacts">
+            <div class="site-footer__contact-list">
+              <a href="tel:+74951184018">
+                <span class="site-footer__icon site-footer__icon--phone" aria-hidden="true"></span>
+                +7 (495) 118-40-18
+              </a>
+              <a href="mailto:info@nora-m.ru">
+                <span class="site-footer__icon site-footer__icon--mail" aria-hidden="true"></span>
+                info@nora-m.ru
+              </a>
+            </div>
+            <address class="site-footer__address">
+              <p>117447 г. Москва, Севастопольский проспект, 11Г</p>
+              <p class="site-footer__label">Пн–Пт, 9:00–18:00</p>
+            </address>
+            <ul class="site-footer__socials" aria-label="Социальные сети">
+              <li><a href="https://www.youtube.com/channel/UCVUMS5NL5lLAR9uL6EjPQRw/videos" aria-label="YouTube"><span class="site-footer__icon site-footer__icon--youtube" aria-hidden="true"></span></a></li>
+              <li><a href="https://dzen.ru/id/642ff027b6a2934b751e58fb" aria-label="Дзен"><span class="site-footer__icon site-footer__icon--dzen" aria-hidden="true"></span></a></li>
+              <li><a href="https://vk.com/dvernaya_furnitura" aria-label="ВКонтакте"><span class="site-footer__icon site-footer__icon--vk" aria-hidden="true"></span></a></li>
+              <li><a href="https://rutube.ru/channel/37519830/" aria-label="Rutube"><span class="site-footer__icon site-footer__icon--rutube" aria-hidden="true"></span></a></li>
+              <li><a href="https://t.me/nora_m_tm" aria-label="Telegram"><span class="site-footer__icon site-footer__icon--telegram" aria-hidden="true"></span></a></li>
+            </ul>
+          </div>
+    
+          <div class="site-footer__brand" aria-hidden="true">
+            <div class="site-footer__separator"></div>
+            <div class="site-footer__wordmark">
+              <img class="site-footer__letter site-footer__letter--1" src="/NORA-M/assets/images/logo-1.png" alt="">
+              <img class="site-footer__letter site-footer__letter--2" src="/NORA-M/assets/images/logo-2.png" alt="">
+              <img class="site-footer__letter site-footer__letter--3" src="/NORA-M/assets/images/logo-3.png" alt="">
+              <img class="site-footer__letter site-footer__letter--4" src="/NORA-M/assets/images/logo-4.png" alt="">
+              <img class="site-footer__letter site-footer__letter--dash" src="/NORA-M/assets/images/logo-dash.png" alt="">
+              <img class="site-footer__letter site-footer__letter--6" src="/NORA-M/assets/images/logo-6.png" alt="">
+            </div>
+            <div class="site-footer__separator"></div>
+          </div>
+    
+          <div class="site-footer__legal">
+            <p class="site-footer__label">© 2026 НОРА-М. Все права защищены</p>
+            <ul class="site-footer__legal-links">
+              <li><a href="https://pd.rkn.gov.ru/operators-registry/operators-list/?id=77-25-504930">Регистрационный номер 77-25-504930 в Реестре операторов персональных данных</a></li>
+              <li><a href="https://nora-m.ru/agreements/soglasie-na-obrabotku-personalnyh-dannyh/">Политика в отношении обработки персональных данных</a></li>
+              <li><a href="https://nora-m.ru/agreements/publichnaya-oferta/">Договор оферты</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Kit — НОРА-М</title>
+    <script type="module" crossorigin src="/NORA-M/assets/js/uiKit.js"></script>
+    <link rel="modulepreload" crossorigin href="/NORA-M/assets/js/common.js">
+    <link rel="modulepreload" crossorigin href="/NORA-M/assets/js/nora-partner-card.js">
+    <link rel="stylesheet" crossorigin href="/NORA-M/assets/css/style.css">
+  </head>
+  <body class="ui-kit-page">
+    <main class="ui-kit">
+      <h1 class="ui-kit__title">UI Kit НОРА-М</h1>
+
+      <section class="ui-kit__section" aria-labelledby="palette-title">
+        <h2 id="palette-title">Основные цвета</h2>
+        <ul class="ui-kit__palette" role="list">
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-brand-accent)" aria-hidden="true"></span>
+            <span>Акцент бренда</span>
+            <span class="ui-kit__hex">#FF4800</span>
+            <span class="ui-kit__token">color/brand/accent</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-background-canvas)" aria-hidden="true"></span>
+            <span>Основная поверхность</span>
+            <span class="ui-kit__hex">#FFFFFF</span>
+            <span class="ui-kit__token">color/background/canvas</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-background-subtle)" aria-hidden="true"></span>
+            <span>Вторичный фон</span>
+            <span class="ui-kit__hex">#F5F5F5</span>
+            <span class="ui-kit__token">color/background/subtle</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-background-pressed)" aria-hidden="true"></span>
+            <span>Фон нажатия</span>
+            <span class="ui-kit__hex">#EDEDED</span>
+            <span class="ui-kit__token">color/background/pressed</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-text-primary)" aria-hidden="true"></span>
+            <span>Основной текст</span>
+            <span class="ui-kit__hex">#272728</span>
+            <span class="ui-kit__token">color/text/primary</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-text-secondary)" aria-hidden="true"></span>
+            <span>Вторичный текст</span>
+            <span class="ui-kit__hex">#7D7D7E</span>
+            <span class="ui-kit__token">color/text/secondary</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-border-subtle)" aria-hidden="true"></span>
+            <span>Граница</span>
+            <span class="ui-kit__hex">#E4E4E4</span>
+            <span class="ui-kit__token">color/border/subtle</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-border-strong)" aria-hidden="true"></span>
+            <span>Контрастная граница</span>
+            <span class="ui-kit__hex">#C5C5C5</span>
+            <span class="ui-kit__token">color/border/strong</span>
+          </li>
+          <li class="ui-kit__swatch">
+            <span class="ui-kit__sample" style="--swatch-color: var(--nora-color-status-error)" aria-hidden="true"></span>
+            <span>Ошибка</span>
+            <span class="ui-kit__hex">#D92B2E</span>
+            <span class="ui-kit__token">color/status/error</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="ui-kit__section" aria-labelledby="headings-title">
+        <h2 id="headings-title">Заголовки</h2>
+        <div class="ui-kit__example">
+          <p class="nora-section-title">Популярные категории</p>
+        </div>
+      </section>
+
+      <section class="ui-kit__section" aria-labelledby="buttons-title">
+        <h2 id="buttons-title">Кнопки и состояния</h2>
+        <div class="ui-kit__controls">
+          <div class="ui-kit__group" role="group" aria-label="Основная кнопка">
+            <h3>Основная кнопка</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <button class="nora-button nora-button--label" type="button">Узнать подробнее</button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-button nora-button--label nora-button--preview-hover" type="button" aria-label="Узнать подробнее — состояние наведения">Узнать подробнее</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Кнопка со стрелкой">
+            <h3>Кнопка со стрелкой</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <button class="nora-button nora-button--icon" type="button" aria-label="Далее"><img src="/NORA-M/assets/svg/chevron-action.svg" alt="" class="nora-button__chevron"></button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-button nora-button--icon nora-button--preview-hover" type="button" aria-label="Далее — состояние наведения"><img src="/NORA-M/assets/svg/chevron-action.svg" alt="" class="nora-button__chevron"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Ссылка со стрелкой">
+            <h3>Ссылка со стрелкой</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <a class="nora-icon-link" href="https://nora-m.ru/shop/dvernye-dovodchiki/" aria-label="Перейти в категорию «Доводчики»">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <a class="nora-icon-link nora-icon-link--preview-hover" href="https://nora-m.ru/shop/dvernye-dovodchiki/" aria-label="Перейти в категорию «Доводчики» — наведение">
+                  
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Ссылка с текстом и стрелкой">
+            <h3>Ссылка с текстом и стрелкой</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>По умолчанию</span>
+                <a class="nora-icon-link nora-icon-link--with-label" href="https://nora-m.ru/shop/">
+                  В каталог
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <a class="nora-icon-link nora-icon-link--with-label nora-icon-link--preview-hover" href="https://nora-m.ru/shop/">
+                  В каталог
+                  <span class="nora-icon-link__icon" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Стандартные кнопки слайдера">
+            <h3>Стандартные кнопки слайдера</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <div class="ui-kit__examples">
+                  <button class="nora-slider-arrow" type="button" aria-label="Предыдущий слайд">
+                    <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+                  </button>
+                  <button class="nora-slider-arrow nora-slider-arrow--next" type="button" aria-label="Следующий слайд">
+                    <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+                  </button>
+                </div>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-slider-arrow nora-slider-arrow--next nora-slider-arrow--preview-hover" type="button" aria-label="Стрелка слайдера при наведении">
+                  <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Недоступная</span>
+                <button class="nora-slider-arrow" type="button" aria-label="Предыдущий слайд недоступен" disabled>
+                  <img src="/NORA-M/assets/svg/arrow.svg" width="20" height="20" alt="">
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Кнопка раскрытия текста">
+            <h3>Кнопка раскрытия текста</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Свёрнуто</span>
+                <button class="nora-disclosure-toggle" type="button" aria-expanded="false">
+                  <span class="nora-disclosure-toggle__label--collapsed">Показать все</span>
+                  <span class="nora-disclosure-toggle__label--expanded">Скрыть</span>
+                  <span class="nora-disclosure-toggle__icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-disclosure-toggle nora-disclosure-toggle--preview-hover" type="button" aria-expanded="false">
+                  <span class="nora-disclosure-toggle__label--collapsed">Показать все</span>
+                  <span class="nora-disclosure-toggle__label--expanded">Скрыть</span>
+                  <span class="nora-disclosure-toggle__icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Раскрыто</span>
+                <button class="nora-disclosure-toggle" type="button" aria-expanded="true">
+                  <span class="nora-disclosure-toggle__label--collapsed">Показать все</span>
+                  <span class="nora-disclosure-toggle__label--expanded">Скрыть</span>
+                  <span class="nora-disclosure-toggle__icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Точки слайдера">
+            <h3>Точки слайдера</h3>
+            <div class="nora-slider-pagination" aria-hidden="true">
+              <span class="nora-slider-pagination__dot nora-slider-pagination__dot--active"></span>
+              <span class="nora-slider-pagination__dot"></span>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Корзина">
+            <h3>Корзина</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <button class="nora-button nora-button--icon" type="button" aria-label="Добавить в корзину">
+                  <span class="nora-button__bag" aria-hidden="true">
+                    <img src="/NORA-M/assets/svg/bag-handle.svg" alt="" class="nora-button__bag-handle">
+                    <img src="/NORA-M/assets/svg/bag-body.svg" alt="" class="nora-button__bag-body">
+                  </span>
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-button nora-button--icon nora-button--preview-hover" type="button" aria-label="Добавить в корзину — состояние наведения">
+                  <span class="nora-button__bag" aria-hidden="true">
+                    <img src="/NORA-M/assets/svg/bag-handle.svg" alt="" class="nora-button__bag-handle">
+                    <img src="/NORA-M/assets/svg/bag-body.svg" alt="" class="nora-button__bag-body">
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-kit__group" role="group" aria-label="Точка на фото">
+            <h3>Точка на фото</h3>
+            <div class="ui-kit__examples">
+              <div class="ui-kit__example">
+                <span>Обычная</span>
+                <button class="nora-point" type="button" aria-label="Точка на фото — обычное состояние" aria-pressed="false">
+                  <span class="nora-point__tile" aria-hidden="true">
+                    <img src="/NORA-M/assets/svg/point-default.svg" alt="" class="nora-point__default">
+                    <img src="/NORA-M/assets/svg/point-hover.svg" alt="" class="nora-point__hover">
+                    <img src="/NORA-M/assets/svg/point-active.svg" alt="" class="nora-point__active">
+                  </span>
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Наведение</span>
+                <button class="nora-point nora-point--preview-hover" type="button" aria-label="Точка на фото — состояние наведения" aria-pressed="false">
+                  <span class="nora-point__tile" aria-hidden="true">
+                    <img src="/NORA-M/assets/svg/point-default.svg" alt="" class="nora-point__default">
+                    <img src="/NORA-M/assets/svg/point-hover.svg" alt="" class="nora-point__hover">
+                    <img src="/NORA-M/assets/svg/point-active.svg" alt="" class="nora-point__active">
+                  </span>
+                </button>
+              </div>
+              <div class="ui-kit__example">
+                <span>Активная</span>
+                <button class="nora-point" type="button" aria-label="Точка на фото — активное состояние" aria-pressed="true">
+                  <span class="nora-point__tile" aria-hidden="true">
+                    <img src="/NORA-M/assets/svg/point-default.svg" alt="" class="nora-point__default">
+                    <img src="/NORA-M/assets/svg/point-hover.svg" alt="" class="nora-point__hover">
+                    <img src="/NORA-M/assets/svg/point-active.svg" alt="" class="nora-point__active">
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ui-kit__section" aria-labelledby="badges-title">
+        <h2 id="badges-title">Бейджи</h2>
+        <div class="ui-kit__example">
+          <span class="nora-promotion-badge">Скидки до 20%</span>
+        </div>
+      </section>
+
+      <section class="ui-kit__section" aria-labelledby="recommendation-ui-title">
+        <h2 id="recommendation-ui-title">Компоненты рекомендаций</h2>
+        <div class="ui-kit__examples">
+          <span class="nora-stock-status">В наличии</span>
+          <span class="nora-stock-status nora-stock-status--warning">Нет в наличии</span>
+          <span class="nora-stock-status nora-stock-status--unavailable">Нет в наличии</span>
+        </div>
+        <div class="ui-kit__example">
+          <p class="nora-heading">Специально<br>для вас</p>
+        </div>
+        <div class="ui-kit__examples">
+          <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;хиты">Хиты</a>
+          <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;новинки">Новинки</a>
+          <a class="nora-chip" href="https://nora-m.ru/shop/?q&#x3D;акции">Акции</a>
+          <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-ruchki-i-nakladki/">Дверные ручки</a>
+          <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-dovodchiki/">Дверные доводчики</a>
+          <a class="nora-chip nora-chip--outline" href="https://nora-m.ru/shop/dvernye-petli/">Петли</a>
+        </div>
+        <div class="ui-kit__example">
+          <a class="nora-catalog-link " href="https://nora-m.ru/shop/">
+                Смотреть весь каталог
+                <span><img src="/NORA-M/assets/svg/catalog-chevron.svg" width="16" height="16" alt=""></span>
+              </a>
+        </div>
+        <div class="ui-kit__examples">
+          <div class="ui-kit__example"><span>Сравнение</span><button class="nora-card-action nora-card-action--compare" type="button" aria-label="Сравнить товар" aria-pressed="false" data-card-toggle><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3v12M9 7v8M15 5v10" stroke="currentColor" stroke-linecap="round"/></svg></button>
+</div>
+          <div class="ui-kit__example"><span>Избранное</span><button class="nora-card-action nora-card-action--favorite" type="button" aria-label="В избранное" aria-pressed="false" data-card-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.5-5.4-8.5-11.2A4.8 4.8 0 0 1 12 6.7a4.8 4.8 0 0 1 8.5 3.1C20.5 15.6 12 21 12 21Z"/></svg></button>
+</div>
+          <div class="ui-kit__example"><span>Корзина — добавление и удаление</span><button class="nora-cart-button " type="button" aria-label="Добавить товар в корзину" aria-pressed="false" data-card-toggle><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path class="nora-cart-button__bag-icon" d="M7 6V5a3 3 0 0 1 6 0v1M4 6.5h12l1 10H3l1-10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path class="nora-cart-button__remove-icon" d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-linecap="round"/></svg></button>
+</div>
+        </div>
+      </section>
+      <section class="ui-kit__section" aria-labelledby="partner-card-title">
+        <h2 id="partner-card-title">Карточка партнера</h2>
+        <div class="ui-kit__examples">
+            <div class="nora-partner-card">
+              <a class="nora-partner-card__link" href="https://nora-m.ru/partneram/stat-partnerom/">
+                <img class="nora-partner-card__logo" src="/NORA-M/assets/images/efd-placeholder.png" alt="EFD Papadopoulos" loading="lazy" draggable="false">
+              </a>
+            </div>
+        </div>
+      </section>
+      <section class="ui-kit__section" aria-labelledby="main-link-title">
+        <h2 id="main-link-title">Светлая кнопка-ссылка</h2>
+        <div class="ui-kit__examples">
+          <a class="nora-icon-link nora-icon-link--with-label nora-icon-link--light" href="mailto:info@nora-m.ru">
+            Оставить заявку
+            
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

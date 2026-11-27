@@ -1,0 +1,1 @@
+import"./common.js";import"./nora-partner-card.js";for(let e of document.querySelectorAll(`.nora-point`))e.addEventListener(`click`,()=>{let t=e.getAttribute(`aria-pressed`)===`true`;e.setAttribute(`aria-pressed`,String(!t))});
