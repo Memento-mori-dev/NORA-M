@@ -1,0 +1,137 @@
+@use '../helpers' as helpers;
+
+$wide-height: helpers.rem(345);
+
+.wholesale-banner {
+  --wholesale-banner-radius: #{helpers.rem(16)};
+
+  display: grid;
+  gap: helpers.rem(8);
+
+  &__panel {
+    overflow: hidden;
+
+    padding: helpers.rem(16);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: helpers.rem(24);
+
+    border-radius: var(--wholesale-banner-radius);
+    background: var(--nora-color-background-wholesale);
+    color: var(--nora-color-background-canvas);
+
+    font: 400 #{helpers.rem(14)} / 1.4 'Onest', Arial, sans-serif;
+  }
+
+  &__copy {
+    display: grid;
+    gap: helpers.rem(16);
+  }
+
+  &__label,
+  &__description {
+    margin: 0;
+  }
+
+  &__label {
+    color: var(--nora-color-text-label-on-dark);
+  }
+
+  &__title.nora-heading {
+    color: inherit;
+  }
+
+  &__description {
+    max-width: helpers.rem(476);
+
+    color: var(--nora-color-text-muted-on-dark);
+  }
+
+  &__diagram {
+    display: none;
+  }
+
+  &__photo {
+    width: 100%;
+    height: helpers.rem(232);
+
+    display: block;
+
+    border-radius: var(--wholesale-banner-radius);
+    object-fit: cover;
+  }
+
+  @include helpers.mobile {
+    margin-inline: calc(-1 * var(--container-padding-x));
+
+    padding: helpers.rem(32) var(--section-inner-gutter);
+
+    border-radius: helpers.rem(10);
+    background: var(--nora-color-background-pressed);
+
+    &__title.nora-heading {
+      font-size: helpers.rem(16);
+    }
+
+    &__photo {
+      grid-row: 1;
+    }
+  }
+
+  @include helpers.mobile-above {
+    --wholesale-banner-radius: #{helpers.rem(20)};
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+
+    &__panel {
+      position: relative;
+      isolation: isolate;
+
+      box-sizing: border-box;
+      min-height: $wide-height;
+
+      padding: helpers.rem(24);
+
+      justify-content: space-between;
+    }
+
+    &__label {
+      color: inherit;
+
+      font-weight: 500;
+    }
+
+    &__diagram {
+      position: absolute;
+      inset-inline-end: helpers.rem(25);
+      inset-block-end: helpers.rem(16);
+      z-index: -1;
+
+      width: clamp(#{helpers.rem(90)}, 25vw - #{helpers.rem(112)}, #{helpers.rem(241)});
+      height: auto;
+
+      display: block;
+
+      transform: rotate(.26deg);
+    }
+
+    &__photo {
+      height: $wide-height;
+    }
+  }
+
+  @include helpers.tablet-above {
+    &__panel {
+      padding: helpers.rem(32);
+
+      gap: helpers.rem(32);
+    }
+
+    &__diagram {
+      inset-block-end: helpers.rem(30);
+    }
+  }
+}
