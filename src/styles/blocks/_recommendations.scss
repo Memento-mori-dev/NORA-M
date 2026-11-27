@@ -324,13 +324,21 @@
     font-size: helpers.rem(12);
 
     &__media {
-      height: helpers.phone-vw(108);
+      height: auto;
+
+      flex-shrink: 0;
+      aspect-ratio: 3 / 2;
+    }
+
+    &__gallery {
+      position: absolute;
+      inset: 0;
     }
 
     &__image,
     &__media--closer &__image {
-      width: helpers.phone-vw(108);
-      height: helpers.phone-vw(108);
+      width: 100%;
+      height: 100%;
     }
 
     &__body {

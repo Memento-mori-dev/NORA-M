@@ -135,7 +135,9 @@
     &__cards {
       grid-template-rows: repeat(2, minmax(0, 1fr));
     }
+  }
 
+  @include helpers.laptop {
     &__preview {
       height: auto;
 

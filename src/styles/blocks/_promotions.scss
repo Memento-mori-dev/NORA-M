@@ -179,7 +179,9 @@
     border-radius: helpers.rem(16);
 
     &__media {
-      height: helpers.phone-vw(229);
+      height: auto;
+
+      aspect-ratio: 340 / 229;
     }
 
     &__body {

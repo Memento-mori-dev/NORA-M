@@ -106,31 +106,26 @@
     }
   }
 
-  &.is-removing .nora-cart-button__bag-icon {
-    display: none;
+  &__bag-icon,
+  &__remove-icon {
+    transform-origin: center;
+    transition:
+      opacity var(--transition-duration) var(--transition-easing),
+      transform var(--transition-duration) var(--transition-easing);
   }
 
-  &.is-removing .nora-cart-button__remove-icon {
-    display: inline;
+  &__remove-icon,
+  &[aria-pressed='true'] &__bag-icon {
+    opacity: 0;
+    transform: scale(.65);
   }
 
-  @media (any-hover: hover) {
-    &:hover[aria-pressed='true']:not(.is-just-toggled) .nora-cart-button__bag-icon {
-      display: none;
-    }
-
-    &:hover[aria-pressed='true']:not(.is-just-toggled) .nora-cart-button__remove-icon {
-      display: inline;
-    }
-  }
-
-  &.is-animating svg {
-    animation: recommendation-icon-pop .35s ease;
+  &[aria-pressed='true'] &__remove-icon {
+    opacity: 1;
+    transform: scale(1);
   }
 }
-.nora-cart-button__remove-icon {
-  display: none;
-}
+
 @keyframes recommendation-icon-pop {
   50% { transform: scale(1.25); }
 }
@@ -152,12 +147,13 @@
   .nora-card-action svg,
   .nora-cart-button,
   .nora-cart-button::before,
-  .nora-cart-button::after {
+  .nora-cart-button::after,
+  .nora-cart-button__bag-icon,
+  .nora-cart-button__remove-icon {
     transition: none;
   }
 
-  .nora-card-action svg,
-  .nora-cart-button svg {
+  .nora-card-action svg {
     animation: none !important;
   }
 }
